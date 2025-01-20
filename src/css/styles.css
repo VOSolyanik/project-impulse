@@ -3,16 +3,21 @@
   | include css partials with
   | default @import url()
   |============================
-*/
+*//* Utils styles */
+@import url('./utils/animations.css');
+
 /* Common styles */
-@import url('./reset.css');
-@import url('./base.css');
-@import url('./container.css');
-@import url('./animations.css');
+@import url('./common/reset.css');
+@import url('./common/base.css');
+@import url('./common/container.css');
+
+/* Components styles */
+@import url('./components/social-links.css');
+@import url('./components/mobile-menu.css');
+@import url('./components/pagination.css');
 
 /* Sections style */
-@import url('./header.css');
-@import url('./vite-promo.css');
-@import url('./badges.css');
-@import url('./back-link.css');
-@import url('./footer.css');
+@import url('./sections/header.css');
+@import url('./sections/hero.css');
+
+@import url('./sections/footer.css');
