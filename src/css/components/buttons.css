@@ -1,0 +1,37 @@
+/* #region Buttons */
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 8px;
+  border-radius: 30px;
+  padding: 12px 24px;
+  width: 194px;
+  height: 48px;
+  background-color: rgb(var(--color-primary-light));
+  color: rgb(var(--color-primary-dark));
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 400;
+  transition: background-color 0.3s ease, color 0.3s ease, fill 0.3s ease;
+}
+
+.btn-icon {
+  fill: rgb(var(--color-primary-dark));
+  transition: fill 0.3s ease;
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: rgb(var(--color-primary-dark));
+  color: rgb(var(--color-primary-light));
+}
+
+.btn:hover .btn-icon,
+.btn:focus .btn-icon {
+  fill: rgb(var(--color-primary-light));
+}
+
+/* #endregion */
+/* Inputs */

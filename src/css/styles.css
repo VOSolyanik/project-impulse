@@ -3,18 +3,19 @@
   | include css partials with
   | default @import url()
   |============================
-*//* Utils styles */
+*/ /* Utils styles */
 @import url('./utils/animations.css');
 
 /* Common styles */
 @import url('./common/reset.css');
 @import url('./common/base.css');
 @import url('./common/container.css');
-
+@import url('./common/variables.css');
 /* Components styles */
 @import url('./components/social-links.css');
 @import url('./components/mobile-menu.css');
 @import url('./components/pagination.css');
+@import url('./components/buttons.css');
 
 /* Sections style */
 @import url('./sections/header.css');
