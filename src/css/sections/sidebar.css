@@ -113,7 +113,7 @@
 }
 
 .useful-info-subtitle {
-    /* TODO: change color value to variable */
+  /* TODO: change color value to variable */
   color: rgba(36, 36, 36, 0.6);
   font-size: 14px;
   line-height: 1.285;
@@ -136,4 +136,15 @@ p.useful-info-text {
   line-clamp: 5;
   -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
+}
+
+@media screen and (min-width: 768px) {
+  p.useful-info-text {
+    height: auto;
+    overflow: visible;
+    display: block;
+    line-clamp: unset;
+    -webkit-line-clamp: unset;
+    -webkit-box-orient: unset;
+  }
 }
