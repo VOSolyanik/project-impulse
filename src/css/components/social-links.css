@@ -32,7 +32,7 @@
 .social-item:hover,
 .social-item:focus-within {
   background-color: var(--color-primary-dark);
-  border-color: var(--color-primary-dark);
+  border-color: var(--color-primary-dark) / 0.1;
 }
 
 .social-item:hover .social-icon,
