@@ -1,0 +1,139 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .sidebar {
+    flex-flow: wrap;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .sidebar {
+    grid-column: 1;
+    max-width: 444px;
+  }
+}
+
+.sidebar-block {
+  border-radius: 20px;
+  padding: 20px;
+  padding-left: 72px;
+}
+
+@media screen and (min-width: 768px) {
+  .sidebar-block {
+    max-width: 400px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .sidebar-block {
+    max-width: 100%;
+  }
+}
+
+.quote-title {
+  /* TODO: change color value to variable */
+  color: #f4f4f4;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+@media screen and (min-width: 768px) {
+  .quote-title {
+    font-size: 24px;
+    line-height: 1.333;
+  }
+}
+
+.quote-text {
+  /* TODO: change color value to variable */
+  color: rgba(244, 244, 244, 0.6);
+  font-size: 14px;
+  line-height: 1.285;
+  margin-bottom: 16px;
+  text-wrap: balance;
+}
+
+.quote-author {
+  /* TODO: change color value to variable */
+  color: #f4f4f4;
+  font-size: 14px;
+  line-height: 1.285;
+}
+
+@media screen and (min-width: 768px) {
+  .quote-author {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}
+
+.sidebar-image {
+  background-image: url('/images/women-sportswear-taking-break-from-workout.jpeg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 20px;
+  min-height: 240px;
+  width: 100%;
+  height: auto;
+}
+
+@media screen and (min-width: 768px) {
+  .sidebar-image {
+    min-height: 249px;
+    max-width: 288px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .sidebar-image {
+    max-width: 100%;
+  }
+}
+
+.useful-info-title {
+  /* TODO: change color value to variable */
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+@media screen and (min-width: 768px) {
+  .useful-info-title {
+    font-size: 24px;
+    line-height: 1.333;
+  }
+}
+
+.useful-info-subtitle {
+    /* TODO: change color value to variable */
+  color: rgba(36, 36, 36, 0.6);
+  font-size: 14px;
+  line-height: 1.285;
+  margin-bottom: 16px;
+}
+
+@media screen and (min-width: 1440px) {
+  .useful-info-subtitle {
+    margin-bottom: 20px;
+  }
+}
+
+p.useful-info-text {
+  font-size: 14px;
+  line-height: 1.285;
+  height: calc(1.285em * 5);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  line-clamp: 5;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+}

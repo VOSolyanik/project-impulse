@@ -15,9 +15,12 @@
 @import url('./components/social-links.css');
 @import url('./components/mobile-menu.css');
 @import url('./components/pagination.css');
+@import url('./components/breadcrumbs.css');
 
 /* Sections style */
+@import url('./sections/main.css');
 @import url('./sections/header.css');
 @import url('./sections/hero.css');
+@import url('./sections/sidebar.css');
 
 @import url('./sections/footer.css');

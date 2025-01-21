@@ -7,13 +7,18 @@
   font-weight: 400;
 
   color: #242424;
-  background-color: rgba(255, 255, 255, 0.87);
+  /* TODO: use bg color as variable */
+  background-color: #f4f4f4;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 body {
@@ -29,4 +34,14 @@ main {
 }
 main:has(.back-link) {
   text-align: center;
+}
+
+.bg-dark {
+  /* TODO: change color value to variable */
+  background-color: #242424;
+}
+
+.bg-light {
+  /* TODO: change color value to variable */
+  background-color: #fff;
 }
