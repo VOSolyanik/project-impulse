@@ -10,4 +10,11 @@
   --dark-gray: rgb(var(--color-black-rgb), 0.8);
   --light-gray: rgb(var(--color-black-rgb), 0.1);
   --primary-white: rgb(var(--color-white-rgb));
+  --yellow: rgb(238, 161, 12);
+
+  /* зірочки та еліпс під лого */
+  --gray: rgb(var(--color-black-rgb), 0.2);
+
+  /* пагінація */
+  --gray-middle: rgb(var(--color-black-rgb), 0.5);
 }
