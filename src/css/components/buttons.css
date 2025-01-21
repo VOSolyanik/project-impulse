@@ -9,8 +9,8 @@
   padding: 12px 24px;
   width: 194px;
   height: 48px;
-  background-color: rgb(var(--color-primary-light));
-  color: rgb(var(--color-primary-dark));
+  background-color: var(--color-primary-light);
+  color: var(--color-primary-dark);
   text-decoration: none;
   font-size: 16px;
   font-weight: 400;
@@ -18,19 +18,19 @@
 }
 
 .btn-icon {
-  fill: rgb(var(--color-primary-dark));
+  fill: var(--color-primary-dark);
   transition: fill 0.3s ease;
 }
 
 .btn:hover,
 .btn:focus {
-  background-color: rgb(var(--color-primary-dark));
-  color: rgb(var(--color-primary-light));
+  background-color: var(--color-primary-dark);
+  color: var(--color-primary-light);
 }
 
 .btn:hover .btn-icon,
 .btn:focus .btn-icon {
-  fill: rgb(var(--color-primary-light));
+  fill: var(--color-primary-light);
 }
 
 /* #endregion */
