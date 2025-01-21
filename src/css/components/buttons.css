@@ -10,8 +10,8 @@
   padding: 12px 24px;
   width: 194px;
   height: 48px;
-  background-color: var(--color-primary-light);
-  color: var(--color-primary-dark);
+  background-color: var(--primary-white);
+  color: var(--primary-black);
   text-decoration: none;
   font-size: 16px;
   font-weight: 400;
@@ -19,21 +19,33 @@
 }
 
 .btn-icon {
-  fill: var(--color-primary-dark);
+  fill: var(--primary-black);
   transition: fill 0.3s ease;
 }
 
 .btn:hover,
 .btn:focus {
-  background-color: var(--color-primary-dark);
-  border: 1px solid var(--color-primary-light);
-  color: var(--color-primary-light);
+  background-color: var(--primary-black);
+  border: 1px solid var(--primary-white);
+  color: var(--primary-white);
 }
 
 .btn:hover .btn-icon,
 .btn:focus .btn-icon {
-  fill: var(--color-primary-light);
+  fill: var(--primary-white);
 }
 
+.btn.reverse {
+  width: 141px;
+  background-color: var(--primary-black);
+  color: var(--primary-white);
+  border: 1px solid var(--primary-white);
+}
+
+.btn.reverse:hover,
+.btn.reverse:focus {
+  background-color: var(--primary-white);
+  color: var(--primary-black);
+}
 /* #endregion */
 /* Inputs */

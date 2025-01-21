@@ -11,8 +11,8 @@
   width: 44px;
   height: 44px;
   transition: background-color 0.3s ease, border-color 0.3s ease;
-  background-color: var(--color-primary-light);
-  border-color: var(--color-primary-dark) / 0.1;
+  background-color: var(--primary-white);
+  border-color: var(--light-gray);
 }
 
 .social-link {
@@ -25,19 +25,37 @@
 }
 
 .social-icon {
-  fill: var(--color-primary-dark) / 0.8;
+  fill: var(--primary-black);
   transition: fill 0.3s ease;
 }
 
 .social-item:hover,
 .social-item:focus-within {
-  background-color: var(--color-primary-dark);
-  border-color: var(--color-primary-dark) / 0.1;
+  background-color: var(--dark-gray);
+  border-color: var(--light-gray);
 }
 
 .social-item:hover .social-icon,
 .social-item:focus-within .social-icon {
-  fill: var(--color-primary-light);
+  fill: var(--primary-white);
 }
 
+.social-item.reverse-color {
+  background-color: var(--primary-black);
+  border-color: var(--light-gray);
+}
+
+.social-icon.reverse-color {
+  fill: var(--primary-white);
+}
+
+.social-item.reverse-color:hover,
+.social-item.reverse-color:focus-within {
+  background-color: var(--primary-white);
+}
+
+.social-item.reverse-color:hover .social-icon,
+.social-item.reverse-color:focus-within .social-icon {
+  fill: var(--primary-black);
+}
 /* #endregion */

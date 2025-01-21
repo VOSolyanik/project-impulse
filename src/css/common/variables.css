@@ -3,6 +3,11 @@
 
   /* Colors */
 
-  --color-primary-dark: rgb(36, 36, 36);
-  --color-primary-light: rgb(244, 244, 244);
+  --color-black-rgb: 36, 36, 36;
+  --color-white-rgb: 244, 244, 244;
+
+  --primary-black: rgb(var(--color-black-rgb));
+  --dark-gray: rgb(var(--color-black-rgb), 0.8);
+  --light-gray: rgb(var(--color-black-rgb), 0.1);
+  --primary-white: rgb(var(--color-white-rgb));
 }
