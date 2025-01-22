@@ -12,59 +12,42 @@
   width: 44px;
   height: 44px;
   border-radius: 10px;
-  cursor: pointer;
-  overflow: hidden;
-  box-sizing: border-box;
+  color: var(--charcoal-color);
 }
 
 .social-icon {
   width: 28px;
   height: 28px;
-  display: block;
+  fill: currentColor;
   transition: fill 0.3s ease;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .social-links .social-link {
-  border: 1px solid rgba(36, 36, 36, 0.1);
+  border: 1px solid var(--light-gray);
   background-color: transparent;
   transition: border-color 0.3s ease, background-color 0.3s ease;
 }
 
-.social-links .social-icon {
-  fill: rgba(36, 36, 36, 1)
-}
-
 .social-links .social-link:hover,
 .social-links .social-link:focus {
-  border-color: rgba(36, 36, 36, 0.1);
-  background-color: rgba(36, 36, 36, 0.8);
-}
-
-.social-links .social-link:hover .social-icon,
-.social-links .social-link:focus .social-icon {
-  fill: rgba(244, 244, 244, 1)
+  border-color: var(--light-gray);
+  background-color: var(--dark-gray);
+  color: var(--paper-white-color);
 }
 
 .social-links.inverse .social-link {
   border: 1px solid rgba(244, 244, 244, 0.1);
-  background-color: rgba(36, 36, 36, 0.8);
+  background-color: var(--dark-gray);
   transition: border-color 0.3s ease, background-color 0.3s ease;
 }
 
-.social-links.inverse .social-icon {
-  fill: rgba(244, 244, 244, 1);
+.social-links.inverse .social-link {
+  color: var(--paper-white-color);
 }
 
 .social-links.inverse .social-link:hover,
 .social-links.inverse .social-link:focus {
-  background-color: rgba(244, 244, 244, 1)
-}
-
-.social-links.inverse .social-link:hover .social-icon,
-.social-links.inverse .social-link:focus .social-icon {
-  fill: rgba(36, 36, 36, 0.8);
+  background-color: var(--paper-white-color);
+  color: var(--dark-gray);
 }
 
