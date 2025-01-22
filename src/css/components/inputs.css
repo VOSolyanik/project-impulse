@@ -1,0 +1,40 @@
+.input-wrapper {
+  position: relative;
+  width: 273px;
+  height: 48px;
+  border: 1px solid var(--charcoal-color);
+  border-radius: 30px;
+  padding: 12px 14px;
+  box-sizing: border-box;
+}
+
+.form-input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--charcoal-color);
+  padding-right: 60px; /* Space for two icons */
+}
+
+.input-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  fill: var(--charcoal-color);
+  pointer-events: none;
+}
+
+.input-icon:first-child {
+  right: 38px; /* 14px + 18px (icon width) + 6px (gap) */
+}
+
+.input-icon:last-child {
+  right: 14px; /* 14px from the right edge */
+}
