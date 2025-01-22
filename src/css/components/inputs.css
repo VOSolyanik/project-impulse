@@ -32,10 +32,10 @@
   pointer-events: none;
 }
 
-.input-icon:first-child {
+.input-icon.additional {
   right: 38px; /* 14px + 18px (icon width) + 6px (gap) */
 }
 
-.input-icon:last-child {
+.input-icon {
   right: 14px; /* 14px from the right edge */
 }
