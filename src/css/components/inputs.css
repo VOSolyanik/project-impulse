@@ -1,8 +1,7 @@
 .input-wrapper {
-  position: relative;
   width: 273px;
   height: 48px;
-  border: 1px solid var(--charcoal-color);
+  border: 1px solid var(--primary-text-color);
   border-radius: 30px;
   padding: 12px 14px;
   box-sizing: border-box;
@@ -19,40 +18,19 @@
   font-size: 16px;
   line-height: 1.5;
   background-color: transparent;
-  color: var(--charcoal-color);
+  color: var(--primary-text-color);
   z-index: 2;
-  position: relative;
-}
-
-.placeholder-text {
-  position: absolute;
-  left: 14px;
-  color: var(--charcoal-color);
-  font-family: 'DM Sans', sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  pointer-events: none;
-  transition: opacity 0.2s ease;
-  z-index: 1;
-}
-
-.cursor {
-  position: absolute;
-  left: 14px;
-  font-family: monospace;
-  font-size: 16px;
-  color: var(--charcoal-color);
-  display: none;
-  z-index: 3;
 }
 
 .button-wrapper {
   display: flex;
-  gap: 10px;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
 }
 
 .input-button {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   width: 24px;
@@ -65,7 +43,7 @@
 .input-icon {
   width: 18px;
   height: 18px;
-  stroke: var(--charcoal-color);
+  stroke: var(--primary-text-color);
   fill: transparent;
   pointer-events: none;
 }
