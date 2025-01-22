@@ -7,13 +7,6 @@ type GetExercisesParams = PaginationParams & {
   keyword?: string;
 };
 
-type ExercisesResponse = {
-  page: number;
-  perPage: number;
-  totalPages: number;
-  results: Exercise[];
-};
-
 type Exercise = {
   _id: string;
   bodyPart: string;
@@ -41,7 +34,6 @@ type ExerciseRatingResponse = {
 
 export {
   GetExercisesParams,
-  ExercisesResponse,
   Exercise,
   ExerciseRatingRequest,
   ExerciseRatingResponse,
