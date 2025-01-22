@@ -1,96 +1,98 @@
 /* #region Buttons */
 .btn {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  flex-direction: row;
   gap: 8px;
   border-radius: 30px;
   border: none;
   padding: 12px 24px;
   height: 48px;
   width: fit-content;
-  background-color: var(--primary-bg-color);
-  color: var(--primary-text-color);
   text-decoration: none;
   font-size: 16px;
   font-weight: 400;
-  transition: background-color 0.3s ease, color 0.3s ease, fill 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-primary {
+  border: 1px solid var(--charcoal-color);
+  background-color: var(--charcoal-color);
+  color: var(--paper-white-color);
+}
+
+.btn .icon {
+  transition: fill 0.3s ease, stroke 0.3s ease;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: var(--paper-white-color);
+  border: 1px solid var(--charcoal-color);
+  color: var(--charcoal-color);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--charcoal-color);
+  border: 1px solid var(--charcoal-color);
+}
+
+.btn-outline:hover,
+.btn-outline:focus {
+  background-color: var(--charcoal-color);
+  border: 1px solid var(--charcoal-color);
+  color: var(--paper-white-color);
+}
+
+.btn-primary.inverse {
+  border: 1px solid var(--paper-white-color);
+  background-color: var(--paper-white-color);
+  color: var(--charcoal-color);
+}
+
+.btn-primary.inverse:hover,
+.btn-primary.inverse:focus {
+  background-color: var(--charcoal-color);
+  border: 1px solid var(--paper-white-color);
+  color: var(--paper-white-color);
+}
+
+.btn-outline.inverse {
+  background-color: transparent;
+  color: var(--paper-white-color);
+  border: 1px solid var(--paper-white-color);
+}
+
+.btn-outline.inverse:hover,
+.btn-outline.inverse:focus {
+  background-color: var(--paper-white-color);
+  border: 1px solid var(--paper-white-color);
+  color: var(--charcoal-color);
 }
 
 .btn-icon {
-  stroke: var(--primary-text-color);
-  fill: transparent;
-  transition: fill 0.3s ease;
-}
-
-.btn:hover,
-.btn:focus {
-  background-color: var(--primary-text-color);
-  border: 1px solid var(--primary-bg-color);
-  color: var(--primary-bg-color);
-}
-
-.btn:hover .btn-icon,
-.btn:focus .btn-icon {
-  stroke: var(--primary-bg-color);
-}
-
-.btn.reverse {
-  width: fit-content;
-  background-color: var(--primary-text-color);
-  color: var(--primary-bg-color);
-  border: 1px solid var(--primary-bg-color);
-}
-
-.btn.reverse:hover,
-.btn.reverse:focus {
-  background-color: var(--primary-bg-color);
-  color: var(--primary-text-color);
-}
-/* #endregion */
-
-/* #region Nav Buttons */
-.nav-btn {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  justify-content: flex-start;
-  flex-direction: row;
-  gap: 10px;
-  border: none;
-  border-radius: 30px;
-  padding: 6px 12px;
-  height: 36px;
+  justify-content: center;
+  height: auto;
   width: fit-content;
-  background: var(--primary-bg-color);
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.5;
-  color: var(--primary-text-color);
-  transition: background-color 0.3s ease, color 0.3s ease, fill 0.3s ease;
+  padding: 2px;
+  font-size: 0;
+  border-radius: 50%;
+  border: none;
+  background-color: transparent;
+  color: var(--charcoal-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.nav-btn:hover,
-.nav-btn:focus {
-  background-color: var(--primary-text-color);
-  color: var(--primary-bg-color);
-}
-
-.nav-btn.reverse {
-  background: var(--primary-text-color);
-  color: var(--primary-bg-color);
-}
-
-.nav-btn.reverse:hover,
-.nav-btn.reverse:focus {
-  background-color: var(--primary-bg-color);
-  color: var(--primary-text-color);
+.btn-icon.inverse {
+  color: var(--paper-white-color);
 }
 
 /* #endregion */
 
 /* #region Scroll Buttons */
-
 .scroll-btn {
   display: flex;
   align-items: center;
@@ -98,35 +100,31 @@
   width: 40px;
   height: 40px;
   border-radius: 100%;
-  background-color: var(--primary-text-color);
+  background-color: var(--charcoal-color);
+  color: var(--paper-white-color);
   border: none;
   transition: background-color 0.3s ease, color 0.3s ease, fill 0.3s ease;
 }
 
-.scroll-btn .scroll-icon {
+.scroll-btn .icon {
   width: 12px;
   height: 12px;
-  fill: var(--primary-bg-color);
   transition: fill 0.3s ease, color 0.3s ease, fill 0.3s ease;
 }
 
 .scroll-btn:hover,
 .scroll-btn:focus {
-  background-color: var(--primary-bg-color);
+  background-color: var(--paper-white-color);
+  color: var(--charcoal-color);
 }
 
-.scroll-btn:hover .scroll-icon,
-.scroll-btn:focus .scroll-icon {
-  fill: var(--primary-text-color);
-}
-
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 768px)  {
   .scroll-btn {
     width: 100px;
     height: 100px;
   }
 
-  .scroll-btn .scroll-icon {
+  .scroll-btn .icon {
     width: 33px;
     height: 33px;
   }
