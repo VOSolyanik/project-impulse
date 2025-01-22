@@ -1,9 +1,6 @@
 /* #region Social media */
 
 .social-item {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
   border-width: 1px;
   border-style: solid;
   border-radius: 10px;
@@ -16,7 +13,7 @@
 }
 
 .social-link {
-  display: inline-flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;

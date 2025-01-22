@@ -48,4 +48,104 @@
   color: var(--primary-black);
 }
 /* #endregion */
-/* Inputs */
+
+/* #region Nav Buttons */
+.nav-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 10px;
+  border: none;
+  border-radius: 30px;
+  padding: 6px 12px;
+  width: 68px;
+  height: 36px;
+  background: var(--primary-white);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--primary-black);
+  transition: background-color 0.3s ease, color 0.3s ease, fill 0.3s ease;
+}
+
+.nav-btn:hover,
+.nav-btn:focus {
+  background-color: var(--primary-black);
+  color: var(--primary-white);
+}
+
+.nav-btn.reverse {
+  width: 91px;
+  background: var(--primary-black);
+  color: var(--primary-white);
+}
+
+.nav-btn.reverse:hover,
+.nav-btn.reverse:focus {
+  background-color: var(--primary-white);
+  color: var(--primary-black);
+}
+
+/* #endregion */
+
+/* #region Scroll Buttons */
+.scroll-btn-l {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  background-color: var(--primary-black);
+  border: none;
+  transition: background-color 0.3s ease, color 0.3s ease, fill 0.3s ease;
+}
+
+.scroll-btn-l .scroll-icon {
+  width: 33px;
+  height: 33px;
+  fill: var(--primary-white);
+  transition: fill 0.3s ease, color 0.3s ease, fill 0.3s ease;
+}
+
+.scroll-btn-l:hover,
+.scroll-btn-l:focus {
+  background-color: var(--primary-white);
+}
+
+.scroll-btn-l:hover .scroll-icon,
+.scroll-btn-l:focus .scroll-icon {
+  fill: var(--primary-black);
+}
+
+.scroll-btn-s {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  background-color: var(--primary-black);
+  border: none;
+  transition: background-color 0.3s ease, color 0.3s ease, fill 0.3s ease;
+}
+
+.scroll-btn-s .scroll-icon {
+  width: 12px;
+  height: 12px;
+  fill: var(--primary-white);
+  transition: fill 0.3s ease, color 0.3s ease, fill 0.3s ease;
+}
+
+.scroll-btn-s:hover,
+.scroll-btn-s:focus {
+  background-color: var(--primary-white);
+}
+
+.scroll-btn-s:hover .scroll-icon,
+.scroll-btn-s:focus .scroll-icon {
+  fill: var(--primary-black);
+}
+
+/* #endregion */
