@@ -31,7 +31,7 @@
   <button class="btn">
     Add to favorites
     <svg class="btn-icon" width="20" height="20">
-      <use href="../images/sprite.svg#icon-facebook"></use>
+      <use href="../images/sprite.svg#icon-heart"></use>
     </svg>
   </button>
 
@@ -41,7 +41,7 @@
 <p style="margin-top: 40px;">Inputs.css </p>
 <div class="input-wrapper">
   <input
-    class="form-input"
+    class="input"
     type="text"
     name="search-input"
     id="search"
@@ -50,13 +50,16 @@
     required
     aria-label="Input for search"
   />
-  <span
-    ><a href=""><svg class="input-icon additional" width="18" height="18">
-      <use href="../images/sprite.svg#icon-checkmark"></use>
-    </svg></a>
-    <a href=""><svg class="input-icon" width="18" height="18">
-      <use href="../images/sprite.svg#icon-checkmark"></use>
-    </svg></a>
+
+  <span class="button-wrapper">
+  <button type="button" class="input-button delete-button" aria-label="Delete button"><svg class="input-icon" width="18" height="18">
+      <use href="../images/sprite.svg#icon-x"></use>
+    </svg></button>
+
+  
+    <button type="button" class="input-button search-button" aria-label="Submit search"><svg class="input-icon search" width="18" height="18">
+      <use href="../images/sprite.svg#icon-search"></use>
+    </svg></button>
   </span>
 </div>
 
@@ -67,11 +70,11 @@
 <p style="margin-top: 40px;">Buttons.css region Scroll Buttons</p>
 <button class="scroll-btn-l">
   <svg class="scroll-icon" width="20" height="20">
-    <use href="../images/sprite.svg#icon-checkmark"></use>
+    <use href="../images/sprite.svg#icon-arw-scroll"></use>
   </svg>
 </button>
 <button class="scroll-btn-s">
   <svg class="scroll-icon" width="20" height="20">
-    <use href="../images/sprite.svg#icon-checkmark"></use>
+    <use href="../images/sprite.svg#icon-arw-scroll"></use>
   </svg>
 </button>

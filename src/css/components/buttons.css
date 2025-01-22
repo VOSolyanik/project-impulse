@@ -19,7 +19,8 @@
 }
 
 .btn-icon {
-  fill: var(--primary-black);
+  stroke: var(--primary-black);
+  fill: none;
   transition: fill 0.3s ease;
 }
 
@@ -32,7 +33,7 @@
 
 .btn:hover .btn-icon,
 .btn:focus .btn-icon {
-  fill: var(--primary-white);
+  stroke: var(--primary-white);
 }
 
 .btn.reverse {
