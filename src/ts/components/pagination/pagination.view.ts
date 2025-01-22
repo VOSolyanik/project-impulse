@@ -54,9 +54,9 @@ export class PaginationView {
         } else if (btn.dataset.page === NEXT_PAGE) {
           this.pagination.nextPage();
         } else if (btn.dataset.page === FIRST_PAGE) {
-          this.pagination.setPage(1);
+          this.pagination.firstPage();
         } else if (btn.dataset.page === LAST_PAGE) {
-          this.pagination.setPage(this.pagination.getTotalPages());
+          this.pagination.lastPage();
         } else {
           this.pagination.setPage(+btn.dataset.page!);
         }
