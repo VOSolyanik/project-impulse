@@ -8,8 +8,8 @@
   border-radius: 30px;
   border: none;
   padding: 12px 24px;
-  width: 194px;
   height: 48px;
+  width: fit-content;
   background-color: var(--paper-white-color);
   color: var(--charcoal-color);
   text-decoration: none;
@@ -37,7 +37,7 @@
 }
 
 .btn.reverse {
-  width: 141px;
+  width: fit-content;
   background-color: var(--charcoal-color);
   color: var(--paper-white-color);
   border: 1px solid var(--paper-white-color);
@@ -54,14 +54,14 @@
 .nav-btn {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: row;
   gap: 10px;
   border: none;
   border-radius: 30px;
   padding: 6px 12px;
-  width: 68px;
   height: 36px;
+  width: fit-content;
   background: var(--paper-white-color);
   font-weight: 400;
   font-size: 16px;
@@ -77,7 +77,6 @@
 }
 
 .nav-btn.reverse {
-  width: 91px;
   background: var(--charcoal-color);
   color: var(--paper-white-color);
 }
