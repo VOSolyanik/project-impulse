@@ -17,6 +17,7 @@
 @import url('./components/mobile-menu.css');
 @import url('./components/pagination.css');
 @import url('./components/buttons.css');
+@import url('./components/inputs.css');
 
 /* Sections style */
 @import url('./sections/header.css');
