@@ -1,4 +1,4 @@
-import { FilterCategory } from '../enums/filterCategory';
+import { FilterCategory } from '../enums/filter-сategory';
 import { PaginationParams } from './pagination';
 
 type Filter = {
