@@ -10,8 +10,8 @@
   padding: 12px 24px;
   width: 194px;
   height: 48px;
-  background-color: var(--primary-white);
-  color: var(--primary-black);
+  background-color: var(--paper-white-color);
+  color: var(--charcoal-color);
   text-decoration: none;
   font-size: 16px;
   font-weight: 400;
@@ -19,34 +19,34 @@
 }
 
 .btn-icon {
-  stroke: var(--primary-black);
-  fill: none;
+  stroke: var(--charcoal-color);
+  fill: transparent;
   transition: fill 0.3s ease;
 }
 
 .btn:hover,
 .btn:focus {
-  background-color: var(--primary-black);
-  border: 1px solid var(--primary-white);
-  color: var(--primary-white);
+  background-color: var(--charcoal-color);
+  border: 1px solid var(--paper-white-color);
+  color: var(--paper-white-color);
 }
 
 .btn:hover .btn-icon,
 .btn:focus .btn-icon {
-  stroke: var(--primary-white);
+  stroke: var(--paper-white-color);
 }
 
 .btn.reverse {
   width: 141px;
-  background-color: var(--primary-black);
-  color: var(--primary-white);
-  border: 1px solid var(--primary-white);
+  background-color: var(--charcoal-color);
+  color: var(--paper-white-color);
+  border: 1px solid var(--paper-white-color);
 }
 
 .btn.reverse:hover,
 .btn.reverse:focus {
-  background-color: var(--primary-white);
-  color: var(--primary-black);
+  background-color: var(--paper-white-color);
+  color: var(--charcoal-color);
 }
 /* #endregion */
 
@@ -62,30 +62,30 @@
   padding: 6px 12px;
   width: 68px;
   height: 36px;
-  background: var(--primary-white);
+  background: var(--paper-white-color);
   font-weight: 400;
   font-size: 16px;
   line-height: 1.5;
-  color: var(--primary-black);
+  color: var(--charcoal-color);
   transition: background-color 0.3s ease, color 0.3s ease, fill 0.3s ease;
 }
 
 .nav-btn:hover,
 .nav-btn:focus {
-  background-color: var(--primary-black);
-  color: var(--primary-white);
+  background-color: var(--charcoal-color);
+  color: var(--paper-white-color);
 }
 
 .nav-btn.reverse {
   width: 91px;
-  background: var(--primary-black);
-  color: var(--primary-white);
+  background: var(--charcoal-color);
+  color: var(--paper-white-color);
 }
 
 .nav-btn.reverse:hover,
 .nav-btn.reverse:focus {
-  background-color: var(--primary-white);
-  color: var(--primary-black);
+  background-color: var(--paper-white-color);
+  color: var(--charcoal-color);
 }
 
 /* #endregion */
@@ -98,7 +98,7 @@
   width: 100px;
   height: 100px;
   border-radius: 100%;
-  background-color: var(--primary-black);
+  background-color: var(--charcoal-color);
   border: none;
   transition: background-color 0.3s ease, color 0.3s ease, fill 0.3s ease;
 }
@@ -106,18 +106,18 @@
 .scroll-btn-l .scroll-icon {
   width: 33px;
   height: 33px;
-  fill: var(--primary-white);
+  fill: var(--paper-white-color);
   transition: fill 0.3s ease, color 0.3s ease, fill 0.3s ease;
 }
 
 .scroll-btn-l:hover,
 .scroll-btn-l:focus {
-  background-color: var(--primary-white);
+  background-color: var(--paper-white-color);
 }
 
 .scroll-btn-l:hover .scroll-icon,
 .scroll-btn-l:focus .scroll-icon {
-  fill: var(--primary-black);
+  fill: var(--charcoal-color);
 }
 
 .scroll-btn-s {
@@ -127,7 +127,7 @@
   width: 40px;
   height: 40px;
   border-radius: 100%;
-  background-color: var(--primary-black);
+  background-color: var(--charcoal-color);
   border: none;
   transition: background-color 0.3s ease, color 0.3s ease, fill 0.3s ease;
 }
@@ -135,18 +135,18 @@
 .scroll-btn-s .scroll-icon {
   width: 12px;
   height: 12px;
-  fill: var(--primary-white);
+  fill: var(--paper-white-color);
   transition: fill 0.3s ease, color 0.3s ease, fill 0.3s ease;
 }
 
 .scroll-btn-s:hover,
 .scroll-btn-s:focus {
-  background-color: var(--primary-white);
+  background-color: var(--paper-white-color);
 }
 
 .scroll-btn-s:hover .scroll-icon,
 .scroll-btn-s:focus .scroll-icon {
-  fill: var(--primary-black);
+  fill: var(--charcoal-color);
 }
 
 /* #endregion */

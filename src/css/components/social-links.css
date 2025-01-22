@@ -8,7 +8,7 @@
   width: 44px;
   height: 44px;
   transition: background-color 0.3s ease, border-color 0.3s ease;
-  background-color: var(--primary-white);
+  background-color: var(--paper-white-color);
   border-color: var(--light-gray);
 }
 
@@ -22,7 +22,7 @@
 }
 
 .social-icon {
-  fill: var(--primary-black);
+  fill: var(--charcoal-color);
   transition: fill 0.3s ease;
 }
 
@@ -34,25 +34,25 @@
 
 .social-item:hover .social-icon,
 .social-item:focus-within .social-icon {
-  fill: var(--primary-white);
+  fill: var(--paper-white-color);
 }
 
 .social-item.reverse-color {
-  background-color: var(--primary-black);
+  background-color: var(--charcoal-color);
   border-color: var(--light-gray);
 }
 
 .social-icon.reverse-color {
-  fill: var(--primary-white);
+  fill: var(--paper-white-color);
 }
 
 .social-item.reverse-color:hover,
 .social-item.reverse-color:focus-within {
-  background-color: var(--primary-white);
+  background-color: var(--paper-white-color);
 }
 
 .social-item.reverse-color:hover .social-icon,
 .social-item.reverse-color:focus-within .social-icon {
-  fill: var(--primary-black);
+  fill: var(--charcoal-color);
 }
 /* #endregion */
