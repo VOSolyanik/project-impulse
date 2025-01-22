@@ -11,15 +11,12 @@
   --primary-text-color: var(--charcoal-color);
   --primary-bg-color: var(--paper-white-color);
 
-  --dark-gray: rgb(var(--charcoal-rgb), 0.8);
-  --light-gray: rgb(var(--charcoal-rgb), 0.1);
+  --dark-gray: rgb(var(--primary-text-color), 0.8);
+  --light-gray: rgb(var(--primary-text-color), 0.1);
   --yellow: rgb(238, 161, 12);
 
-  /* зірочки та еліпс під лого */
-  --gray: rgb(var(--charcoal-rgb), 0.2);
-
-  /* пагінація */
-  --gray-middle: rgb(var(--charcoal-rgb), 0.5);
+  --gray: rgb(var(--primary-text-color), 0.2);
+  --gray-middle: rgb(var(--primary-text-color), 0.5);
 
   --transition-function: cubic-bezier(0.4, 0, 0.2, 1);
   --transition-duration: 300ms;
