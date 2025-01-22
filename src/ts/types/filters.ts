@@ -1,16 +1,14 @@
 import { FilterCategory } from '../enums/filterCategory';
+import PaginationParams from './params.api';
 
-type FilterResponse = {
-  page: number;
-  perPage: number;
-  totalPages: number;
-  results: Filter[];
-};
-    
 type Filter = {
   filter: FilterCategory;
   name: string;
   imgURL: string;
 };
 
-export { FilterResponse, Filter };
+type GetFilterParams = PaginationParams & {
+  category: string;
+};
+
+export { Filter, GetFilterParams };

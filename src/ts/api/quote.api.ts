@@ -1,7 +1,7 @@
-import { axiosGoit } from './axiosConfig';
-import { QuoteResponse } from '../types/quote';
+import { yourEnergyApi } from './base';
+import { QuoteOfDay } from '../types/quote';
 
-export const getQuoteOfTheDay = async (): Promise<QuoteResponse> => {
-  const response = await axiosGoit.get<QuoteResponse>('/quote');
+export const getQuoteOfTheDay = async (): Promise<QuoteOfDay> => {
+  const response = await yourEnergyApi.get<QuoteOfDay>('/quote');
   return response.data;
 };

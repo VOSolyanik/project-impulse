@@ -1,23 +1,26 @@
-import { axiosGoit } from './axiosConfig';
+import { yourEnergyApi } from './base';
 import {
-  GetExercisesQueryParams,
-  ExercisesResponse,
+  GetExercisesParams,
   Exercise,
   ExerciseRatingRequest,
   ExerciseRatingResponse,
 } from '../types/exercise';
+import PaginatedResponse from '../types/response.api';
 
 const getExercises = async (
-  params: GetExercisesQueryParams
-): Promise<ExercisesResponse> => {
-  const response = await axiosGoit.get<ExercisesResponse>('/exercises', {
-    params,
-  });
+  params: GetExercisesParams
+): Promise<PaginatedResponse<Exercise>> => {
+  const response = await yourEnergyApi.get<PaginatedResponse<Exercise>>(
+    '/exercises',
+    {
+      params,
+    }
+  );
   return response.data;
 };
 
 const getExerciseById = async (id: string): Promise<Exercise> => {
-  const response = await axiosGoit.get<Exercise>(`/exercises/${id}`);
+  const response = await yourEnergyApi.get<Exercise>(`/exercises/${id}`);
   return response.data;
 };
 
@@ -25,7 +28,7 @@ const updateExerciseRating = async (
   id: string, // Ідентифікатор вправи
   rating: ExerciseRatingRequest // Тіло запиту
 ): Promise<ExerciseRatingResponse> => {
-  const response = await axiosGoit.patch<ExerciseRatingResponse>(
+  const response = await yourEnergyApi.patch<ExerciseRatingResponse>(
     `/exercises/${id}/rating`,
     rating
   );

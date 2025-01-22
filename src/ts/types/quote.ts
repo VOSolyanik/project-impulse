@@ -1,4 +1,4 @@
-export type QuoteResponse = {
+export type QuoteOfDay = {
   author: string;
   quote: string;
 };

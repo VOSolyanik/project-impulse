@@ -1,10 +1,10 @@
-type GetExercisesQueryParams = {
+import PaginationParams from './params.api';
+
+type GetExercisesParams = PaginationParams & {
   bodypart?: string;
   muscles?: string;
   equipment?: string;
   keyword?: string;
-  page?: number;
-  limit?: number;
 };
 
 type ExercisesResponse = {
@@ -40,7 +40,7 @@ type ExerciseRatingResponse = {
 };
 
 export {
-  GetExercisesQueryParams,
+  GetExercisesParams,
   ExercisesResponse,
   Exercise,
   ExerciseRatingRequest,
