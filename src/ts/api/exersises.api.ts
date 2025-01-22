@@ -1,11 +1,11 @@
 import { yourEnergyApi } from './base';
+import { PaginatedResponse } from '../types/pagination';
 import {
   GetExercisesParams,
   Exercise,
   ExerciseRatingRequest,
   ExerciseRatingResponse,
 } from '../types/exercise';
-import PaginatedResponse from '../types/response.api';
 
 const getExercises = async (
   params: GetExercisesParams

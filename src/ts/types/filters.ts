@@ -1,5 +1,5 @@
 import { FilterCategory } from '../enums/filterCategory';
-import PaginationParams from './params.api';
+import { PaginationParams } from './pagination';
 
 type Filter = {
   filter: FilterCategory;

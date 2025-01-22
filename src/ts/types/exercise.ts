@@ -1,4 +1,4 @@
-import PaginationParams from './params.api';
+import { PaginationParams } from './pagination';
 
 type GetExercisesParams = PaginationParams & {
   bodypart?: string;
