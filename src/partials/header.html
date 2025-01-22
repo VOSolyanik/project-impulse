@@ -1,18 +1,28 @@
 <header class="header">
-  <div class="container">
+  <div class="container header-container">
+    <a href="../index.html" class="nav-logo" aria-label="Site logo">
+      <img src="../images/logo.svg" alt="Your Energy Logo" />
+    </a>
+    <button
+      class="menu-toggle js-menu-toggle-open"
+      aria-label="Open mobile menu"
+    >
+      <svg class="menu-toggle-icon" width="32" height="32">
+        <use href="../images/sprite.svg#icon-burger"></use>
+      </svg>
+    </button>
     <nav class="nav">
-      <a class="nav-logo" href="./index.html" aria-label="Site logo">
-        Yor Energy
-      </a>
       <ul class="nav-list">
         <li class="nav-item">
-          <a class="nav-link" href="./index.html">Home</a>
+          <a class="nav-link is-active" href="../index.html">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="./favorites.html">Favorites</a>
+          <a class="nav-link" href="../favorites.html">Favorites</a>
         </li>
       </ul>
     </nav>
-    <load src="partials/components/social-links.html" extra-class="header"/>
+    <div class="social-links">
+      <load src="partials/components/social-links.html" extra-class="header" />
+    </div>
   </div>
 </header>
