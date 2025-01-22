@@ -3,7 +3,7 @@
   | include css partials with
   | default @import url()
   |============================
-*//* Utils styles */
+*/ /* Utils styles */
 @import url('./utils/animations.css');
 
 /* Common styles */
@@ -21,3 +21,4 @@
 @import url('./sections/hero.css');
 
 @import url('./sections/footer.css');
+@import url('./sections/modal.css');
