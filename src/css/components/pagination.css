@@ -1,0 +1,68 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.pagination__item {
+  font-size: 0;
+}
+
+.page-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 0;
+  height: 32px;
+  font-family: var(--primary-font);
+  font-size: 24px;
+  line-height: 1.25;
+  letter-spacing: 0.04em;
+  border: none;
+  color: #D4D4D4;
+  background-color: transparent;
+}
+
+.page-btn:hover {
+  color: var(--primary-text-color);
+}
+
+.page-btn--dots {
+  letter-spacing: -0.04rem;
+}
+
+.page-btn--active,
+.page-btn--next,
+.page-btn--prev,
+.page-btn--first,
+.page-btn--last {
+  color: var(--primary-text-color);
+  width: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--primary-text-color);
+}
+
+.page-btn:disabled {
+  cursor: default;
+  color: rgba(var(--charcoal-rgb), 0.1);
+  border-color: rgba(var(--charcoal-rgb), 0.1);
+}
+
+.page-icon {
+  display: inline-block;
+  fill: currentColor;
+}
+
+.page-btn--next .page-icon,
+.page-btn--prev .page-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.page-btn--last .page-icon,
+.page-btn--first .page-icon {
+  width: 30px;
+  height: 24px;
+}
