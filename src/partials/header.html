@@ -1,7 +1,9 @@
 <header class="header">
   <div class="container header-container">
     <a href="../index.html" class="nav-logo" aria-label="Site logo">
-      <img src="../images/logo.svg" alt="Your Energy Logo" />
+      <svg class="nav-logo-icon" width="132" height="24">
+        <use href="../images/sprite.svg#icon-logo"></use>
+      </svg>
     </a>
     <button
       class="menu-toggle js-menu-toggle-open"
@@ -14,15 +16,18 @@
     <nav class="nav">
       <ul class="nav-list">
         <li class="nav-item">
-          <a class="nav-link is-active" href="../index.html">Home</a>
+          <a class="nav-link js-active" href="../index.html">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="../favorites.html">Favorites</a>
         </li>
       </ul>
     </nav>
-    <div class="social-links">
-      <load src="partials/components/social-links.html" extra-class="header" />
-    </div>
+    <load
+      src="partials/components/social-links.html"
+      extra-class="social-links-header"
+    />
   </div>
+  <load src="partials/components/mobile-menu.html" />
+  <script type="module" src="../ts/pages/mobile-menu.ts"></script>
 </header>
