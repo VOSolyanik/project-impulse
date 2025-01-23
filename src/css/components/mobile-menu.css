@@ -1,58 +1,87 @@
 .mobile-menu {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 210px;
-    height: 100dvh;
-    background-color: var(--charcoal-color);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    transform: translateX(100%);
-    transition: transform 0.3s ease-in-out;
-    z-index: 1000;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 210px;
+  height: 100dvh;
+  background-color: var(--charcoal-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+  z-index: 1000;
 }
 
 .mobile-menu-open {
-    transform: translateX(0);
+  transform: translateX(0);
 }
 
-.mobile-menu-close {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background: none;
-    border: none;
+.mobile-menu-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 999;
+  width: 100dvw;
+  height: 100dvh;
+  background-color: transparent;
+  pointer-events: none;
 }
 
-.mobile-menu-close-icon {
-    stroke: var(--paper-white-color);
+.mobile-menu-open+.mobile-menu-backdrop {
+  pointer-events: all;
+}
+
+.menu-open-btn,
+.menu-close-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+}
+
+.menu-open-btn {
+  color: var(--charcoal-color)
+}
+
+@media only screen and (min-width: 768px) {
+  .menu-open-btn {
+    display: none;
+  }
+}
+
+.menu-close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: var(--paper-white-color);
 }
 
 .mobile-nav {
-    margin-top: auto;
-    margin-bottom: auto;
+  margin: auto 0;
 }
 
 .mobile-nav-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .mobile-nav-link {
-    color: var(--paper-white-color);
-    text-decoration: none;
-    font-weight: 400;
-    font-size: 14px;
-    text-align: center;
+  color: var(--paper-white-color);
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 14px;
+  text-align: center;
 }
 
 .mobile-nav-item {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
