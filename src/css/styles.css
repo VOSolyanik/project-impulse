@@ -19,6 +19,7 @@
 @import url('./components/mobile-menu.css');
 @import url('./components/pagination.css');
 @import url('./components/exercises-cards.css');
+@import url('./components/breadcrumbs.css');
 
 /* Sections style */
 @import url('./sections/header.css');

@@ -3,7 +3,7 @@
   justify-content: center;
 }
 
-.exercise-cards {
+.exercise-cards-list {
   display: grid;
   grid-template-columns: 1fr;
   gap: 20px;
@@ -56,6 +56,9 @@
   text-decoration: none;
   color: var(--primary-text-color);
   margin-left: auto;
+  text-decoration: none;
+  border: none;
+  background-color: var(--card-bg);
 }
 
 .arrow-icon {
@@ -119,7 +122,7 @@
 }
 
 @media only screen and (min-width: 768px) {
-  .exercise-cards {
+  .exercise-cards-list {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(5, auto);
     gap: 32px 16px;
@@ -135,6 +138,6 @@
 
 @media only screen and (min-width: 1152px) {
   .exercise-card {
-    width: 441px;
+    width: 442px;
   }
 }
