@@ -12,10 +12,10 @@
 .modal {
   opacity: 0;
   transform: scaleY(0);
-  transition: opacity 0.7s ease-out, transform 0.7s ease-out,
-    overlay 0.7s ease-out allow-discrete, display 0.7s ease-out allow-discrete;
-  /* Equivalent to
-  transition: all 0.7s allow-discrete; */
+  transition: opacity var(--transition-duration) var(--transition-function),
+    transform var(--transition-duration) var(--transition-function),
+    overlay var(--transition-duration) var(--transition-function) allow-discrete,
+    display var(--transition-duration) var(--transition-function) allow-discrete;
 }
 
 /*   Before-open state  */
@@ -31,10 +31,9 @@
 /* Transition the :backdrop when the dialog modal is promoted to the top layer */
 .modal::backdrop {
   background-color: rgb(0 0 0 / 0%);
-  transition: display 0.7s allow-discrete, overlay 0.7s allow-discrete,
-    background-color 0.7s;
-  /* Equivalent to
-  transition: all 0.7s allow-discrete; */
+  transition: display var(--transition-duration) allow-discrete,
+    overlay var(--transition-duration) allow-discrete,
+    background-color var(--transition-duration);
 }
 
 .modal[open]::backdrop {
