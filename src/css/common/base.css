@@ -11,6 +11,13 @@
   --primary-text-color: var(--charcoal-color);
   --primary-bg-color: var(--paper-white-color);
 
+  --dark-gray: rgb(var(--charcoal-rgb), 0.8);
+  --gray-middle: rgb(var(--charcoal-rgb), 0.5);
+  --gray: rgb(var(--charcoal-rgb), 0.2);
+  --light-gray: rgb(var(--charcoal-rgb), 0.1);
+
+  --yellow: rgb(238, 161, 12);
+
   --transition-function: cubic-bezier(0.4, 0, 0.2, 1);
   --transition-duration: 300ms;
   --transition-duration-slow: 600ms;
@@ -40,4 +47,16 @@ body {
 
 main {
   flex-grow: 1;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.bg-primary {
+  background-color: var(--primary-bg-color);
+}
+
+.bg-inverse {
+  background-color: var(--primary-text-color);
 }

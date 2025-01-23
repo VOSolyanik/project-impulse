@@ -1,18 +1,24 @@
 <header class="header">
-  <div class="container">
+  <div class="container header-container">
+    <a href="../index.html" class="nav-logo" aria-label="Site logo">
+      <svg class="nav-logo-icon" width="132" height="24">
+        <use href="../images/sprite.svg#icon-logo"></use>
+      </svg>
+    </a>
     <nav class="nav">
-      <a class="nav-logo" href="./index.html" aria-label="Site logo">
-        Yor Energy
-      </a>
       <ul class="nav-list">
         <li class="nav-item">
-          <a class="nav-link" href="./index.html">Home</a>
+          <a class="nav-link {=$home-active}" href="../index.html">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="./favorites.html">Favorites</a>
+          <a class="nav-link {=$favorites-active}" href="../favorites.html">Favorites</a>
         </li>
       </ul>
     </nav>
-    <load src="partials/components/social-links.html" extra-class="header"/>
+    <load
+      src="partials/components/social-links.html"
+      extra-class="social-links-header"
+    />
+    <load src="partials/components/mobile-menu.html" />
   </div>
 </header>

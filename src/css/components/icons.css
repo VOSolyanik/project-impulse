@@ -1,0 +1,9 @@
+.stroke-icon {
+  stroke: currentColor;
+  fill: none;
+}
+
+.fill-icon {
+  stroke: none;
+  fill: currentColor;
+}
