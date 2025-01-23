@@ -1,0 +1,126 @@
+.section {
+  display: flex;
+  justify-content: center;
+}
+
+.exercise-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.exercise-card {
+  border-radius: 15px;
+  padding: 16px;
+  background-color: var(--card-bg);
+}
+
+@media only screen and (min-width: 768px) {
+  .exercise-cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px 16px;
+  }
+}
+
+.exercise-card-top-bar {
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.exercise-badge {
+  border: 1px solid var(--primary-text-color);
+  border-radius: 15px;
+  padding: 5px 8px;
+  font-size: 12px;
+  font-weight: 500;
+  margin-right: 16px;
+}
+
+.rating-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.exercise-rating {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.exercise-rating-icon {
+  fill: var(--yellow);
+}
+
+.exercise-card-btn {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.28;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  color: var(--primary-text-color);
+  margin-left: auto;
+}
+
+.arrow-icon {
+  transform: rotate(90deg);
+}
+
+.main-block {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.icon-runningman-bg {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--primary-text-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+}
+
+.icon-runningman {
+  fill: var(--primary-bg-color);
+}
+
+.exercise-card-title {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.exercise-card-bottom-bar {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.bottom-bar-item {
+  display: flex;
+  align-items: center;
+}
+
+.bottom-bar-item-label {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--gray-medium);
+  white-space: nowrap;
+}
+
+.bottom-bar-item-content {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--primary-text-color);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
