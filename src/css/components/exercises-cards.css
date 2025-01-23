@@ -18,6 +18,7 @@
 @media only screen and (min-width: 768px) {
   .exercise-cards {
     grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, auto);
     gap: 32px 16px;
   }
 }
