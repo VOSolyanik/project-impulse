@@ -140,9 +140,30 @@
 
 /* Styles for Desktop devices */
 @media only screen and (min-width: 1152px) {
+
+  .footer-title-input-container {
+    flex-direction: row;
+  }
+
+  .footer-title-input-container {
+    margin-left: 158px;
+   }
+
+  .footer-title-container {
+    margin-right: 115px;
+  }
+  .footer-title {
+    max-width: 595px;
+  }
+
   .footer-input-container {
     max-width: 352px;
   }
+
+  .footer-bottom-text-container {
+    gap: 122px;
+  }
+
 
 }
 
