@@ -10,11 +10,8 @@
   margin-top: 40px;
 }
 
-.footer-logo-link {
-  display: flex;
-  width: 132px;
-  height: 24px;
-;
+.footer-logo {
+  display: inline-flex;
 }
 
 .footer-logo-icon {
@@ -54,6 +51,7 @@
 .footer-input-btn {
   width: 100%;
 }
+
 .footer-bottom-container {
   margin-top: 120px;
   margin-bottom: 10px;
