@@ -6,8 +6,20 @@
 }
 
 
-.footer-logo-container {
+.footer-logo-social-title-input-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-logo-social-container {
+  display: flex;
+  flex-direction: column;
   margin-top: 40px;
+}
+
+.footer-title-input-container {
+  display: flex;
+  flex-direction: column;
 }
 
 .footer-logo {
@@ -85,8 +97,43 @@
 
 /* Styles for Tablet devices */
 @media only screen and (min-width: 768px) {
+
+  .footer-logo-social-title-input-container {
+    flex-direction: row;
+  }
+
+  .footer-logo-social-container {
+    margin-top: 64px;
+  }
+  .footer-title-input-container {
+    margin-left: 114px;
+    margin-top: 64px;
+  }
+
   .footer-input-container {
     max-width: 352px;
+  }
+
+  .footer-bottom-text-container {
+    flex-direction: row;
+    gap: 78px;
+  }
+
+  .footer-title {
+    font-size: 56px;
+    line-height: 60px;
+  }
+  .footer-input-message {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  .footer-title-container {
+    margin-bottom: 32px;
+  }
+
+  .footer-bottom-container {
+    margin-top: 64px;
   }
 
 }
