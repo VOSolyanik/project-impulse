@@ -1,5 +1,51 @@
-<footer class="footer">
+<footer class="bg-inverse">
   <div class="container">
-    Footer
+    <div class="footer-wrapper">
+
+      <div class="footer-logo-container">
+        <a href="./index.html" class="footer-logo-link">
+          <svg class="footer-logo-icon">
+            <use href="/images/sprite.svg#icon-logo"></use>
+          </svg>
+        </a>
+      </div>
+
+      <div class="footer-social-container">
+          <load src="partials/components/social-links.html" extra-class="inverse"/>
+      </div>
+
+      <div class="footer-title-container">
+        <h1 class="footer-title">Transforming your <em>body</em> shape with us</h1>
+      </div>
+
+      <div class="footer-input-container">
+        <p class="footer-input-message footer-input-margin">Subscribe and learn about new exercises!</p>
+        <input
+          class="input inverse footer-input-margin"
+          type="email"
+          name="email"
+          placeholder="Email"
+          id="email"
+          minlength="3"
+          required
+          aria-label="Email"
+        />
+        <button class="btn inverse footer-input-btn">
+          Send
+        </button>
+
+      </div>
+
+      <div class="footer-bottom-container">
+        <div class="footer-bottom-text-container">
+          <p class="footer-right-text">Your Energy. All rights reserved.</p>
+          <p class="footer-right-text">Privacy Policy / Terms of Service</p>
+        </div>
+
+        <p class="footer-right-text">&copy;2023</p>
+      </div>
+    </div>
+
+
   </div>
 </footer>
