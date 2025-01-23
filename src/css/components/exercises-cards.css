@@ -15,14 +15,6 @@
   background-color: var(--card-bg);
 }
 
-@media only screen and (min-width: 768px) {
-  .exercise-cards {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(5, auto);
-    gap: 32px 16px;
-  }
-}
-
 .exercise-card-top-bar {
   display: flex;
   align-items: center;
@@ -124,4 +116,25 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+@media only screen and (min-width: 768px) {
+  .exercise-cards {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, auto);
+    gap: 32px 16px;
+  }
+  .exercise-card-btn {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  .exercise-card-title {
+    font-size: 24px;
+  }
+}
+
+@media only screen and (min-width: 1152px) {
+  .exercise-card {
+    width: 441px;
+  }
 }
