@@ -1,1 +1,1 @@
-{"version":3,"file":"index.js","sources":["../src/ts/pages/home.ts"],"sourcesContent":["console.log('This is home page');\n"],"names":[],"mappings":"wFAAA,QAAQ,IAAI,mBAAmB"}
+{"version":3,"file":"index.js","sources":["../src/ts/pages/home.ts"],"sourcesContent":["console.log('This is home page');\n"],"names":[],"mappings":"sEAAA,QAAQ,IAAI,mBAAmB"}
