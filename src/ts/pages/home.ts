@@ -10,7 +10,7 @@ const paginationCategoryContainer = document.querySelector<HTMLElement>(
 );
 const filtersContainer =
   document.querySelector<HTMLElement>('.js-filter-items');
-const filterElement = document.querySelector<HTMLElement>('.filter-value');
+const BreadcrumbsElement = document.querySelector<HTMLElement>('.breadcrumbs');
 const searchBar = document.querySelector<HTMLElement>('#search');
 const exercisesCategoriesGallery = document.querySelector<HTMLElement>(
   '.exercises-category-gallery'
@@ -22,7 +22,7 @@ const pagination = new Pagination(container!, 5, 12);
 const breadcrumps = new Breadcrumbs(
   {
     filtersListElement: filtersContainer!,
-    displayCategoryElement: filterElement!,
+    displayCategoryElement: BreadcrumbsElement!,
     searchElement: searchBar!,
   },
   FilterCategory.Muscles
@@ -42,4 +42,5 @@ breadcrumps.onFilterChange(category => {
 
 exerciseCategories.onCategoryChange(category => {
   console.log('exerciseCategories changed for category', category);
+  breadcrumps.setFilter(category);
 });

@@ -8,6 +8,7 @@ type BreadCrumbConfig = {
 class Breadcrumbs {
   private config: BreadCrumbConfig;
   private currentCategory: string = '';
+  private currentFilter: string = '';
   private onFilterChangeCallback?: (category: string) => void;
 
   constructor(config: BreadCrumbConfig, currentCategory: string = '') {
@@ -51,6 +52,11 @@ class Breadcrumbs {
     this.render();
   }
 
+  setFilter(filter: string): void {
+    this.currentFilter = filter;
+    this.render();
+  }
+
   getCategory(): string {
     return this.currentCategory;
   }
@@ -72,6 +78,21 @@ class Breadcrumbs {
       </li>
       `;
     });
+
+    if (this.currentFilter !== '') {
+      // this.config.displayCategoryElement.innerHTML = 'asd';
+      const splitter = this.config.displayCategoryElement.querySelector(
+        '#breadcrumbs-splitter'
+      );
+      const breadcrumbs =
+        this.config.displayCategoryElement.querySelector('.filter-value');
+
+      if (splitter && breadcrumbs) {
+        splitter.classList.remove('hidden');
+        breadcrumbs.classList.remove('hidden');
+        breadcrumbs.innerHTML = this.currentFilter;
+      }
+    }
   }
 }
 
