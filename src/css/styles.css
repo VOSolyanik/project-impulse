@@ -20,10 +20,14 @@
 @import url('./components/pagination.css');
 @import url('./components/breadcrumbs.css');
 
+@import url('./components/exercises-cards.css');
+@import url('./components/exercises-header.css');
+
 /* Sections style */
 @import url('./sections/main.css');
 @import url('./sections/header.css');
 @import url('./sections/hero.css');
 @import url('./sections/sidebar.css');
+@import url('./sections/exercises.css');
 
 @import url('./sections/footer.css');

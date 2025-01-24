@@ -1,0 +1,119 @@
+.exercises-header {
+  margin-bottom: 20px;
+}
+
+.breadcrumbs {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.section-heading {
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 1.7;
+  letter-spacing: -0.02em;
+}
+
+.filter-value {
+  font-size: 20px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--gray-middle);
+}
+
+.filters-wrapper .input-wrapper {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.filter-items {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+.filter-btn {
+  border: none;
+  text-decoration: none;
+  background-color: transparent;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.35;
+  padding-bottom: 8px;
+  color: var(--gray-moderate);
+  position: relative;
+  display: block;
+}
+
+.filter-btn.active {
+  color: var(--primary-text-color);
+}
+
+.filter-btn.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--primary-text-color);
+  border-radius: 2px;
+}
+
+.filter-btn:hover,
+.filter-btn:focus,
+.filter-btn:active {
+  color: var(--gray-moderate);
+}
+
+.filter-btn:hover::after,
+.filter-btn:focus::after,
+.filter-btn:active::after {
+  content: none;
+}
+
+@media only screen and (min-width: 768px) {
+  .exercises-header, .breadcrumbs {
+    margin-bottom: 32px;
+  }
+
+  .filters-wrapper .input-wrapper {
+    width: 273px;
+    margin-bottom: 0;
+  }
+
+  .filter-items {
+    margin-bottom: 0;
+  }
+
+  .filter-btn {
+    font-size: 16px;
+    line-height: 1.4;
+  }
+
+  .filters-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+  }
+}
+
+@media only screen and (min-width: 1152px) {
+  .exercises-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .breadcrumbs {
+    margin-bottom: 0;
+  }
+}

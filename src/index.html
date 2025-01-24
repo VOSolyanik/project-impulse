@@ -24,22 +24,25 @@
 
   <body>
     <load src="./partials/header.html" home-active="active" />
-    <div class="container">
+    <section class="container">
       <!-- TODO: Add hero banner here -->
       <!-- <load src="./partials/hero.html" />  -->
-    </div>
+    </section>
 
-    <div class="container main-wrapper">
+    <section class="container main-section">
       <!-- TODO: Add breadcrumbs here -->
       <!-- <load src="./partials/breadcrumbs.html" />  -->
-      <div class="breadcrumbs"></div>
-      <!-- TODO: Add main content here (category and exercise cards) -->
-      <!-- IMPORTANT: Use tag <main> as a wrapper for the content for this block-->
-      <!-- <load src="./partials/components/pagination.html" />  -->
-      <main class="main-content"></main>
-      <load src="./partials/sidebar.html" />
-    </div>
-    
+
+      <div class="main-wrapper">
+        <main class="main-content">
+          <!-- IMPORTANT: ul with the cards should be injected via exercises.html  -->
+
+        </main>
+
+        <load src="./partials/sidebar.html" />
+      </div>
+    </section>
+
     <load src="./partials/footer.html" />
     <script type="module" src="./ts/pages/home.ts"></script>
     <script type="module" src="./ts/main.ts"></script>

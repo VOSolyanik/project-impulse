@@ -17,12 +17,14 @@
   --primary-bg-color: var(--paper-white-color);
 
   --dark-gray: rgb(var(--charcoal-rgb), 0.8);
-  --gray-semi-dark: rgb(var(--charcoal-rgb), 0.6);
+  --gray-moderate: rgb(var(--charcoal-rgb), 0.6);
   --gray-middle: rgb(var(--charcoal-rgb), 0.5);
+  --gray-medium: rgb(var(--charcoal-rgb), 0.4);
   --gray: rgb(var(--charcoal-rgb), 0.2);
   --light-gray: rgb(var(--charcoal-rgb), 0.1);
 
   --yellow: rgb(238, 161, 12);
+  --white: rgb(255, 255, 255);
 
   --transition-function: cubic-bezier(0.4, 0, 0.2, 1);
   --transition-duration: 300ms;
