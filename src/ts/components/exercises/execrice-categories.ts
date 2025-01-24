@@ -5,8 +5,8 @@ import { Pagination } from '@/components/pagination';
 class ExerciseCategories {
   private containerElement: HTMLElement;
   private category: string = '';
-  private onCategoryChangeCallback?: (category: string) => void;
   private pagination?: Pagination;
+  private onCategoryChangeCallback?: (category: string) => void;
 
   constructor(
     containerElement: HTMLElement,
@@ -64,12 +64,19 @@ class ExerciseCategories {
             src="${category.imgURL}"
             alt="${category.name}"
           />
-          <div class="exercise-category-overlay">
+          <div class="exercise-category-overlay" data-type="${name}">
             <h3 class="exercise-category-title">${name}</h3>
             <p class="exercise-category-subtitle">${category.filter}</p>
           </div>
         </div>`;
       this.containerElement.innerHTML += categoryItem;
+    });
+    this.containerElement.addEventListener('click', event => {
+      const target = event.target as HTMLElement;
+      const dataType = target.dataset.type;
+      if (this.onCategoryChangeCallback && dataType) {
+        this.onCategoryChangeCallback(dataType);
+      }
     });
   }
 

@@ -41,15 +41,3 @@ breadcrumps.onFilterChange(category => {
 exerciseCategories.onCategoryChange(category => {
   console.log('exerciseCategories changed for category', category);
 });
-
-// generate filters
-// const exercisesCategoryGalley = document.querySelector<HTMLElement>(
-//   '.exercises-category-gallery'
-// );
-//
-// if (exercisesCategoryGalley) {
-//   const filters = getFilters({ filter: FilterCategory.Muscles }).then(data => {
-//     console.log(data);
-//   });
-//   //   generateFilterMarkup();
-// }

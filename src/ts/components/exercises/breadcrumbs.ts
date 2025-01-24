@@ -9,20 +9,21 @@ class Breadcrumbs {
   private currentCategory: string = '';
   private onFilterChangeCallback?: (category: string) => void;
 
-  constructor(config: BreadCrumbConfig) {
+  constructor(
+    config: BreadCrumbConfig,
+    currentCategory: string = '' // TODO: need to update breadcrumbs render
+  ) {
     this.config = config;
+    this.currentCategory = currentCategory;
     this.init();
   }
 
   init(): void {
-    // Set default category
-    this.currentCategory = 'Muscles'; // наприклад, початкова категорія
     this.render();
 
     this.config.filtersListElement.forEach((elem: HTMLElement) => {
       elem.addEventListener('click', event => {
         const target = event.target as HTMLElement;
-
         if (target) {
           this.config.filtersListElement.forEach(listElement => {
             listElement.classList.remove('active');
