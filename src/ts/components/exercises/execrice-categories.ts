@@ -21,59 +21,74 @@ class ExerciseCategories {
 
   setCategory(category: string): void {
     this.category = category;
-    this.pagination = undefined;
+    this.pagination = undefined; // Перевизначення пагінації
     this.loadData(1, this.itemsPerPage);
   }
 
   async loadData(
-    currentPage: number | undefined = undefined,
-    itemsPerPage: number | undefined = undefined
+    currentPage: number = 1,
+    itemsPerPage: number = this.itemsPerPage
   ): Promise<void> {
-    const filters = await getFilters({
-      filter: this.category,
-      page: currentPage,
-      limit: itemsPerPage,
-    });
+    try {
+      const filters = await getFilters({
+        filter: this.category,
+        page: currentPage,
+        limit: itemsPerPage,
+      });
+
+      this.setupPagination(filters.totalPages, filters.perPage);
+      this.render(filters.results);
+    } catch (error) {
+      console.error('Error loading data:', error);
+    }
+  }
+
+  private setupPagination(totalPages: number, perPage: number): void {
     if (!this.pagination) {
       this.pagination = new Pagination(
         this.paginationContainer,
-        filters.totalPages,
-        filters.perPage
+        totalPages,
+        perPage
       );
       this.pagination.onPageChange((page, itemsPerPage) => {
         this.loadData(page, itemsPerPage);
       });
     }
+  }
 
-    this.render(filters.results);
+  private createCategoryItem(category: Filter): string {
+    const name = category.name
+      ? category.name.charAt(0).toUpperCase() + category.name.slice(1)
+      : '';
+
+    return `
+      <div class="exercise-category-card">
+        <img
+          class="exercise-category-image"
+          src="${category.imgURL}"
+          alt="${category.name || 'No name'}"
+        />
+        <div class="exercise-category-overlay" data-type="${name}">
+          <h3 class="exercise-category-title">${name}</h3>
+          <p class="exercise-category-subtitle">${category.filter}</p>
+        </div>
+      </div>
+    `;
   }
 
   render(categories: Filter[]): void {
-    this.containerElement.innerHTML = ''; // Очищуємо контейнер перед рендером
-    categories.forEach(category => {
-      if (!category.name) {
-        return;
-      }
-      const name =
-        category.name.charAt(0).toUpperCase() + category.name.slice(1);
+    this.containerElement.innerHTML = categories
+      .filter(category => category.name) // Фільтруємо об'єкти без назви
+      .map(this.createCategoryItem) // Генеруємо HTML для кожного елемента
+      .join('');
 
-      const categoryItem = `
-        <div class="exercise-category-card">
-          <img
-            class="exercise-category-image"
-            src="${category.imgURL}"
-            alt="${category.name}"
-          />
-          <div class="exercise-category-overlay" data-type="${name}">
-            <h3 class="exercise-category-title">${name}</h3>
-            <p class="exercise-category-subtitle">${category.filter}</p>
-          </div>
-        </div>`;
-      this.containerElement.innerHTML += categoryItem;
-    });
+    this.addClickEvent();
+  }
+
+  private addClickEvent(): void {
     this.containerElement.addEventListener('click', event => {
       const target = event.target as HTMLElement;
-      const dataType = target.dataset.type;
+      const dataType = target.closest('[data-type]')?.getAttribute('data-type');
       if (this.onCategoryChangeCallback && dataType) {
         this.onCategoryChangeCallback(dataType);
       }

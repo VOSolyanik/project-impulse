@@ -5,6 +5,7 @@ type BreadCrumbConfig = {
   displayCategoryElement: HTMLElement;
   searchElement: HTMLElement;
 };
+
 class Breadcrumbs {
   private config: BreadCrumbConfig;
   private currentCategory: string = '';
@@ -17,82 +18,102 @@ class Breadcrumbs {
     this.init();
   }
 
-  init(): void {
+  private init(): void {
     this.render();
+    this.addFilterClickListener();
+  }
+
+  private addFilterClickListener(): void {
     this.config.filtersListElement.addEventListener('click', event => {
       const target = event.target as HTMLElement;
+
       if (target.classList.contains('js-filter-btn')) {
-        const buttonsElements =
-          this.config.filtersListElement.querySelectorAll<HTMLElement>(
-            '.js-filter-btn'
-          );
-        buttonsElements.forEach(listElement => {
-          listElement.classList.remove('active');
-        });
-        target.classList.add('active');
+        this.clearActiveFilters();
+        this.activateFilter(target);
+
         const dataType = target.dataset.type;
         if (!dataType) {
           console.error('No data type found.');
           return;
         }
-        this.setCategory(target.dataset.type!);
-        if (this.onFilterChangeCallback) {
-          this.onFilterChangeCallback(this.currentCategory);
-        }
+
+        this.setCategory(dataType);
+        this.onFilterChangeCallback?.(this.currentCategory);
       }
     });
   }
 
-  onFilterChange(callback: (category: string) => void): void {
+  private clearActiveFilters(): void {
+    const buttonsElements =
+      this.config.filtersListElement.querySelectorAll<HTMLElement>(
+        '.js-filter-btn'
+      );
+    buttonsElements.forEach(button => button.classList.remove('active'));
+  }
+
+  private activateFilter(target: HTMLElement): void {
+    target.classList.add('active');
+  }
+
+  public onFilterChange(callback: (category: string) => void): void {
     this.onFilterChangeCallback = callback;
   }
 
-  setCategory(category: string): void {
+  public setCategory(category: string): void {
     this.currentCategory = category;
+    this.currentFilter = '';
     this.render();
   }
 
-  setFilter(filter: string): void {
+  public setFilter(filter: string): void {
     this.currentFilter = filter;
     this.render();
   }
 
-  getCategory(): string {
+  public getCategory(): string {
     return this.currentCategory;
   }
 
-  render(): void {
-    this.config.filtersListElement.innerHTML = '';
-    Object.values(FilterCategory).forEach(value => {
-      const isActive = value === this.currentCategory ? 'active' : '';
-      const name = value.charAt(0).toUpperCase() + value.slice(1);
-      this.config.filtersListElement.innerHTML += `
-        <li>
-        <button
-          class="filter-btn js-filter-btn ${isActive}"
-          data-type="${value}"
-          type="button"
-        >
-          ${name}
-        </button>
-      </li>
-      `;
-    });
+  private renderBreadcrumbs(): void {
+    const splitter = this.config.displayCategoryElement.querySelector(
+      '#breadcrumbs-splitter'
+    );
+    const breadcrumbs =
+      this.config.displayCategoryElement.querySelector('.filter-value');
 
-    if (this.currentFilter !== '') {
-      // this.config.displayCategoryElement.innerHTML = 'asd';
-      const splitter = this.config.displayCategoryElement.querySelector(
-        '#breadcrumbs-splitter'
-      );
-      const breadcrumbs =
-        this.config.displayCategoryElement.querySelector('.filter-value');
-
-      if (splitter && breadcrumbs) {
+    if (splitter && breadcrumbs) {
+      if (this.currentFilter !== '') {
         splitter.classList.remove('hidden');
         breadcrumbs.classList.remove('hidden');
         breadcrumbs.innerHTML = this.currentFilter;
+      } else {
+        splitter.classList.add('hidden');
+        breadcrumbs.classList.add('hidden');
+        breadcrumbs.innerHTML = '';
       }
     }
+  }
+
+  public render(): void {
+    this.config.filtersListElement.innerHTML = Object.values(FilterCategory)
+      .map(value => {
+        const isActive = value === this.currentCategory ? 'active' : '';
+        const name = value.charAt(0).toUpperCase() + value.slice(1);
+        return `
+          <li>
+            <button
+              class="filter-btn js-filter-btn ${isActive}"
+              data-type="${value}"
+              type="button"
+            >
+              ${name}
+            </button>
+          </li>
+        `;
+      })
+      .join('');
+
+    this.renderBreadcrumbs();
   }
 }
 
