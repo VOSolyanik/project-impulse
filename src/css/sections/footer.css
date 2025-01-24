@@ -65,6 +65,28 @@
   width: 100%;
 }
 
+.button-loader {
+  display: none;
+  width: 20px;
+  border-radius: 50%;
+  aspect-ratio: 1;
+  background: var(--charcoal-color);
+  transform: translate(-120px);
+  clip-path: inset(0);
+  animation:
+    l4-1 0.5s ease-in-out infinite alternate,
+    l4-2 1s   ease-in-out infinite;
+}
+@keyframes l4-1 {
+  100% {transform: translateX(120px)}
+}
+@keyframes l4-2 {
+  33% {clip-path: inset(0 0 0 -100px)}
+  50% {clip-path: inset(0 0 0 0)     }
+  83% {clip-path: inset(0 -100px 0 0)}
+}
+
+
 .footer-bottom-container {
   margin-top: 120px;
   margin-bottom: 10px;

@@ -32,8 +32,9 @@ export class SubscriptionFormHandler {
     }
 
     const emailInput = this.form.querySelector<HTMLInputElement>('#email');
-    if (!emailInput) {
-      // Email input field not found
+    const submitButton = this.form.querySelector<HTMLButtonElement>('#subscribe-button');
+
+    if (!emailInput || !submitButton) {
       return;
     }
 
@@ -45,14 +46,31 @@ export class SubscriptionFormHandler {
       return;
     }
 
+    const buttonText = submitButton.querySelector<HTMLSpanElement>('.button-text');
+    const buttonLoader = submitButton.querySelector<HTMLSpanElement>('.button-loader');
+
+    if (buttonText && buttonLoader) {
+      buttonText.style.display = 'none';
+      buttonLoader.style.display = 'inline';
+    }
+
+
     try {
       // Sending subscription using `sendSubscription`
       const response = await sendEmailSubscription(email);
       // Subscription successful
       // Notify the user of success
+
+      // Artificial delay for displaying the loader
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+
       alert(response.message);
     } catch (error: unknown
       ) {
+
+      // Artificial delay for displaying the loader
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+
       // Error while sending subscription
       // Notify about an error
       if (error instanceof AxiosError) {
@@ -61,7 +79,13 @@ export class SubscriptionFormHandler {
         alert('An unexpected error occurred while sending the subscription.');
       }
 
+    } finally {
+      if (buttonText && buttonLoader) {
+        buttonText.style.display = 'inline';
+        buttonLoader.style.display = 'none';
+      }
     }
+
   }
 
   // Method to check email validity

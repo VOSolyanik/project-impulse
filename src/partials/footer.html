@@ -13,7 +13,7 @@
           </div>
 
           <div class="footer-social-container">
-            <load src="partials/components/social-links.html" extra-class="inverse" />
+            <load src="partials/components/social-links.html" extra-class="inverse"></load>
           </div>
         </div>
 
@@ -35,8 +35,9 @@
               required
               aria-label="Email"
             />
-            <button class="btn inverse subscribe-form">
-              Send
+            <button id="subscribe-button" class="btn inverse subscribe-form" type="submit">
+              <span class="button-text">Send</span>
+              <span class="button-loader"></span>
             </button>
 
           </form>
