@@ -2,9 +2,9 @@
   <div class="breadcrumbs">
     <h2 class="section-header">
       Exercises
-      <span class="category-div">/</span>
+      <span class="category-div is-hidden">/</span>
     </h2>
-    <p class="search-category">Waist</p>
+    <p class="search-category is-hidden">Waist</p>
   </div>
   <div class="wrapper-search-bar">
     <form class="input-wrapper" action="#">
@@ -33,12 +33,34 @@
         </button>
       </span>
     </form>
-    <ul class="filter-items">
-      <li><button class="filter-btn" type="button">Muscles</button></li>
+    <ul class="filter-items js-filter-items">
       <li>
-        <button class="filter-btn active" type="button">Body parts</button>
+        <button
+          class="filter-btn js-filter-btn"
+          data-type="muscles"
+          type="button"
+        >
+          Muscles
+        </button>
       </li>
-      <li><button class="filter-btn" type="button">Equipment</button></li>
+      <li>
+        <button
+          class="filter-btn js-filter-btn"
+          data-type="parts"
+          type="button"
+        >
+          Body parts
+        </button>
+      </li>
+      <li>
+        <button
+          class="filter-btn js-filter-btn"
+          data-type="equipment"
+          type="button"
+        >
+          Equipment
+        </button>
+      </li>
     </ul>
   </div>
 </div>

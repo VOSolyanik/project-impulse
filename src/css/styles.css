@@ -24,5 +24,6 @@
 /* Sections style */
 @import url('./sections/header.css');
 @import url('./sections/hero.css');
+@import url('./sections/main-section.css');
 
 @import url('./sections/footer.css');

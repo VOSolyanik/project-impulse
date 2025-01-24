@@ -23,8 +23,21 @@
   </head>
 
   <body>
-    <load src="./partials/header.html" home-active="active"/>
-    <main></main>
+    <load src="./partials/header.html" />
+    <main>
+      <section class="section">  
+  <div class="container">  
+    <load src="partials/components/breadcrumbs.html" title="Excercises" />  
+    <div class="exercises-content">  
+      <!-- padding right for desktop only -->  
+      <aside class="quote"></aside>  
+        <!-- place for Quote of a day -->  
+      </aside>  
+      <load src="partials/components/exercises-cards.html" />  
+    </div>  
+  </div>  
+</section>  
+    </main>
 
     <load src="./partials/footer.html" />
 
