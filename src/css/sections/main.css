@@ -1,19 +1,17 @@
 @media screen and (min-width: 1440px) {
-  .main-content {
-    display: flex;
-  }
-
   .main-wrapper {
     display: grid;
     grid-template-columns: auto 1fr;
     grid-template-rows: auto auto;
     gap: 32px;
   }
-  
+
   .main-content {
     grid-column: 2;
+    min-width: 900px;
+  }
+
+  .favorite .main-content {
+    min-width: 826px;
   }
 }
-
-
-

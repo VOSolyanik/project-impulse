@@ -2,16 +2,22 @@
   --primary-font: 'DM Sans', sans-serif;
 
   /* Colors to be here */
+  --white-rgb: 255, 255, 255;
+  --white-color: rgb(var(--white-rgb));
+
   --charcoal-rgb: 36, 36, 36;
   --charcoal-color: rgb(var(--charcoal-rgb));
 
   --paper-white-rgb: 244, 244, 244;
   --paper-white-color: rgb(var(--paper-white-rgb));
+  --paper-white-color-a02: rgb(var(--paper-white-rgb), 0.2);
+  --paper-white-color-a06: rgb(var(--paper-white-rgb), 0.6);
 
   --primary-text-color: var(--charcoal-color);
   --primary-bg-color: var(--paper-white-color);
 
   --dark-gray: rgb(var(--charcoal-rgb), 0.8);
+  --gray-semi-dark: rgb(var(--charcoal-rgb), 0.6);
   --gray-middle: rgb(var(--charcoal-rgb), 0.5);
   --gray: rgb(var(--charcoal-rgb), 0.2);
   --light-gray: rgb(var(--charcoal-rgb), 0.1);
