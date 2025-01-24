@@ -1,5 +1,6 @@
 import { MobileMenu } from "@/components/mobile-menu";
 import { QuoteOfTheDay } from "@/components/quote-of-day/index"
+import { SubscriptionFormHandler } from '@/components/subscription-form-handler';
 
 const openMenuBtn = document.querySelector('.js-menu-open') as HTMLElement;
 const closeMenuBtn = document.querySelector('.js-menu-close') as HTMLElement;
@@ -15,3 +16,6 @@ new MobileMenu({
 
 const quoteOfTheDay = new QuoteOfTheDay();
 quoteOfTheDay.initialize();
+
+
+new SubscriptionFormHandler('.subscribe-form');
