@@ -8,7 +8,7 @@ type Filter = {
 };
 
 type GetFilterParams = PaginationParams & {
-  category: string;
+  filter: string;
 };
 
 export { Filter, GetFilterParams };

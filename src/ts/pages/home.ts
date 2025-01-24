@@ -6,6 +6,7 @@ import generateFilterMarkup from '@/components/exercises/category-item';
 import { getFilters } from '@/api/filters.api';
 import { FilterCategory } from '@/enums/filter-category';
 import Breadcrumbs from '@/components/exercises/breadcrumbs';
+import ExerciseCategories from '@/components/exercises/execrice-categories';
 
 const container = document.querySelector<HTMLElement>('.pagination-wrapper');
 const filtersContainer = Array.from(
@@ -13,6 +14,9 @@ const filtersContainer = Array.from(
 );
 const filterElement = document.querySelector<HTMLElement>('.filter-value');
 const searchBar = document.querySelector<HTMLElement>('#search');
+const exercisesCategoriesGallery = document.querySelector<HTMLElement>(
+  '.exercises-category-gallery'
+);
 
 console.log('filtersContainer', filtersContainer);
 const pagination = new Pagination(container!, 5, 12);
@@ -23,8 +27,18 @@ const breadcrumps = new Breadcrumbs({
   searchElement: searchBar!,
 });
 
+const exerciseCategories = new ExerciseCategories(
+  exercisesCategoriesGallery!,
+  FilterCategory.Muscles
+);
+
 breadcrumps.onFilterChange(category => {
   console.log('Filter changed for category', category);
+  exerciseCategories.setCategory(category);
+});
+
+exerciseCategories.onCategoryChange(category => {
+  console.log('exerciseCategories changed for category', category);
 });
 
 // generate filters

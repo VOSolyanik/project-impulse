@@ -1,9 +1,9 @@
 import { yourEnergyApi } from './base';
-import { Filter } from '@/types/filters';
+import { Filter, GetFilterParams } from '@/types/filters';
 import { PaginatedResponse } from '@/types/pagination';
 
 const getFilters = async (
-  params: Filter
+  params: GetFilterParams
 ): Promise<PaginatedResponse<Filter>> => {
   const response = await yourEnergyApi.get<PaginatedResponse<Filter>>(
     '/filters',
