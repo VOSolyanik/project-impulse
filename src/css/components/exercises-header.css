@@ -1,3 +1,27 @@
+.yellow-box {
+  width: 400px;
+  height: 400px;
+  background-color: yellow;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid black;
+}
+
+/* Стилі для кнопки */
+.yellow-box button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: 2px solid black;
+  background-color: white;
+  border-radius: 5px;
+}
+
+.yellow-box button:hover {
+  background-color: #f0f0f0;
+}
+
 .page-header {
   margin-bottom: 20px;
 }
@@ -6,25 +30,38 @@
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  align-items: center;
+  align-items: baseline;
   margin-bottom: 40px;
 }
 
 .section-heading {
   font-weight: 400;
   font-size: 28px;
-  line-height: 1.7;
+  line-height: 1.357;
   letter-spacing: -0.02em;
+  color: var(--primary-text-color);
+  margin-right: 24px;
+  display: inline-flex;
+  align-items: center;
+  position: relative;
 }
 
-.filter-value {
+.breadcrumbs-category {
   font-size: 20px;
   line-height: 1;
   letter-spacing: -0.02em;
   color: var(--gray-middle);
 }
 
-.filters-wrapper .input-wrapper {
+.section-heading::after {
+  font-size: 28px;
+  content: '/';
+  position: absolute;
+  color: var(--primary-text-color);
+  right: -16px;
+}
+
+.input-wrapper {
   width: 100%;
   margin-bottom: 20px;
 }
@@ -48,6 +85,8 @@
   color: var(--gray-moderate);
   position: relative;
   display: block;
+  width: fit-content;
+  white-space: nowrap;
 }
 
 .filter-btn.active {
@@ -68,23 +107,27 @@
 .filter-btn:hover,
 .filter-btn:focus,
 .filter-btn:active {
-  color: var(--gray-moderate);
-}
-
-.filter-btn:hover::after,
-.filter-btn:focus::after,
-.filter-btn:active::after {
-  content: none;
+  color: var(--primary-text-color);
 }
 
 @media only screen and (min-width: 768px) {
-  .page-header, .breadcrumbs {
+  .breadcrumbs {
     margin-bottom: 32px;
   }
 
   .section-heading {
     font-size: 44px;
     line-height: 1.09;
+  }
+
+  .section-heading::after {
+    font-size: 44px;
+  }
+
+  .breadcrumbs-category {
+    font-size: 24px;
+    line-height: 1.333;
+    letter-spacing: -0.02em;
   }
 
   .filters-wrapper .input-wrapper {
@@ -96,12 +139,7 @@
     margin-bottom: 0;
   }
 
-  .filter-btn {
-    font-size: 16px;
-    line-height: 1.4;
-  }
-
-  .filters-wrapper {
+  .filter-bar-wrapper {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -116,9 +154,6 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-  }
-
-  .breadcrumbs {
-    margin-bottom: 0;
+    min-width: 1088px;
   }
 }
