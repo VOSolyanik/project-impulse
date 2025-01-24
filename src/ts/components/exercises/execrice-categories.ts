@@ -1,32 +1,62 @@
 import { getFilters } from '@/api/filters.api';
 import { Filter } from '@/types/filters';
+import { Pagination } from '@/components/pagination';
 
 class ExerciseCategories {
   private containerElement: HTMLElement;
   private category: string = '';
   private onCategoryChangeCallback?: (category: string) => void;
+  private pagination?: Pagination;
 
-  constructor(containerElement: HTMLElement, category: string) {
+  constructor(
+    containerElement: HTMLElement,
+    category: string,
+    private itemsPerPage: number,
+    private paginationContainer: HTMLElement
+  ) {
     this.containerElement = containerElement;
     this.category = category;
-    this.loadData();
+    this.loadData(1, this.itemsPerPage);
   }
 
   setCategory(category: string): void {
     this.category = category;
-    this.loadData();
+    this.pagination = undefined;
+    this.loadData(1, this.itemsPerPage);
   }
 
-  async loadData(): Promise<void> {
-    console.log('Load Exercises Categories');
-    const filters = await getFilters({ filter: this.category });
-    console.log('Loaded Exercises Categories', filters);
+  async loadData(
+    currentPage: number | undefined = undefined,
+    itemsPerPage: number | undefined = undefined
+  ): Promise<void> {
+    const filters = await getFilters({
+      filter: this.category,
+      page: currentPage,
+      limit: itemsPerPage,
+    });
+    if (!this.pagination) {
+      this.pagination = new Pagination(
+        this.paginationContainer,
+        filters.totalPages,
+        filters.perPage
+      );
+      this.pagination.onPageChange((page, itemsPerPage) => {
+        this.loadData(page, itemsPerPage);
+      });
+    }
+
     this.render(filters.results);
   }
 
   render(categories: Filter[]): void {
     this.containerElement.innerHTML = ''; // Очищуємо контейнер перед рендером
     categories.forEach(category => {
+      if (!category.name) {
+        return;
+      }
+      const name =
+        category.name.charAt(0).toUpperCase() + category.name.slice(1);
+
       const categoryItem = `
         <div class="exercise-category-card">
           <img
@@ -35,7 +65,7 @@ class ExerciseCategories {
             alt="${category.name}"
           />
           <div class="exercise-category-overlay">
-            <h3 class="exercise-category-title">${category.name}</h3>
+            <h3 class="exercise-category-title">${name}</h3>
             <p class="exercise-category-subtitle">${category.filter}</p>
           </div>
         </div>`;

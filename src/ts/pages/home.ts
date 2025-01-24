@@ -1,14 +1,13 @@
 console.log('This is home page');
 import { Pagination } from '@/components/pagination';
-import { getExercises } from '@/api/exersises.api';
-import generateExerciseMarkup from '@components/exercises/exercisesold';
-import generateFilterMarkup from '@/components/exercises/category-item';
-import { getFilters } from '@/api/filters.api';
 import { FilterCategory } from '@/enums/filter-category';
 import Breadcrumbs from '@/components/exercises/breadcrumbs';
 import ExerciseCategories from '@/components/exercises/execrice-categories';
 
 const container = document.querySelector<HTMLElement>('.pagination-wrapper');
+const paginationCategoryContainer = document.querySelector<HTMLElement>(
+  '.pagination-categories-wrapper'
+);
 const filtersContainer = Array.from(
   document.querySelectorAll<HTMLElement>('.js-filter-btn')
 );
@@ -29,7 +28,9 @@ const breadcrumps = new Breadcrumbs({
 
 const exerciseCategories = new ExerciseCategories(
   exercisesCategoriesGallery!,
-  FilterCategory.Muscles
+  FilterCategory.Muscles,
+  12, // TODO: Move to constants?
+  paginationCategoryContainer!
 );
 
 breadcrumps.onFilterChange(category => {
