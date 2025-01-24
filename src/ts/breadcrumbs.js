@@ -5,6 +5,7 @@ const cardList = document.querySelector('.exercise-cards-list');
 const category = document.querySelector('.breadcrumbs-category');
 
 filterItems.addEventListener('click', async event => {
+  category.textContent = '';
   if (event.target === event.currentTarget) {
     return;
   }
@@ -30,6 +31,7 @@ const onCardClick = event => {
   if (event.target === event.currentTarget) {
     return;
   }
+
   const searchCategory = event.target;
   const categoryItem = searchCategory.textContent;
   const capitalizedsearchCategory =
