@@ -1,4 +1,5 @@
 import { MobileMenu } from "@/components/mobile-menu";
+import { QuoteOfTheDay } from "@/components/quote-of-day/index"
 
 const openMenuBtn = document.querySelector('.js-menu-open') as HTMLElement;
 const closeMenuBtn = document.querySelector('.js-menu-close') as HTMLElement;
@@ -11,3 +12,6 @@ new MobileMenu({
   menu,
   backdrop
 })
+
+const quoteOfTheDay = new QuoteOfTheDay();
+quoteOfTheDay.initialize();
