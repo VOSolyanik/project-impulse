@@ -2,11 +2,11 @@
   <div class="container">
     <div class="footer-wrapper">
 
-      <div class="footer-logo-social-title-input-container">
+      <div class="footer-wrapper-container">
         <div class="footer-logo-social-container">
           <div class="footer-logo-container">
             <a href="./index.html" class="footer-logo">
-              <svg class="footer-logo-icon" width="132" height="24">
+              <svg class="fill-icon" width="132" height="24">
                 <use href="/images/sprite.svg#icon-logo"></use>
               </svg>
             </a>
@@ -19,13 +19,14 @@
 
         <div class="footer-title-input-container">
           <div class="footer-title-container">
-            <h1 class="footer-title">Transforming your <em>body</em> shape with us</h1>
+            <h2 class="footer-title">Transforming your <em>body</em> shape with us</h2>
           </div>
 
-          <div class="footer-input-container">
-            <p class="footer-input-message footer-input-margin">Subscribe and learn about new exercises!</p>
+          <form class="subscribe-form">
+
+            <p class="footer-input-message">Subscribe and learn about new exercises!</p>
             <input
-              class="input inverse footer-input-margin"
+              class="input inverse subscribe-form"
               type="email"
               name="email"
               placeholder="Email"
@@ -34,22 +35,26 @@
               required
               aria-label="Email"
             />
-            <button class="btn inverse footer-input-btn">
+            <button class="btn inverse subscribe-form">
               Send
             </button>
 
-          </div>
+          </form>
           <div>
 
           </div>
         </div>
       </div>
       <div class="footer-bottom-container">
-        <div class="footer-bottom-text-container">
-          <p class="footer-right-text">Your Energy. All rights reserved.</p>
-          <p class="footer-right-text">Privacy Policy / Terms of Service</p>
-        </div>
-
+        <ul class="footer-bottom-text-container">
+          <li class="footer-right-text">
+            <a href="#">Your Energy. All rights reserved.</a>
+          </li>
+          <li class="footer-right-text">
+            <a href="#privacy-policy">Privacy Policy</a> /
+            <a href="#terms-of-service">Terms of Service</a>
+          </li>
+        </ul>
         <p class="footer-right-text">&copy;2023</p>
       </div>
     </div>
