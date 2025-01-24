@@ -25,6 +25,18 @@
   <body>
     <load src="./partials/header.html" />
     <main>
+      <section class="section">  
+  <div class="container">  
+    <load src="partials/components/breadcrumbs.html" title="Excercises" />  
+    <div class="exercises-content">  
+      <!-- padding right for desktop only -->  
+      <aside class="quote"></aside>  
+        <!-- place for Quote of a day -->  
+      </aside>  
+      <load src="partials/components/exercises-cards.html" />  
+    </div>  
+  </div>  
+</section>  
       <!-- <load src="./partials/components/exercises/filters.html" />
       <load src="./partials/components/exercises/categories.html" /> -->
       <load src="./partials/components/exercises/section.html" />
@@ -35,5 +47,6 @@
     <load src="./partials/footer.html" />
 
     <script type="module" src="./ts/pages/home.ts"></script>
+    <script type="module" src="./ts/main.ts"></script>
   </body>
 </html>

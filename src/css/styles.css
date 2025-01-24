@@ -19,10 +19,12 @@
 @import url('./components/mobile-menu.css');
 @import url('./components/pagination.css');
 @import url('./components/exercises-cards.css');
+@import url('./components/breadcrumbs.css');
 @import url('./components/exercises-categories.css');
 
 /* Sections style */
 @import url('./sections/header.css');
 @import url('./sections/hero.css');
+@import url('./sections/main-section.css');
 
 @import url('./sections/footer.css');

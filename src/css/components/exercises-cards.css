@@ -3,7 +3,7 @@
   justify-content: center;
 }
 
-.exercise-cards {
+.exercise-cards-list {
   display: grid;
   grid-template-columns: 1fr;
   gap: 20px;
@@ -12,10 +12,10 @@
 .exercise-card {
   border-radius: 15px;
   padding: 16px;
-  background-color: var(--card-bg);
+  background-color: var(--white);
 }
 
-.exercise-card-top-bar {
+.exercise-card__heading {
   display: flex;
   align-items: center;
   margin-bottom: 25px;
@@ -43,7 +43,7 @@
 }
 
 .exercise-rating-icon {
-  fill: var(--yellow);
+  color: var(--yellow);
 }
 
 .exercise-card-btn {
@@ -56,13 +56,16 @@
   text-decoration: none;
   color: var(--primary-text-color);
   margin-left: auto;
+  text-decoration: none;
+  border: none;
+  background-color: var(--white);
 }
 
 .arrow-icon {
   transform: rotate(90deg);
 }
 
-.main-block {
+.exercise-card__main {
   display: flex;
   align-items: center;
   margin-bottom: 16px;
@@ -78,9 +81,8 @@
   justify-content: center;
   margin-right: 8px;
 }
-
-.icon-runningman {
-  fill: var(--primary-bg-color);
+.icon-runningman-bg .fill-icon {
+  color: var(--primary-bg-color);
 }
 
 .exercise-card-title {
@@ -89,18 +91,18 @@
   line-height: 1;
 }
 
-.exercise-card-bottom-bar {
+.exercise-card__info {
   display: flex;
   flex-direction: row;
   gap: 10px;
 }
 
-.bottom-bar-item {
+.exercise-card__info-item {
   display: flex;
   align-items: center;
 }
 
-.bottom-bar-item-label {
+.exercise-card__item-label {
   font-weight: 400;
   font-size: 12px;
   line-height: 1.5;
@@ -108,7 +110,7 @@
   white-space: nowrap;
 }
 
-.bottom-bar-item-content {
+.exercise-card__item-content {
   font-weight: 400;
   font-size: 12px;
   line-height: 1.5;
@@ -119,7 +121,7 @@
 }
 
 @media only screen and (min-width: 768px) {
-  .exercise-cards {
+  .exercise-cards-list {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(5, auto);
     gap: 32px 16px;
@@ -130,11 +132,5 @@
   }
   .exercise-card-title {
     font-size: 24px;
-  }
-}
-
-@media only screen and (min-width: 1152px) {
-  .exercise-card {
-    width: 441px;
   }
 }
