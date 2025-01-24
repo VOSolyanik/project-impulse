@@ -1,18 +1,16 @@
+import { FilterCategory } from '@/enums/filter-category';
+
 type BreadCrumbConfig = {
-  filtersListElement: HTMLElement[];
+  filtersListElement: HTMLElement;
   displayCategoryElement: HTMLElement;
   searchElement: HTMLElement;
 };
-
 class Breadcrumbs {
   private config: BreadCrumbConfig;
   private currentCategory: string = '';
   private onFilterChangeCallback?: (category: string) => void;
 
-  constructor(
-    config: BreadCrumbConfig,
-    currentCategory: string = '' // TODO: need to update breadcrumbs render
-  ) {
+  constructor(config: BreadCrumbConfig, currentCategory: string = '') {
     this.config = config;
     this.currentCategory = currentCategory;
     this.init();
@@ -20,26 +18,27 @@ class Breadcrumbs {
 
   init(): void {
     this.render();
-
-    this.config.filtersListElement.forEach((elem: HTMLElement) => {
-      elem.addEventListener('click', event => {
-        const target = event.target as HTMLElement;
-        if (target) {
-          this.config.filtersListElement.forEach(listElement => {
-            listElement.classList.remove('active');
-          });
-          target.classList.add('active');
-          const dataType = target.dataset.type;
-          if (!dataType) {
-            console.error('No data type found.');
-            return;
-          }
-          this.setCategory(target.dataset.type!);
-          if (this.onFilterChangeCallback) {
-            this.onFilterChangeCallback(this.currentCategory);
-          }
+    this.config.filtersListElement.addEventListener('click', event => {
+      const target = event.target as HTMLElement;
+      if (target.classList.contains('js-filter-btn')) {
+        const buttonsElements =
+          this.config.filtersListElement.querySelectorAll<HTMLElement>(
+            '.js-filter-btn'
+          );
+        buttonsElements.forEach(listElement => {
+          listElement.classList.remove('active');
+        });
+        target.classList.add('active');
+        const dataType = target.dataset.type;
+        if (!dataType) {
+          console.error('No data type found.');
+          return;
         }
-      });
+        this.setCategory(target.dataset.type!);
+        if (this.onFilterChangeCallback) {
+          this.onFilterChangeCallback(this.currentCategory);
+        }
+      }
     });
   }
 
@@ -57,15 +56,22 @@ class Breadcrumbs {
   }
 
   render(): void {
-    // Логіка для оновлення UI, наприклад, виділити активний фільтр
-    // const filters = this.config.filtersListElement.querySelectorAll('.filter');
-    // filters.forEach(filter => {
-    //   const filterElement = filter as HTMLElement;
-    //   filterElement.classList.toggle(
-    //     'active',
-    //     filterElement.dataset.category === this.currentCategory
-    //   );
-    // });
+    this.config.filtersListElement.innerHTML = '';
+    Object.values(FilterCategory).forEach(value => {
+      const isActive = value === this.currentCategory ? 'active' : '';
+      const name = value.charAt(0).toUpperCase() + value.slice(1);
+      this.config.filtersListElement.innerHTML += `
+        <li>
+        <button
+          class="filter-btn js-filter-btn ${isActive}"
+          data-type="${value}"
+          type="button"
+        >
+          ${name}
+        </button>
+      </li>
+      `;
+    });
   }
 }
 

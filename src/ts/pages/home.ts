@@ -8,9 +8,8 @@ const container = document.querySelector<HTMLElement>('.pagination-wrapper');
 const paginationCategoryContainer = document.querySelector<HTMLElement>(
   '.pagination-categories-wrapper'
 );
-const filtersContainer = Array.from(
-  document.querySelectorAll<HTMLElement>('.js-filter-btn')
-);
+const filtersContainer =
+  document.querySelector<HTMLElement>('.js-filter-items');
 const filterElement = document.querySelector<HTMLElement>('.filter-value');
 const searchBar = document.querySelector<HTMLElement>('#search');
 const exercisesCategoriesGallery = document.querySelector<HTMLElement>(
@@ -20,11 +19,14 @@ const exercisesCategoriesGallery = document.querySelector<HTMLElement>(
 console.log('filtersContainer', filtersContainer);
 const pagination = new Pagination(container!, 5, 12);
 
-const breadcrumps = new Breadcrumbs({
-  filtersListElement: filtersContainer,
-  displayCategoryElement: filterElement!,
-  searchElement: searchBar!,
-});
+const breadcrumps = new Breadcrumbs(
+  {
+    filtersListElement: filtersContainer!,
+    displayCategoryElement: filterElement!,
+    searchElement: searchBar!,
+  },
+  FilterCategory.Muscles
+);
 
 const exerciseCategories = new ExerciseCategories(
   exercisesCategoriesGallery!,
