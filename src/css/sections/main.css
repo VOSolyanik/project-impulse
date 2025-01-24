@@ -1,6 +1,7 @@
 @media screen and (min-width: 1152px) {
   .main-section {
     min-width: 1152px;
+    width: 100%;
   }
 
   .main-wrapper {
