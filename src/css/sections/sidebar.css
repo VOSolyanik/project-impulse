@@ -1,0 +1,213 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .sidebar {
+    flex-flow: wrap;
+    gap: 32px;
+  }
+}
+
+
+.sidebar-block {
+  display: flex;
+  gap: 20px;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .sidebar-block {
+    padding: 40px;
+  }
+}
+
+@media screen and (min-width: 1152px) {
+  .sidebar-block {
+    min-width: auto;
+  }
+}
+
+.quote-wrapper {
+  background-color: var(--charcoal-color);
+}
+
+.quote-icon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--paper-white-color);
+  background-color: var(--paper-white-color-a02);
+  border-radius: 50%;
+}
+
+.quote-content {
+  flex-grow: 1;
+}
+
+.quote-title-wrapper {
+  display: flex;
+  justify-content: space-between;
+  color: var(--paper-white-color);
+  margin-bottom: 8px;
+}
+
+.quote-title {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+@media screen and (min-width: 768px) {
+  .quote-title {
+    font-size: 24px;
+    line-height: 1.333;
+  }
+}
+
+.quote-title-icon {
+  height: 20px;
+  width: 20px;
+}
+
+.quote-text {
+  color: var(--paper-white-color-a06);
+  font-size: 14px;
+  line-height: 1.285;
+  margin-bottom: 16px;
+  text-wrap: balance;
+}
+
+.quote-author {
+  color: var(--paper-white-color);
+  font-size: 14px;
+  line-height: 1.285;
+}
+
+@media screen and (min-width: 768px) {
+  .quote-author {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}
+
+.sidebar-image {
+  background-image: url('/images/quote/quote_mobile_webp@1x.webp');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 20px;
+  min-height: 240px;
+  width: 100%;
+  height: auto;
+}
+
+.favorites-section .sidebar-image {
+  order: 3;
+  min-height: 120px;
+}
+
+@media (min-resolution: 192dpi), (-webkit-min-device-pixel-ratio: 2) {
+  .sidebar-image {
+    background-image: url('/images/quote/quote_mobile_webp@2x.webp');
+  }
+}
+
+@media (min-width: 768px) {
+  .sidebar-image {
+    background-image: url('/images/quote/quote_tablet_webp@1x.webp');
+    min-height: 250px;
+    max-width: 288px;
+  }
+}
+
+@media (min-width: 768px) and (min-resolution: 192dpi),
+  (-webkit-min-device-pixel-ratio: 2) {
+  .sidebar-image {
+    background-image: url('/images/quote/quote_tablet_webp@2x.webp');
+  }
+}
+
+@media (min-width: 1152px) {
+  .sidebar-image {
+    background-image: url('/images/quote/quote_desktop_webp@1x.webp');
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 1152px) and (min-resolution: 192dpi),
+  (-webkit-min-device-pixel-ratio: 2) {
+  .sidebar-image {
+    background-image: url('/images/quote/quote_desktop_webp@2x.webp');
+  }
+}
+
+.useful-info-wrapper {
+  background-color: var(--white-color);
+}
+
+.useful-info-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  color: var(--paper-white-color);
+  background-color: var(--charcoal-color);
+  border-radius: 50%;
+}
+
+.useful-info-title {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+@media screen and (min-width: 768px) {
+  .useful-info-title {
+    font-size: 24px;
+    line-height: 1.333;
+  }
+}
+
+.useful-info-subtitle {
+  color: var(--gray-moderate);
+  font-size: 14px;
+  line-height: 1.285;
+  margin-bottom: 16px;
+}
+
+@media screen and (min-width: 1152px) {
+  .useful-info-subtitle {
+    margin-bottom: 20px;
+  }
+}
+
+.useful-info-text {
+  font-size: 14px;
+  line-height: 1.285;
+  height: calc(1.285em * 5);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  line-clamp: 5;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+}
+
+@media screen and (min-width: 1152px) {
+  .useful-info-text {
+    height: auto;
+    overflow: visible;
+    display: block;
+    line-clamp: unset;
+    -webkit-line-clamp: unset;
+    -webkit-box-orient: unset;
+  }
+}

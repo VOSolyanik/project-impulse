@@ -22,14 +22,15 @@
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
-    <load src="./partials/header.html" />
-
-    <main></main>
+    <load src="./partials/header.html" home-active="active" />
+    <main>
+      <load src="./partials/sections/exercises.html" />
+    </main>
 
     <load src="./partials/footer.html" />
     <load src="./partials/modal.html" />
-
     <script type="module" src="./ts/pages/home.ts"></script>
+    <script type="module" src="./ts/main.ts"></script>
     <script type="module" src="./ts/components/modal/modalExercise.ts"></script>
   </body>
 </html>

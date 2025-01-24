@@ -1,0 +1,143 @@
+.section {
+  display: flex;
+  justify-content: center;
+}
+
+.exercise-cards-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  margin-bottom: 4px;
+}
+
+.exercise-card {
+  border-radius: 15px;
+  padding: 16px;
+  background-color: var(--white-color);
+  overflow: hidden;
+}
+
+.exercise-card__heading {
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.exercise-badge {
+  border: 1px solid var(--primary-text-color);
+  border-radius: 15px;
+  padding: 4px 8px;
+  font-size: 12px;
+  line-height: 1.33;
+  font-weight: 500;
+  margin-right: 16px;
+}
+
+.rating-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.exercise-rating {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.exercise-rating-icon {
+  color: var(--yellow);
+}
+
+.exercise-card__btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.28;
+  text-decoration: none;
+  color: var(--primary-text-color);
+  text-decoration: none;
+  border: none;
+  background-color: transparent;
+}
+
+.arrow-icon {
+  transform: rotate(90deg);
+}
+
+.exercise-card__main {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.icon-runningman-bg {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--primary-text-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+}
+.icon-runningman-bg .fill-icon {
+  color: var(--primary-bg-color);
+}
+
+.exercise-card__title {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.exercise-card__info {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.exercise-card__info-item {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.exercise-card__info-item:first-child {
+  flex-shrink: 1;
+}
+
+.exercise-card__item-label {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--gray-medium);
+  white-space: nowrap;
+}
+
+.exercise-card__item-content {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--primary-text-color);
+  white-space: nowrap;
+}
+
+@media only screen and (min-width: 768px) {
+  .exercise-cards-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px 16px;
+    margin-bottom: 16px;
+  }
+  .exercise-card__btn {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  .exercise-card__title {
+    font-size: 24px;
+  }
+}

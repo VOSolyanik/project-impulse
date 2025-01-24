@@ -19,9 +19,15 @@
 @import url('./components/mobile-menu.css');
 @import url('./components/pagination.css');
 
+@import url('./components/exercises-cards.css');
+@import url('./components/exercises-header.css');
+
 /* Sections style */
 @import url('./sections/header.css');
 @import url('./sections/hero.css');
+@import url('./sections/sidebar.css');
+@import url('./sections/exercises.css');
+@import url('./sections/favorites.css');
 
 @import url('./sections/footer.css');
 @import url('./components/modal.css');
