@@ -8,4 +8,9 @@
     display: flex;
     flex-direction: column-reverse;
   }
+
+  .favorite .main-wrapper {
+    flex-direction: row-reverse;
+    gap: 32px;
+  }
 }

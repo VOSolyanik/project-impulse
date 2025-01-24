@@ -207,8 +207,9 @@
 
 @media (min-width: 1152px) {
   .favorite .useful-info-wrapper {
-    min-width: 239px;
+    min-width: 214px;
     padding: 25px;
+    width: calc(50% - 8px);
   }
 }
 
