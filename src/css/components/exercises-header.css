@@ -1,4 +1,4 @@
-.exercises-header {
+.page-header {
   margin-bottom: 20px;
 }
 
@@ -78,8 +78,13 @@
 }
 
 @media only screen and (min-width: 768px) {
-  .exercises-header, .breadcrumbs {
+  .page-header, .breadcrumbs {
     margin-bottom: 32px;
+  }
+
+  .section-heading {
+    font-size: 44px;
+    line-height: 1.09;
   }
 
   .filters-wrapper .input-wrapper {
@@ -106,7 +111,7 @@
 }
 
 @media only screen and (min-width: 1152px) {
-  .exercises-header {
+  .page-header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;

@@ -24,7 +24,6 @@
   --light-gray: rgb(var(--charcoal-rgb), 0.1);
 
   --yellow: rgb(238, 161, 12);
-  --white: rgb(255, 255, 255);
 
   --transition-function: cubic-bezier(0.4, 0, 0.2, 1);
   --transition-duration: 300ms;
@@ -67,4 +66,10 @@ main {
 
 .bg-inverse {
   background-color: var(--primary-text-color);
+}
+
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
