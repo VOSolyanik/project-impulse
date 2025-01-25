@@ -1,7 +1,7 @@
 import { getFilters } from '@/api/filters.api';
-import { Filter } from '@/types/filters';
 import { Pagination } from '@/components/pagination';
-
+import { setUrlParams } from '@/helpers/urlParams';
+import { Filter } from '@/types/filters';
 class ExerciseCategories {
   private containerElement: HTMLElement;
   private category: string = '';
@@ -12,11 +12,12 @@ class ExerciseCategories {
     containerElement: HTMLElement,
     category: string,
     private itemsPerPage: number,
-    private paginationContainer: HTMLElement
+    private paginationContainer: HTMLElement,
+    categoryPage: number = 1
   ) {
     this.containerElement = containerElement;
     this.category = category;
-    this.loadData(1, this.itemsPerPage);
+    this.loadData(categoryPage, this.itemsPerPage);
   }
 
   setCategory(category: string): void {
@@ -36,21 +37,27 @@ class ExerciseCategories {
         limit: itemsPerPage,
       });
 
-      this.setupPagination(filters.totalPages, filters.perPage);
+      this.setupPagination(filters.totalPages, filters.perPage, currentPage);
       this.render(filters.results);
     } catch (error) {
       console.error('Error loading data:', error);
     }
   }
 
-  private setupPagination(totalPages: number, perPage: number): void {
+  private setupPagination(
+    totalPages: number,
+    perPage: number,
+    currentPage: number
+  ): void {
     if (!this.pagination) {
       this.pagination = new Pagination(
         this.paginationContainer,
         totalPages,
-        perPage
+        perPage,
+        currentPage
       );
       this.pagination.onPageChange((page, itemsPerPage) => {
+        setUrlParams({ categoryPage: page.toString() });
         this.loadData(page, itemsPerPage);
       });
     }

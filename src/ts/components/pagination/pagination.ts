@@ -1,11 +1,11 @@
-import { DOTS, VISIBLE_PAGES } from "./constants";
-import { PaginationView } from "./pagination.view";
+import { DOTS, VISIBLE_PAGES } from './constants';
+import { PaginationView } from './pagination.view';
 
 type PageChangeCallback = (page: number, itemsPerPage: number) => void;
 
 export class Pagination {
   private view!: PaginationView;
-  private listeners: (PageChangeCallback)[] = [];
+  private listeners: PageChangeCallback[] = [];
 
   constructor(
     container: HTMLElement,
@@ -50,8 +50,14 @@ export class Pagination {
       if (this.currentPage > VISIBLE_PAGES - 1) {
         pages.push(DOTS);
       }
-      const start = Math.max(1, Math.min(this.currentPage - 1, this.totalPages - VISIBLE_PAGES + 1));
-      const end = Math.min(this.totalPages, Math.max(this.currentPage + 1, VISIBLE_PAGES));
+      const start = Math.max(
+        1,
+        Math.min(this.currentPage - 1, this.totalPages - VISIBLE_PAGES + 1)
+      );
+      const end = Math.min(
+        this.totalPages,
+        Math.max(this.currentPage + 1, VISIBLE_PAGES)
+      );
 
       for (let i = start; i <= end; i++) {
         pages.push(i);
@@ -76,7 +82,9 @@ export class Pagination {
   }
 
   private notifyListeners(): void {
-    this.listeners.forEach((listener) => listener(this.currentPage, this.itemsPerPage));
+    this.listeners.forEach(listener =>
+      listener(this.currentPage, this.itemsPerPage)
+    );
     this.view.render();
   }
 }
