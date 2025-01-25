@@ -3,12 +3,12 @@ import { PaginationParams } from './pagination';
 
 type Filter = {
   filter: FilterCategory;
-  name: string;
-  imgURL: string;
+  name?: string;
+  imgURL?: string;
 };
 
 type GetFilterParams = PaginationParams & {
-  category: string;
+  filter: string;
 };
 
 export { Filter, GetFilterParams };

@@ -22,12 +22,14 @@
 @media screen and (min-width: 768px) {
   .sidebar-block {
     padding: 40px;
+    width: calc(100% - 288px - 16px)
   }
 }
 
 @media screen and (min-width: 1152px) {
   .sidebar-block {
     min-width: auto;
+    width: 100%;
   }
 }
 
