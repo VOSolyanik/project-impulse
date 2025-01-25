@@ -12,8 +12,7 @@
 
 @media (min-width: 1152px) {
   .hero-container {
-    max-height: 562px;
-    max-width: 1376px;
+    margin-top: -240px;
   }
 }
 
@@ -90,6 +89,13 @@
   }
 }
 
+@media (min-width: 1152px) {
+  .hero-text {
+    margin-bottom: 32px;
+    transform: translateY(240px);
+  }
+}
+
 .hero-media {
   display: flex;
   flex-direction: column;
@@ -106,7 +112,6 @@
 @media (min-width: 1152px) {
   .hero-media {
     flex-direction: column-reverse;
-    transform: translateY(-240px);
   }
 }
 
