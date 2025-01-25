@@ -1,14 +1,29 @@
-.exercise-cards-list {
-  width: 100%;
+.exercises-content .sidebar {
+  margin-top: 64px;
+}
+
+.exercises {
+  flex-grow: 1;
+}
+
+@media screen and (min-width: 768px) {
+  .exercises-content .sidebar {
+    gap: 32px 16px;
+    margin-top: 48px;
+  }
 }
 
 @media only screen and (min-width: 1152px) {
   .exercises-content {
     display: flex;
-    gap: 16px;
+    flex-direction: row-reverse;
+    align-items: flex-start;
+    gap: 32px;
   }
-  .quote {
+
+  .exercises-content .sidebar {
+    flex-flow: column;
     flex: 0 0 33.33%;
-    padding-right: 16px;
+    margin-top: 0;
   }
 }
