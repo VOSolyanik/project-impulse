@@ -210,8 +210,8 @@ export default ModalExercise;
 
 // Code for testing the modal window
 
-setTimeout(async () => {
-  const response = await getExerciseById('64f389465ae26083f39b17b7');
-  const modal = new ModalExercise('.modal', response);
-  modal.show();
-});
+// setTimeout(async () => {
+//   const response = await getExerciseById('64f389465ae26083f39b17b7');
+//   const modal = new ModalExercise('.modal', response);
+//   modal.show();
+// });
