@@ -13,6 +13,9 @@
   --paper-white-color-a02: rgb(var(--paper-white-rgb), 0.2);
   --paper-white-color-a06: rgb(var(--paper-white-rgb), 0.6);
 
+  --footer-gray-rgb: 198, 205, 209;
+  --footer-gray-color: rgb(var(--footer-gray-rgb));
+
   --primary-text-color: var(--charcoal-color);
   --primary-bg-color: var(--paper-white-color);
 

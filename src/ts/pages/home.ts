@@ -1,6 +1,7 @@
 import { FilterCategory } from '@/enums/filter-category';
 import Breadcrumbs from '@/components/exercises/breadcrumbs';
 import ExerciseCategories from '@/components/exercises/exercise-categories';
+import { SubscriptionForm } from '@/components/subscription-form';
 
 
 const categoryFiltersElement =
@@ -42,3 +43,8 @@ exerciseCategories.onCategoryChange(category => {
   console.log('exerciseCategories changed for category', category);
   breadcrumbs.setFilter(category);
 });
+
+
+
+const subscriptionFormElement = document.querySelector<HTMLFormElement>('.subscribe-form')
+new SubscriptionForm(subscriptionFormElement!);
