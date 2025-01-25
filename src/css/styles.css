@@ -21,6 +21,7 @@
 
 @import url('./components/exercises-cards.css');
 @import url('./components/exercises-header.css');
+@import url('./components/exercises-categories.css');
 
 /* Sections style */
 @import url('./sections/header.css');
