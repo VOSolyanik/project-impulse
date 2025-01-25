@@ -2,6 +2,7 @@ import { getExerciseById } from '../../api/exersises.api';
 import { Exercise } from '../../types/exercise';
 import { AddToFavorite } from './addToFavorite';
 import Modal from './modal';
+import { ModalRating } from './modalRating';
 
 type ModalElements = {
   name: HTMLTitleElement;
@@ -17,16 +18,21 @@ type ModalElements = {
 };
 
 export class ModalExercise extends Modal {
-  constructor(selector: string) {
+  private excercise: Exercise;
+  private ratingModal: ModalRating;
+
+  constructor(selector: string, excercise: Exercise) {
     super(selector);
+    this.excercise = excercise;
+    this.ratingModal = new ModalRating('[data-modal-rating]', this.excercise);
   }
 
-  public show = (props: Exercise): void => {
-    this.render(props);
-    super.show();
+  public show = (callbackOnClose?: CallableFunction): void => {
+    this.render();
+    super.show(callbackOnClose);
   };
 
-  private render(props: Exercise): void {
+  private render(): void {
     const modalElement = this.dialogTemplate.cloneNode(
       true
     ) as HTMLDialogElement;
@@ -93,7 +99,7 @@ export class ModalExercise extends Modal {
     // make changes in the elements
     for (const key in elements) {
       const element = elements[key as keyof ModalElements];
-      const value = props[key as keyof Exercise];
+      const value = this.excercise[key as keyof Exercise];
 
       if (value) {
         element.classList.remove('hidden');
@@ -124,11 +130,32 @@ export class ModalExercise extends Modal {
     ) as SVGElement;
 
     buttonAddToFavorite.addEventListener('click', () => {
-      this.handleButtonFavorite(props._id, buttonTitle, buttonIcon);
+      this.handleButtonFavorite(this.excercise._id, buttonTitle, buttonIcon);
+    });
+
+    const buttonGiveRating = modalElement.querySelector(
+      '[data-add-rating-element]'
+    ) as HTMLButtonElement;
+
+    buttonGiveRating.addEventListener('click', () => {
+      this.close();
+      setTimeout(() => {
+        this.dialog.remove();
+      }, 300);
+      this.ratingModal.show((excercise?: Exercise) => {
+        // update rating if changed
+        if (excercise) this.excercise;
+        this.show();
+      });
     });
 
     // update text and icon for favorite on init
-    this.handleButtonFavorite(props._id, buttonTitle, buttonIcon, false);
+    this.handleButtonFavorite(
+      this.excercise._id,
+      buttonTitle,
+      buttonIcon,
+      false
+    );
 
     document.body.appendChild(modalElement);
     this.dialog.showModal();
@@ -179,12 +206,12 @@ export class ModalExercise extends Modal {
   }
 }
 
-const modal = new ModalExercise('.modal');
-export default modal;
+export default ModalExercise;
 
 // Code for testing the modal window
 
-// setTimeout(async () => {
-//   const response = await getExerciseById('64f389465ae26083f39b17b7');
-//   modal.show(response);
-// });
+setTimeout(async () => {
+  const response = await getExerciseById('64f389465ae26083f39b17b7');
+  const modal = new ModalExercise('.modal', response);
+  modal.show();
+});

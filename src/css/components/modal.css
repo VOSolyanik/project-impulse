@@ -8,16 +8,16 @@
   text-transform: capitalize;
 }
 
-@media screen and (min-width: 768px) {
+/* @media screen and (min-width: 768px) {
   .modal {
     width: 704px;
   }
-}
+} */
 
 .modal-container {
   padding: 40px 20px;
   border-radius: 20px;
-  background: var(--charcoal-color);
+
   position: relative;
   color: var(--paper-white-color);
   width: 335px;
@@ -67,10 +67,12 @@
 
 .modal-summary {
   margin-top: 20px;
+  width: 100%;
 }
 
 @media screen and (min-width: 768px) {
   .modal-summary {
+    margin-top: 0;
     min-width: 10%;
   }
 }
@@ -89,6 +91,16 @@
 }
 
 .modal-rating {
+  margin-top: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  .modal-rating {
+    margin-top: 8px;
+  }
+}
+
+.modal-rating-group {
   margin-top: 10px;
   color: var(--paper-white-color);
   font-size: 12px;
@@ -187,7 +199,7 @@
 
 @media screen and (min-width: 768px) {
   .modal-button {
-    width: fit-content;
+    min-width: fit-content;
   }
 }
 
@@ -199,8 +211,32 @@
 
 .icon-star {
   fill: rgb(var(--paper-white-rgb), 0.2);
+  transition: transform var(--transition-duration) var(--transition-function);
 }
 
 .icon-star-filled {
   fill: #eea10c;
+}
+.icon-star-filled:not(.static) {
+  animation-duration: var(--transition-duration);
+  animation-timing-function: var(--transition-function);
+  animation-name: star-appeared;
+}
+
+@keyframes star-appeared {
+  0% {
+    transform: scale(0.2);
+  }
+
+  50% {
+    transform: scale(1.5);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.modal-give-rating-button {
+  padding: 12px 22px;
 }

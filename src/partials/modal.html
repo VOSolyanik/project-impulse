@@ -1,5 +1,5 @@
 <dialog class="modal hidden" hidden>
-  <div class="modal-container">
+  <div class="modal-container bg-inverse">
     <button class="modal-close-button" type="button" data-close-element>
       <svg width="24" height="24" class="icon stroke-icon">
         <use href="/images/sprite.svg#icon-x" data-favorite-icon />
@@ -25,11 +25,36 @@
             >4.00</span
           >
           <span class="rating-stars" data-rating-list aria-hidden="true">
-            <load src="partials/components/rating-star.html" />
-            <load src="partials/components/rating-star.html" />
-            <load src="partials/components/rating-star.html" />
-            <load src="partials/components/rating-star.html" />
-            <load src="partials/components/rating-star.html" />
+            <load
+              src="partials/components/rating-star.html"
+              width="14"
+              height="13"
+              class="static"
+            />
+            <load
+              src="partials/components/rating-star.html"
+              width="14"
+              height="13"
+              class="static"
+            />
+            <load
+              src="partials/components/rating-star.html"
+              width="14"
+              height="13"
+              class="static"
+            />
+            <load
+              src="partials/components/rating-star.html"
+              width="14"
+              height="13"
+              class="static"
+            />
+            <load
+              src="partials/components/rating-star.html"
+              width="14"
+              height="13"
+              class="static"
+            />
           </span>
           <!-- #region star fill -->
           <svg class="hidden-svg-clip">
@@ -87,7 +112,10 @@
             </svg>
           </button>
 
-          <button class="btn btn-outline inverse hidden modal-button" hidden>
+          <button
+            class="btn btn-outline inverse modal-button modal-give-rating-button"
+            data-add-rating-element
+          >
             Give a rating
           </button>
         </div>

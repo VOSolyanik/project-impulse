@@ -73,3 +73,7 @@ main {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+.static {
+  animation: unset;
+}

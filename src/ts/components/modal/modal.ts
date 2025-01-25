@@ -1,6 +1,7 @@
 export default class Modal {
   protected dialog!: HTMLDialogElement;
   protected dialogTemplate: HTMLDialogElement;
+  private onClose?: CallableFunction;
 
   constructor(selector: string) {
     const modalElement = document.querySelector(selector);
@@ -10,13 +11,15 @@ export default class Modal {
     this.dialogTemplate = modalElement;
   }
 
-  public show(props?: any): void {
+  public show(callbackOnClose?: CallableFunction): void {
     this.dialog.showModal();
+    this.onClose = callbackOnClose;
   }
 
-  public close = (): void => {
+  public close = (props?: any): void => {
     this.dialog.close();
     document.removeEventListener('keydown', this.closeEvent);
+    if (this.onClose) this.onClose(props);
   };
 
   protected closeEvent = (event: KeyboardEvent): void => {
