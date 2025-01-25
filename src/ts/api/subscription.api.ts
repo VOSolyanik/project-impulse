@@ -1,7 +1,7 @@
 import { yourEnergyApi } from './base';
 import { SubscriptionResponse } from '../types/subscription';
 
-const sendEmailSubscription = async (
+const sendSubscriptionRequest = async (
   email: string,
 ): Promise<SubscriptionResponse> => {
   const response = await yourEnergyApi.post<SubscriptionResponse>(
@@ -11,4 +11,4 @@ const sendEmailSubscription = async (
   return response.data;
 };
 
-export { sendEmailSubscription };
+export { sendSubscriptionRequest };

@@ -1,59 +1,45 @@
 /* Styles for Mobile devices */
 
-.footer-wrapper {
+.footer {
+  margin-top: 80px;
+  padding: 40px 0 10px;
+}
+
+.footer-top-container {
   display: flex;
   flex-direction: column;
 }
 
-
-.footer-wrapper-container {
-  display: flex;
-  flex-direction: column;
+.footer-logo-social-wrapper {
+  margin-bottom: 40px;
 }
 
-.footer-logo-social-container {
-  display: flex;
-  flex-direction: column;
-  margin-top: 40px;
-}
-
-.footer-title-input-container {
-  display: flex;
-  flex-direction: column;
+.footer-logo-container {
+  margin-bottom: 20px;
 }
 
 .footer-logo {
-  display: inline-flex;
-}
-
-.fill-icon {
-  fill: var(--paper-white-color);
+  color: var(--paper-white-color);
 }
 
 .footer-social-container {
   display: flex;
-  margin-top: 20px;
-  margin-bottom: 40px;
 }
 
-.footer-title-container {
-  margin-bottom: 20px;
+.footer-form-container {
+  display: flex;
+  flex-direction: column;
 }
+
 .footer-title {
   font-size: 38px;
   font-weight: 400;
   line-height: 44px;
   color: var(--paper-white-color);
-}
-.subscribe-form {
-  max-width: 335px;
-}
-
-.subscribe-form.input {
   margin-bottom: 20px;
 }
 
-.footer-input-message {
+.subscribe-form-message {
   font-size: 14px;
   font-weight: 400;
   line-height: 18px;
@@ -61,12 +47,15 @@
   color: var(--paper-white-color);
 }
 
-.subscribe-form.btn {
+.subscribe-form .input {
+  margin-bottom: 20px;
+}
+
+.subscribe-form .btn {
   width: 100%;
 }
 
 .button-loader {
-  display: none;
   width: 20px;
   border-radius: 50%;
   aspect-ratio: 1;
@@ -86,120 +75,89 @@
   83% {clip-path: inset(0 -100px 0 0)}
 }
 
-
 .footer-bottom-container {
   margin-top: 120px;
-  margin-bottom: 10px;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-end;
-}
+  gap: 10px 0;
 
-.footer-bottom-text-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.footer-bottom-text-container li {
-  margin-bottom: 10px;
-}
-
-.footer-bottom-text-container li:last-child {
-  margin-bottom: 0;
-}
-
-.footer-right-text {
   font-size: 14px;
   font-weight: 400;
   line-height: 18px;
   color: var(--footer-gray-color);
 }
 
-.footer-bottom-text-privacy {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+.footer-bottom-container p:first-child {
+  width: 100%;
 }
 
+.footer-bottom-container p:last-child {
+  flex-grow: 1;
+  text-align: right;
+}
 
-.footer-bottom-privacy-term {
-  color: var(--footer-gray-color);
+.footer-policies {
+  display: flex;
+  gap: 8px;
 }
 
 /* Styles for Tablet devices */
 @media only screen and (min-width: 768px) {
+  .footer {
+    padding: 64px 0 16px;
+  }
 
-  .footer-wrapper-container {
+  .footer-top-container {
     flex-direction: row;
   }
 
-  .footer-logo-social-container {
-    margin-top: 64px;
-  }
-  .footer-title-input-container {
-    margin-left: 114px;
-    margin-top: 64px;
+  .footer-logo-social-wrapper,
+  .footer-bottom-container p:first-child {
+    flex: 0 0 270px;
   }
 
   .subscribe-form {
-    max-width: 352px;
+    flex-shrink: 0;
+    width: 352px;
   }
 
-  .footer-bottom-text-container {
-    flex-direction: row;
-    gap: 78px;
-  }
-
-  .footer-bottom-text-container li {
-    margin-bottom: 0;
+  .subscribe-form-message {
+    font-size: 18px;
+    line-height: 1.33;
   }
 
   .footer-title {
     font-size: 56px;
     line-height: 60px;
   }
-  .footer-input-message {
-    font-size: 18px;
-    line-height: 24px;
-  }
-
-  .footer-title-container {
-    margin-bottom: 32px;
-  }
 
   .footer-bottom-container {
     margin-top: 64px;
   }
-
 }
 
 /* Styles for Desktop devices */
 @media only screen and (min-width: 1152px) {
-
-  .footer-title-input-container {
+  .footer-form-container {
+    flex-grow: 1;
     flex-direction: row;
+    justify-content: space-between;
   }
 
-  .footer-title-input-container {
-    margin-left: 158px;
-   }
-
-  .footer-title-container {
-    margin-right: 115px;
+  .footer-logo-social-wrapper,
+  .footer-bottom-container p:first-child {
+    flex: 0 0 314px;
   }
+
   .footer-title {
     max-width: 595px;
   }
 
-  .footer-bottom-text-container {
-    gap: 122px;
+  .footer-bottom-container p:last-child {
+    flex: 0 0 352px;
+    text-align: left;
   }
-
-  .footer-bottom-text-container li {
-    margin-bottom: 0;
-  }
-
-
 }
 

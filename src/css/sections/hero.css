@@ -1,19 +1,6 @@
 .hero {
-  margin-top: 80px;
+  margin-top: 60px;
   margin-bottom: 40px;
-}
-
-@media (min-width: 768px) {
-  .hero {
-    margin-top: 100px;
-    margin-bottom: 64px;
-  }
-}
-
-@media (min-width: 1152px) {
-  .hero-container {
-    margin-top: -240px;
-  }
 }
 
 .hero-title-wrapper {
@@ -26,28 +13,14 @@
   width: 38px;
   height: 38px;
   flex-shrink: 0;
-}
-
-@media (min-width: 768px) {
-  .hero-icon {
-    width: 59px;
-    height: 59px;
-  }
+  margin-top: 5px;
 }
 
 .hero-title {
-  font-weight: 400;
   font-size: 38px;
-  line-height: 44px;
-  margin-top: -6px;
+  line-height: 1.16;
+  font-weight: 400;
   margin-bottom: 20px;
-}
-
-@media (min-width: 768px) {
-  .hero-title {
-    font-size: 74px;
-    line-height: 74px;
-  }
 }
 
 .hero-title-body {
@@ -59,72 +32,25 @@
   white-space: nowrap;
 }
 
-@media (min-width: 768px) {
-  .hero-title-second-line {
-    margin-left: -70px;
-  }
-}
-
 .hero-subtitle {
   font-weight: 400;
   font-size: 14px;
-  line-height: 18px;
+  line-height: 1.28;
   max-width: 528px;
-}
-
-@media (min-width: 768px) {
-  .hero-subtitle {
-    font-size: 18px;
-    line-height: 24px;
-  }
 }
 
 .hero-text {
   margin-bottom: 20px;
 }
 
-@media (min-width: 768px) {
-  .hero-text {
-    margin-bottom: 32px;
-  }
+.hero-main-picture {
+  margin-bottom: 20px;
 }
 
-@media (min-width: 1152px) {
-  .hero-text {
-    margin-bottom: 32px;
-    transform: translateY(240px);
-  }
-}
-
-.hero-media {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-}
-
-@media (min-width: 768px) {
-  .hero-media {
-    align-items: end;
-  }
-}
-
-@media (min-width: 1152px) {
-  .hero-media {
-    flex-direction: column-reverse;
-  }
-}
-
-.hero-main-image img {
+.hero-main-image {
   width: 100%;
   border-radius: 30px;
   overflow: hidden;
-}
-
-@media (min-width: 768px) {
-  .hero-main-image {
-    border-radius: 60px;
-  }
 }
 
 .hero-tags-container {
@@ -132,23 +58,97 @@
   flex-direction: column;
 }
 
-@media (min-width: 768px) {
-  .hero-tags-container {
-    align-items: flex-end;
-  }
-}
-
-@media (min-width: 1152px) {
-  .hero-tags-container {
-    max-width: 197px;
-  }
-}
-
 .hero-legs-pic {
   display: none;
 }
 
-@media (min-width: 1152px) {
+.hero-tags {
+  display: flex;
+  gap: 8px;
+}
+
+.hero-tag {
+  padding: 3px 11px;
+  font-size: 14px;
+  line-height: 1.28;
+  border: 1px solid var(--charcoal-color);
+  border-radius: 30px;
+  background-color: transparent;
+}
+
+@media screen and (min-width: 768px) {
+  .hero {
+    margin-top: 76px;
+    margin-bottom: 64px;
+  }
+
+  .hero-icon {
+    width: 59px;
+    height: 59px;
+    margin-top: 5px;
+  }
+
+  .hero-title {
+    font-size: 74px;
+    line-height: 1;
+  }
+
+  .hero-title-second-line {
+    margin-left: -70px;
+  }
+
+  .hero-subtitle {
+    font-size: 18px;
+    line-height: 1.33;
+  }
+
+  .hero-text {
+    margin-bottom: 32px;
+  }
+
+  .hero-main-picture {
+    margin-bottom: 16px;
+  }
+
+  .hero-main-image {
+    border-radius: 60px;
+  }
+
+  .hero-tags-container {
+    align-items: flex-end;
+  }
+
+  .hero-tag {
+    padding: 3px 15px;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}
+
+@media screen and (min-width: 1152px) {
+  .hero-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .hero {
+    margin-top: 52px;
+  }
+
+  .hero-text {
+    margin-bottom: 32px;
+  }
+
+  .hero-main-picture {
+    order: 2;
+  }
+
+  .hero-tags-container {
+    max-width: 197px;
+    margin-top: 12px;
+  }
+
   .hero-legs-pic {
     display: block;
     width: 168px;
@@ -156,35 +156,9 @@
     border-radius: 20px;
     margin-bottom: 32px;
   }
-}
 
-.hero-tags {
-  list-style: none;
-  display: flex;
-  gap: 8px;
-}
-
-@media (min-width: 1152px) {
   .hero-tags {
     flex-wrap: wrap;
     justify-content: flex-end;
-    max-width: 197px;
-  }
-}
-
-.tag {
-  padding: 4px 12px;
-  font-size: 14px;
-  line-height: 18px;
-  border: 1px solid var(--charcoal-color);
-  border-radius: 30px;
-  background-color: transparent;
-}
-
-@media (min-width: 768px) {
-  .tag {
-    padding: 4px 16px;
-    font-size: 16px;
-    line-height: 24px;
   }
 }

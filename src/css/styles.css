@@ -4,6 +4,9 @@
   | default @import url()
   |============================
 
+/* 3rd party libs */
+@import url('izitoast/dist/css/iziToast.min.css');
+
 /* Utils styles */
 @import url('./utils/animations.css');
 
@@ -18,6 +21,7 @@
 @import url('./components/social-links.css');
 @import url('./components/mobile-menu.css');
 @import url('./components/pagination.css');
+@import url('./components/toast.css');
 
 @import url('./components/exercises-cards.css');
 @import url('./components/exercises-header.css');
