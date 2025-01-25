@@ -1,0 +1,11 @@
+body.dark-mode {
+
+    --charcoal-color: rgb(var(--paper-white-rgb));
+    --paper-white-color: rgb(var(--charcoal-rgb));
+
+    --primary-text-color: var(--charcoal-color);
+    --primary-bg-color: var(--paper-white-color);
+
+    /* --gray-moderate: rgb(var(--charcoal-rgb), 0.6); */
+
+}

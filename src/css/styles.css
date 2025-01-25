@@ -11,6 +11,7 @@
 @import url('./common/reset.css');
 @import url('./common/base.css');
 @import url('./common/container.css');
+
 /* Components styles */
 @import url('./components/icons.css');
 @import url('./components/buttons.css');
@@ -29,5 +30,6 @@
 @import url('./sections/sidebar.css');
 @import url('./sections/exercises.css');
 @import url('./sections/favorites.css');
-
 @import url('./sections/footer.css');
+
+@import url('./darkmode/darkmode.css');
