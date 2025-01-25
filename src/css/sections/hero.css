@@ -1,42 +1,38 @@
 .hero {
   margin-top: 80px;
-}
-
-.hero-container {
-  position: relative;
+  margin-bottom: 40px;
 }
 
 @media (min-width: 768px) {
   .hero {
     margin-top: 100px;
+    margin-bottom: 64px;
+  }
+}
+
+@media (min-width: 1152px) {
+  .hero-container {
+    max-height: 562px;
+    max-width: 1376px;
   }
 }
 
 .hero-title-wrapper {
-  position: relative;
-  margin-bottom: 12px;
-}
-
-@media (min-width: 768px) {
-  .hero-title-wrapper {
-    margin-bottom: 20px;
-  }
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
 }
 
 .hero-icon {
   width: 38px;
   height: 38px;
-  margin-right: 15px;
-  position: absolute;
-  top: 5px;
-  left: 0px;
+  flex-shrink: 0;
 }
 
 @media (min-width: 768px) {
   .hero-icon {
     width: 59px;
     height: 59px;
-    top: 6px;
   }
 }
 
@@ -44,10 +40,7 @@
   font-weight: 400;
   font-size: 38px;
   line-height: 44px;
-  color: var(--charcoal-color);
-  text-align: center;
-  width: 335px;
-  height: 88px;
+  margin-top: -6px;
   margin-bottom: 20px;
 }
 
@@ -55,58 +48,120 @@
   .hero-title {
     font-size: 74px;
     line-height: 74px;
-    width: 639px;
-    height: 148px;
-    white-space: nowrap;
   }
 }
 
-.hero-title span {
+.hero-title-body {
   font-style: italic;
+}
+
+.hero-title-second-line {
+  margin-left: -50px;
+  white-space: nowrap;
+}
+
+@media (min-width: 768px) {
+  .hero-title-second-line {
+    margin-left: -70px;
+  }
 }
 
 .hero-subtitle {
   font-weight: 400;
   font-size: 14px;
   line-height: 18px;
-  margin-bottom: 20px;
-  max-width: 335px;
+  max-width: 528px;
 }
 
 @media (min-width: 768px) {
   .hero-subtitle {
     font-size: 18px;
     line-height: 24px;
-    margin-bottom: 32px;
-    max-width: 528px;
   }
 }
 
-.hero-tags {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-bottom: 24px;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  gap: 8px;
+.hero-text {
+  margin-bottom: 20px;
 }
 
 @media (min-width: 768px) {
-  .hero-tags {
-    justify-content: right;
-    margin-bottom: 24px;
+  .hero-text {
+    margin-bottom: 32px;
+  }
+}
+
+.hero-media {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+@media (min-width: 768px) {
+  .hero-media {
+    align-items: end;
   }
 }
 
 @media (min-width: 1152px) {
+  .hero-media {
+    flex-direction: column-reverse;
+    transform: translateY(-240px);
+  }
+}
+
+.hero-main-image img {
+  width: 100%;
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .hero-main-image {
+    border-radius: 60px;
+  }
+}
+
+.hero-tags-container {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .hero-tags-container {
+    align-items: flex-end;
+  }
+}
+
+@media (min-width: 1152px) {
+  .hero-tags-container {
+    max-width: 197px;
+  }
+}
+
+.hero-legs-pic {
+  display: none;
+}
+
+@media (min-width: 1152px) {
+  .hero-legs-pic {
+    display: block;
+    width: 168px;
+    height: 100px;
+    border-radius: 20px;
+    margin-bottom: 32px;
+  }
+}
+
+.hero-tags {
+  list-style: none;
+  display: flex;
+  gap: 8px;
+}
+
+@media (min-width: 1152px) {
   .hero-tags {
-    position: absolute;
-    bottom: 382px;
-    right: 0;
+    flex-wrap: wrap;
     justify-content: flex-end;
     max-width: 197px;
   }
@@ -126,56 +181,5 @@
     padding: 4px 16px;
     font-size: 16px;
     line-height: 24px;
-  }
-}
-
-.hero-image-wrapper {
-  background-size: cover;
-  background-position: center;
-  overflow: hidden;
-}
-
-@media (max-width: 767px) {
-  .hero-image-wrapper {
-    height: 460px;
-    max-width: 335px;
-    border-radius: 30px;
-    margin-bottom: 20px;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 1151px) {
-  .hero-image-wrapper {
-    height: 550px;
-    width: 704px;
-    border-radius: 60px;
-    margin-bottom: 16px;
-  }
-}
-
-@media (min-width: 1152px) {
-  .hero-image-wrapper {
-    height: 350px;
-    width: 1376px;
-    border-radius: 60px;
-    margin-bottom: 16px;
-  }
-}
-
-.hero-legs-pic {
-  display: none;
-}
-
-@media (min-width: 1152px) {
-  .hero-legs-pic {
-    display: block;
-    position: absolute;
-    bottom: 530px;
-    right: 0;
-    width: 168px;
-    height: 100px;
-    background-size: cover;
-    background-position: center;
-    border-radius: 20px;
   }
 }
