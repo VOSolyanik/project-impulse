@@ -48,6 +48,8 @@
   color: var(--gray-moderate);
   position: relative;
   display: block;
+  width: fit-content;
+  white-space: nowrap;
 }
 
 .filter-btn.active {
@@ -68,17 +70,12 @@
 .filter-btn:hover,
 .filter-btn:focus,
 .filter-btn:active {
-  color: var(--gray-moderate);
-}
-
-.filter-btn:hover::after,
-.filter-btn:focus::after,
-.filter-btn:active::after {
-  content: none;
+  color: var(--primary-text-color);
 }
 
 @media only screen and (min-width: 768px) {
-  .page-header, .breadcrumbs {
+  .page-header,
+  .breadcrumbs {
     margin-bottom: 32px;
   }
 
