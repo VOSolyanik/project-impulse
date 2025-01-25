@@ -62,7 +62,7 @@ class ExerciseCategories {
       : '';
 
     return `
-      <div class="exercise-category-card">
+      <li class="exercise-category-card">
         <img
           class="exercise-category-image"
           src="${category.imgURL}"
@@ -72,7 +72,7 @@ class ExerciseCategories {
           <h3 class="exercise-category-title">${name}</h3>
           <p class="exercise-category-subtitle">${category.filter}</p>
         </div>
-      </div>
+      </li>
     `;
   }
 

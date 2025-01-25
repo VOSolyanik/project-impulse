@@ -1,46 +1,44 @@
-console.log('This is home page');
-import { Pagination } from '@/components/pagination';
 import { FilterCategory } from '@/enums/filter-category';
 import Breadcrumbs from '@/components/exercises/breadcrumbs';
-import ExerciseCategories from '@/components/exercises/execrice-categories';
+import ExerciseCategories from '@/components/exercises/exercise-categories';
 
-const container = document.querySelector<HTMLElement>('.pagination-wrapper');
-const paginationCategoryContainer = document.querySelector<HTMLElement>(
-  '.pagination-categories-wrapper'
-);
-const filtersContainer =
-  document.querySelector<HTMLElement>('.js-filter-items');
-const BreadcrumbsElement = document.querySelector<HTMLElement>('.breadcrumbs');
+
+const categoryFiltersElement =
+  document.querySelector<HTMLElement>('.js-category-filters');
+const breadcrumbsElement = document.querySelector<HTMLElement>('.js-breadcrumbs');
 const searchBar = document.querySelector<HTMLElement>('#search');
+
 const exercisesCategoriesGallery = document.querySelector<HTMLElement>(
-  '.exercises-category-gallery'
+  '.exercise-categories-list'
+);
+const paginationContainer = document.querySelector<HTMLElement>(
+  '.pagination-wrapper'
 );
 
-console.log('filtersContainer', filtersContainer);
-const pagination = new Pagination(container!, 5, 12);
-
-const breadcrumps = new Breadcrumbs(
+const breadcrumbs = new Breadcrumbs(
   {
-    filtersListElement: filtersContainer!,
-    displayCategoryElement: BreadcrumbsElement!,
+    categoryFiltersElement: categoryFiltersElement!,
+    breadcrumbsElement: breadcrumbsElement!,
     searchElement: searchBar!,
   },
   FilterCategory.Muscles
 );
 
+const pageSize = 12; // TODO: Set to 9 on mobile
+
 const exerciseCategories = new ExerciseCategories(
   exercisesCategoriesGallery!,
-  FilterCategory.Muscles,
-  12, // TODO: Move to constants?
-  paginationCategoryContainer!
+  breadcrumbs.getCategory(),
+  pageSize,
+  paginationContainer!
 );
 
-breadcrumps.onFilterChange(category => {
+breadcrumbs.onFilterChange(category => {
   console.log('Filter changed for category', category);
   exerciseCategories.setCategory(category);
 });
 
 exerciseCategories.onCategoryChange(category => {
   console.log('exerciseCategories changed for category', category);
-  breadcrumps.setFilter(category);
+  breadcrumbs.setFilter(category);
 });

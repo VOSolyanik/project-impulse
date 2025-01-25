@@ -1,8 +1,8 @@
 import { FilterCategory } from '@/enums/filter-category';
 
 type BreadCrumbConfig = {
-  filtersListElement: HTMLElement;
-  displayCategoryElement: HTMLElement;
+  categoryFiltersElement: HTMLElement;
+  breadcrumbsElement: HTMLElement;
   searchElement: HTMLElement;
 };
 
@@ -24,7 +24,7 @@ class Breadcrumbs {
   }
 
   private addFilterClickListener(): void {
-    this.config.filtersListElement.addEventListener('click', event => {
+    this.config.categoryFiltersElement.addEventListener('click', event => {
       const target = event.target as HTMLElement;
 
       if (target.classList.contains('js-filter-btn')) {
@@ -45,7 +45,7 @@ class Breadcrumbs {
 
   private clearActiveFilters(): void {
     const buttonsElements =
-      this.config.filtersListElement.querySelectorAll<HTMLElement>(
+      this.config.categoryFiltersElement.querySelectorAll<HTMLElement>(
         '.js-filter-btn'
       );
     buttonsElements.forEach(button => button.classList.remove('active'));
@@ -75,11 +75,11 @@ class Breadcrumbs {
   }
 
   private renderBreadcrumbs(): void {
-    const splitter = this.config.displayCategoryElement.querySelector(
+    const splitter = this.config.breadcrumbsElement.querySelector(
       '#breadcrumbs-splitter'
     );
     const breadcrumbs =
-      this.config.displayCategoryElement.querySelector('.filter-value');
+      this.config.breadcrumbsElement.querySelector('.filter-value');
 
     if (splitter && breadcrumbs) {
       if (this.currentFilter !== '') {
@@ -95,7 +95,7 @@ class Breadcrumbs {
   }
 
   public render(): void {
-    this.config.filtersListElement.innerHTML = Object.values(FilterCategory)
+    this.config.categoryFiltersElement.innerHTML = Object.values(FilterCategory)
       .map(value => {
         const isActive = value === this.currentCategory ? 'active' : '';
         const name = value.charAt(0).toUpperCase() + value.slice(1);
