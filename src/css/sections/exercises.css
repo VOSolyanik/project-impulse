@@ -6,10 +6,28 @@
   flex-grow: 1;
 }
 
+.exercises-empty-message {
+  margin: -20px auto 0;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.33;
+}
+
 @media screen and (min-width: 768px) {
   .exercises-content .sidebar {
     gap: 32px 16px;
     margin-top: 48px;
+  }
+
+  .exercises-content .sidebar-block {
+    width: calc(100% - 288px - 16px);
+  }
+
+  .exercises-empty-message {
+    max-width: 554px;
+    margin-top: 132px;
+    font-size: 18px;
+    line-height: 1.33;
   }
 }
 
@@ -18,12 +36,17 @@
     display: flex;
     flex-direction: row-reverse;
     align-items: flex-start;
-    gap: 32px;
+    gap: 16px;
   }
 
   .exercises-content .sidebar {
     flex-flow: column;
     flex: 0 0 33.33%;
+    padding-right: 16px;
     margin-top: 0;
+  }
+
+  .exercises-content .sidebar-block {
+    width: 100%;
   }
 }

@@ -68,3 +68,21 @@ main {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+.custom-scroll-bar::-webkit-scrollbar {
+  width: 8px;
+  background-color: transparent;
+}
+
+.custom-scroll-bar::-webkit-scrollbar-track {
+  width: 8px;
+  border-radius: 4px;
+  background-color: var(--light-gray);
+}
+
+.custom-scroll-bar::-webkit-scrollbar-thumb {
+  width: 8px;
+  border-radius: 4px;
+  background-color: var(--primary-text-color);
+  background-clip: padding-box;
+}

@@ -13,6 +13,8 @@ export class MobileMenu {
   }
 
   init(): void {
+    this.toggleItemsVisibility(false);
+
     this.config.openMenuBtn?.addEventListener('click', () => {
       this.onMenuOpen();
     });
@@ -26,15 +28,23 @@ export class MobileMenu {
     });
   }
 
+  private toggleItemsVisibility(isVisible: boolean): void {
+    this.config.menu.setAttribute('aria-hidden',  isVisible ? 'false' : 'true');
+    this.config.menu.querySelectorAll('button, a').forEach((element) => {
+      element.setAttribute('tabindex', isVisible ? '0' : '-1');
+      element.setAttribute('aria-hidden', isVisible ? 'false' : 'true');
+    })
+  }
+
   private onMenuClose(): void {
     this.config.menu.classList.remove('mobile-menu-open');
-    this.config.menu.setAttribute('aria-hidden', 'true');
+    this.toggleItemsVisibility(false)
     document.body.style.overflow = '';
   }
 
   private onMenuOpen(): void {
     this.config.menu.classList.add('mobile-menu-open');
-    this.config.menu.setAttribute('aria-hidden', 'false');
+    this.toggleItemsVisibility(true)
     document.body.style.overflow = 'hidden';
   }
 }

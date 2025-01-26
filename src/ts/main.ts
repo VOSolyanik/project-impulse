@@ -1,5 +1,5 @@
-import { MobileMenu } from "@/components/mobile-menu";
-import { QuoteOfTheDay } from "@/components/quote-of-day/index"
+import { MobileMenu } from '@/components/mobile-menu';
+import { QuoteOfTheDay } from '@/components/quote-of-day';
 
 const openMenuBtn = document.querySelector<HTMLElement>('.js-menu-open');
 const closeMenuBtn = document.querySelector<HTMLElement>('.js-menu-close');

@@ -1,9 +1,36 @@
-import { Pagination } from "@/components/pagination";
 
-const container = document.querySelector<HTMLElement>(".pagination-wrapper");
+import { favoritesState } from '@/favorites-state';
+import { getExerciseById } from '@/api/exercises.api';
+import { FavoritesExerciseItems } from '@/components/exercises/favorites-exercise-items';
+import { ExerciseModal } from '@/components/modal/exercise-modal';
 
-const pagination = new Pagination(container!, 5, 12);
+const EMPTY_STATE_MESSAGE = `It appears that you haven't added any exercises to your favorites yet.
+To get started, you can add exercises that you like to your favorites for easier access in the future.`;
 
-pagination.onPageChange((page, pageSize) => {
-  console.log("Make API request here", page, pageSize);
+const exerciseItemsContainer = document
+    .querySelector<HTMLElement>('.exercise-cards-list');
+
+exerciseItemsContainer!.classList.add('custom-scroll-bar');
+
+const exerciseItems = new FavoritesExerciseItems(
+  exerciseItemsContainer!,
+  favoritesState.gerFavorites(),
+  EMPTY_STATE_MESSAGE
+);
+
+
+const modal = new ExerciseModal('#exercise-modal-content');
+
+exerciseItems.onExerciseDelete((id) => {
+  favoritesState.removeFavorite(id);
+  exerciseItems.setFavoriteIds(favoritesState.gerFavorites());
 })
+
+exerciseItems.onExerciseSelect(async id => {
+  const exercise = await getExerciseById(id);
+  modal.show(exercise);
+});
+
+modal.onFavoriteToggle(() => {
+  exerciseItems.setFavoriteIds(favoritesState.gerFavorites());
+});
