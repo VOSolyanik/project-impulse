@@ -51,6 +51,7 @@ export default defineConfig(({ command }) => {
         sort: 'mobile-first',
       }),
       ViteImageOptimizer({
+        test: /\.(jpe?g|png|webp|gif)$/i,
         png: {
           quality: 80,
           progressive: true,
