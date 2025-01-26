@@ -1,6 +1,7 @@
 import { Exercise } from '@/types/exercise';
 import { Modal } from './modal';
 import { favoritesState } from '@/favorites-state';
+import spriteUrl from "../../../images/sprite.svg";
 
 const baseUrl = import.meta.env.BASE_URL;
 
@@ -132,11 +133,11 @@ export class ExerciseModal extends Modal<Exercise> {
     if (isFavorite) {
       if (isEvent) favoritesState.addFavorite(id);
       buttonTitle.innerHTML = 'Remove from favorites';
-      buttonIcon.setAttribute('href', `${baseUrl}images/sprite.svg#icon-trash`);
+      buttonIcon.setAttribute('href', `${spriteUrl}#icon-trash`);
     } else {
       if (isEvent) favoritesState.removeFavorite(id);
       buttonTitle.innerHTML = 'Add to favorites';
-      buttonIcon.setAttribute('href', `${baseUrl}images/sprite.svg#icon-heart`);
+      buttonIcon.setAttribute('href', `${spriteUrl}#icon-heart`);
     }
   }
 

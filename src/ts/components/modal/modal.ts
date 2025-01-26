@@ -1,4 +1,4 @@
-const baseUrl = import.meta.env.BASE_URL;
+import spriteUrl from "../../../images/sprite.svg";
 
 export abstract class Modal<T> {
   protected dialog!: HTMLDialogElement;
@@ -71,7 +71,7 @@ export abstract class Modal<T> {
       <div class="modal-container">
         <button class="modal-close-button" type="button" data-dialog-close>
           <svg width="24" height="24" class="icon stroke-icon">
-            <use href="${baseUrl}images/sprite.svg#icon-x" data-favorite-icon />
+            <use href="${spriteUrl}#icon-x" data-favorite-icon />
           </svg>
         </button>
         <div class="modal-card" data-dialog-content>

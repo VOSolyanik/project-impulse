@@ -1,6 +1,6 @@
 import { Pagination } from "./pagination";
 import { DOTS, FIRST_PAGE, LAST_PAGE, NEXT_PAGE, PREV_PAGE, VISIBLE_PAGES } from "./constants";
-const baseUrl = import.meta.env.BASE_URL;
+import spriteUrl from "../../../images/sprite.svg";
 
 export class PaginationView {
   constructor(
@@ -99,6 +99,6 @@ export class PaginationView {
       [PREV_PAGE]: "icon-arw-left",
       [NEXT_PAGE]: "icon-arw-right",
     })[page] as string;
-    return `<svg class="page-icon"><use href="${baseUrl}images/sprite.svg#${icon}"></use></svg>`;
+    return `<svg class="page-icon"><use href="${spriteUrl}#${icon}"></use></svg>`;
   }
 }
