@@ -98,7 +98,7 @@ because the nesting selector cannot represent pseudo-elements. */
 }
 
 .modal-close-button:hover {
-  scale: 1.2;
+  transform: scale(1.2); /* use transform */
 }
 
 .modal-summary {
