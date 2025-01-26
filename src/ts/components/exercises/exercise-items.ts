@@ -88,7 +88,7 @@ export class ExerciseItems {
       : '';
 
     return `
-      <li class="exercise-card">
+      <li class="exercise-card" role="button" tabindex="0">
         <div class="exercise-card__heading">
           <p class="exercise-badge">WORKOUT</p>
 

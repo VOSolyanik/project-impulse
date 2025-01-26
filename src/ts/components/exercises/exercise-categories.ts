@@ -87,7 +87,7 @@ export class ExerciseCategories {
           src="${category.imgURL}"
           alt="${category.name || 'No name'}"
         />
-        <div class="exercise-category-overlay">
+        <div class="exercise-category-overlay" role="button" tabindex="0">
           <h3 class="exercise-category-title">${category.name}</h3>
           <p class="exercise-category-subtitle">${category.filter}</p>
         </div>
