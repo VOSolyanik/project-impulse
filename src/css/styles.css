@@ -17,12 +17,14 @@
 /* Components styles */
 @import url('./components/icons.css');
 @import url('./components/buttons.css');
+@import url('./components/modal.css');
 @import url('./components/inputs.css');
 @import url('./components/social-links.css');
 @import url('./components/mobile-menu.css');
 @import url('./components/pagination.css');
 @import url('./components/toast.css');
 
+@import url('./components/exercise-details.css');
 @import url('./components/exercises-cards.css');
 @import url('./components/exercises-header.css');
 @import url('./components/exercises-categories.css');
@@ -35,5 +37,3 @@
 @import url('./sections/favorites.css');
 
 @import url('./sections/footer.css');
-@import url('./components/modal.css');
-@import url('./components/modal-animation.css');
