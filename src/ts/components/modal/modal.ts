@@ -32,7 +32,9 @@ export abstract class Modal<T> {
     document.addEventListener('keydown', this.handleKeyDown);
 
     this.dialog.addEventListener('close', () => {
-      this.dialog.remove();
+      setTimeout(() => {
+        this.dialog.remove();
+      }, 300)
     });
   }
 

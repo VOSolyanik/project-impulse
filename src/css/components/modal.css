@@ -22,15 +22,15 @@
   transform: scaleY(0);
   transition: opacity var(--transition-duration) var(--transition-function),
     transform var(--transition-duration) var(--transition-function),
-    overlay var(--transition-duration) var(--transition-function) allow-discrete,
-    display var(--transition-duration) var(--transition-function) allow-discrete;
+    overlay var(--transition-duration) var(--transition-function),
+    display var(--transition-duration) var(--transition-function);
 }
 
 /* Transition the :backdrop when the dialog modal is promoted to the top layer */
 .modal::backdrop {
   background-color: rgb(0 0 0 / 0%);
-  transition: display var(--transition-duration) allow-discrete,
-    overlay var(--transition-duration) allow-discrete,
+  transition: display var(--transition-duration),
+    overlay var(--transition-duration),
     background-color var(--transition-duration);
 }
 
@@ -97,7 +97,7 @@ because the nesting selector cannot represent pseudo-elements. */
 }
 
 .modal-close-button:hover {
-  scale: 1.2;
+  transform: scale(1.2);
 }
 
 .modal-button {
