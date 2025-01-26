@@ -1,6 +1,7 @@
 @media screen and (min-width: 768px) {
   .modal-container:has(.exercise-rating__form) {
     max-width: unset;
+    min-width: unset;
     width: 430px;
   }
 }

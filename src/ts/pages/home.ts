@@ -18,7 +18,7 @@ const exerciseCategories = initCategories();
 
 const exerciseItems = initItems();
 
-const form = initForm();
+initSubscriptionForm();
 
 const exerciseModal = new ExerciseModal('#exercise-modal-content');
 const ratingModal = new ExerciseRatingModal('#exercise-rating-content');
@@ -114,7 +114,7 @@ function initItems(): HomeExerciseItems {
   );
 }
 
-function initForm(): SubscriptionForm {
+function initSubscriptionForm(): SubscriptionForm {
   const subscriptionFormElement =
     document.querySelector<HTMLFormElement>('.subscribe-form');
   return new SubscriptionForm(subscriptionFormElement!);
