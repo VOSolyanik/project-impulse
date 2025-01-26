@@ -28,6 +28,7 @@ export class ExerciseItems {
   }
 
   protected render(categories: Exercise[]): void {
+    // TODO: render empty state;
     this.containerElement.innerHTML = categories
       .filter(category => category.name)
       .map(this.createItemTemplate)
