@@ -25,8 +25,8 @@ const getExerciseById = async (id: string): Promise<Exercise> => {
 };
 
 const updateExerciseRating = async (
-  id: string, // Ідентифікатор вправи
-  rating: ExerciseRatingRequest // Тіло запиту
+  id: string,
+  rating: ExerciseRatingRequest
 ): Promise<ExerciseRatingResponse> => {
   const response = await yourEnergyApi.patch<ExerciseRatingResponse>(
     `/exercises/${id}/rating`,

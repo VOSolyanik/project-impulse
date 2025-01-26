@@ -44,6 +44,10 @@ export class PaginationView {
     this.container.innerHTML = `<ul class="pagination">${template}</ul>`;
   }
 
+  clear(): void {
+    this.container.innerHTML = "";
+  }
+
   private initListeners(): void {
     this.container.addEventListener("click", (e) => {
       const target = e.target as HTMLElement;

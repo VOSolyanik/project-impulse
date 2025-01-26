@@ -14,6 +14,11 @@
   display: none;
 }
 
+.favorites-content .sidebar-image {
+  order: 3;
+  min-height: 120px;
+}
+
 @media screen and (min-width: 768px) {
   .favorites-content .sidebar {
     margin-bottom: 64px;
@@ -57,5 +62,50 @@
   .favorites-content .useful-info-wrapper {
     padding: 25px;
     width: calc(50% - 8px);
+  }
+
+  .favorites-content .exercise-cards-list {
+    max-height: 490px;
+    overflow-y: auto;
+    padding-right: 16px;
+  }
+}
+
+.sidebar-image {
+  background-image: url('/images/favorite/favorite_mobile_webp@1x.webp');
+}
+
+@media (min-resolution: 192dpi), (-webkit-min-device-pixel-ratio: 2) {
+  .sidebar-image {
+    background-image: url('/images/favorite/favorite_mobile_webp@2x.webp');
+  }
+}
+
+@media (min-width: 768px) {
+  .sidebar-image {
+    background-image: url('/images/favorite/favorite_tablet_webp@1x.webp');
+    min-height: 250px;
+    max-width: 288px;
+  }
+}
+
+@media (min-width: 768px) and (min-resolution: 192dpi),
+  (-webkit-min-device-pixel-ratio: 2) {
+  .sidebar-image {
+    background-image: url('/images/favorite/favorite_tablet_webp@2x.webp');
+  }
+}
+
+@media (min-width: 1152px) {
+  .sidebar-image {
+    background-image: url('/images/favorite/favorite_desktop_webp@1x.webp');
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 1152px) and (min-resolution: 192dpi),
+  (-webkit-min-device-pixel-ratio: 2) {
+  .sidebar-image {
+    background-image: url('/images/favorite/favorite_desktop_webp@2x.webp');
   }
 }

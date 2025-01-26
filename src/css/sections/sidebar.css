@@ -22,7 +22,6 @@
 @media screen and (min-width: 768px) {
   .sidebar-block {
     padding: 40px;
-    width: calc(100% - 288px - 16px)
   }
 }
 
@@ -107,11 +106,6 @@
   min-height: 240px;
   width: 100%;
   height: auto;
-}
-
-.favorites-section .sidebar-image {
-  order: 3;
-  min-height: 120px;
 }
 
 @media (min-resolution: 192dpi), (-webkit-min-device-pixel-ratio: 2) {

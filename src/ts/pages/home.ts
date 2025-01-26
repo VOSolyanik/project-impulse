@@ -1,50 +1,101 @@
 import { FilterCategory } from '@/enums/filter-category';
-import Breadcrumbs from '@/components/exercises/breadcrumbs';
-import ExerciseCategories from '@/components/exercises/exercise-categories';
+import { ExercisesParams } from '@/types/exercise';
+import { getExerciseById } from '@/api/exercises.api';
+import { isMobileScreen } from '@/utils/is-mobile-screen';
+import { ExercisesFilters } from '@/components/exercises/exercises-filters';
+import { ExerciseCategories } from '@/components/exercises/exercise-categories';
+import { HomeExerciseItems } from '@/components/exercises/home-exercise-items';
 import { SubscriptionForm } from '@/components/subscription-form';
+import { ExerciseModal } from '@/components/modal/exercise-modal';
 
+const filters = initFilters();
 
-const categoryFiltersElement =
+const exerciseCategories = initCategories();
+
+const exerciseItems = initItems();
+
+const form = initForm()
+
+const modal = new ExerciseModal('#exercise-modal-content');
+
+const paramNmeMap: Record<FilterCategory, keyof ExercisesParams> = {
+  [FilterCategory.Muscles]: 'muscles',
+  [FilterCategory.Equipment]: 'equipment',
+  [FilterCategory.BodyParts]: 'bodypart',
+}
+
+filters.onFilterChange((category, filter, search) => {
+  if(!filter) {
+    exerciseCategories.setFilter(category);
+    exerciseItems.clear()
+  } else {
+    exerciseItems.setParams({
+      [paramNmeMap[category]]: filter,
+      keyword: search,
+    });
+    exerciseCategories.clear();
+  }
+});
+
+exerciseCategories.onCategorySelect(category => {
+  filters.setFilter(category);
+});
+
+exerciseItems.onExerciseSelect(async id => {
+  const exercise = await getExerciseById(id);
+  modal.show(exercise);
+});
+
+function initFilters(): ExercisesFilters {
+  const categoryFiltersElement =
   document.querySelector<HTMLElement>('.js-category-filters');
-const breadcrumbsElement = document.querySelector<HTMLElement>('.js-breadcrumbs');
-const searchBar = document.querySelector<HTMLElement>('#search');
+  const breadcrumbsElement = document
+    .querySelector<HTMLElement>('.js-breadcrumbs');
+  const searchFormElement = document
+    .querySelector<HTMLElement>('#search-form');
+  return new ExercisesFilters(
+    {
+      categoryFiltersElement: categoryFiltersElement!,
+      breadcrumbsElement: breadcrumbsElement!,
+      searchElement: searchFormElement!,
+    },
+    FilterCategory.Muscles
+  );
+}
 
-const exercisesCategoriesGallery = document.querySelector<HTMLElement>(
-  '.exercise-categories-list'
-);
-const paginationContainer = document.querySelector<HTMLElement>(
-  '.pagination-wrapper'
-);
+function initCategories(): ExerciseCategories {
+  const pageSize = isMobileScreen() ? 9 : 12;
 
-const breadcrumbs = new Breadcrumbs(
-  {
-    categoryFiltersElement: categoryFiltersElement!,
-    breadcrumbsElement: breadcrumbsElement!,
-    searchElement: searchBar!,
-  },
-  FilterCategory.Muscles
-);
+  const exerciseCategoriesContainer = document
+    .querySelector<HTMLElement>('.exercise-categories-list');
+  const exerciseCategoriesPaginationContainer = document
+      .querySelector<HTMLElement>('.js-categories-pagination');
 
-const pageSize = 12; // TODO: Set to 9 on mobile
+  return new ExerciseCategories(
+    exerciseCategoriesContainer!,
+    exerciseCategoriesPaginationContainer!,
+    filters.getCategory(),
+    pageSize,
+  );
+}
 
-const exerciseCategories = new ExerciseCategories(
-  exercisesCategoriesGallery!,
-  breadcrumbs.getCategory(),
-  pageSize,
-  paginationContainer!
-);
+function initItems(): HomeExerciseItems {
+  const pageSize = isMobileScreen() ? 8 : 10;
 
-breadcrumbs.onFilterChange(category => {
-  console.log('Filter changed for category', category);
-  exerciseCategories.setCategory(category);
-});
+  const exerciseItemsContainer = document
+    .querySelector<HTMLElement>('.exercise-cards-list');
+  const exerciseItemsPaginationContainer = document
+    .querySelector<HTMLElement>('.js-items-pagination');
 
-exerciseCategories.onCategoryChange(category => {
-  console.log('exerciseCategories changed for category', category);
-  breadcrumbs.setFilter(category);
-});
+  return new HomeExerciseItems(
+    exerciseItemsContainer!,
+    exerciseItemsPaginationContainer!,
+    pageSize,
+    `It appears that there are no any exercises for selected filters. Try to change filters or search criteria.`
+  );
+}
 
-
-
-const subscriptionFormElement = document.querySelector<HTMLFormElement>('.subscribe-form')
-new SubscriptionForm(subscriptionFormElement!);
+function initForm(): SubscriptionForm {
+  const subscriptionFormElement = document.querySelector<HTMLFormElement>('.subscribe-form')
+  return new SubscriptionForm(subscriptionFormElement!);
+}

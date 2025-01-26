@@ -43,12 +43,9 @@
   margin-bottom: 20px;
 }
 
-.hero-main-picture {
-  margin-bottom: 20px;
-}
-
 .hero-main-image {
   width: 100%;
+  margin-bottom: 20px;
   border-radius: 30px;
   overflow: hidden;
 }
@@ -64,6 +61,8 @@
 
 .hero-tags {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: right;
   gap: 8px;
 }
 
@@ -106,11 +105,8 @@
     margin-bottom: 32px;
   }
 
-  .hero-main-picture {
-    margin-bottom: 16px;
-  }
-
   .hero-main-image {
+    margin-bottom: 16px;
     border-radius: 60px;
   }
 
