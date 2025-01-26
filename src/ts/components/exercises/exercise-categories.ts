@@ -85,6 +85,7 @@ export class ExerciseCategories {
         <img
           class="exercise-category-image"
           src="${category.imgURL}"
+          loading="lazy"
           alt="${category.name || 'No name'}"
         />
         <div class="exercise-category-overlay" role="button" tabindex="0">
