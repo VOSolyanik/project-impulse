@@ -24,6 +24,11 @@ export class Pagination {
     this.notifyListeners();
   }
 
+  setTotalPages(totalPages: number): void {
+    this.totalPages = totalPages;
+    this.view.render();
+  }
+
   nextPage(): void {
     this.setPage(this.currentPage + 1);
   }
@@ -69,6 +74,10 @@ export class Pagination {
 
   getTotalPages(): number {
     return this.totalPages;
+  }
+
+  clear(): void {
+    this.view.clear();
   }
 
   onPageChange(listener: PageChangeCallback): void {

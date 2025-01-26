@@ -1,9 +1,16 @@
-import { Pagination } from "@/components/pagination";
 
-const container = document.querySelector<HTMLElement>(".pagination-wrapper");
+import { FavoritesExerciseItems } from "@/components/exercises/favorites-exercise-items";
+import { favoritesState } from "@/components/favorites/favorites-state";
 
-const pagination = new Pagination(container!, 5, 12);
+const exerciseItemsContainer = document
+    .querySelector<HTMLElement>('.exercise-cards-list');
 
-pagination.onPageChange((page, pageSize) => {
-  console.log("Make API request here", page, pageSize);
+const exerciseItems = new FavoritesExerciseItems(
+  exerciseItemsContainer!,
+  favoritesState.gerFavorites()
+);
+
+exerciseItems.onExerciseDelete((id) => {
+  favoritesState.removeFavorite(id);
+  exerciseItems.setFavoriteIds(favoritesState.gerFavorites());
 })

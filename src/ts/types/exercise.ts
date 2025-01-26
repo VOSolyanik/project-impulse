@@ -1,11 +1,13 @@
 import { PaginationParams } from './pagination';
 
-type GetExercisesParams = PaginationParams & {
+type ExercisesParams = {
   bodypart?: string;
   muscles?: string;
   equipment?: string;
   keyword?: string;
-};
+}
+
+type GetExercisesParams = PaginationParams & ExercisesParams;
 
 type Exercise = {
   _id: string;
@@ -28,11 +30,12 @@ type ExerciseRatingRequest = {
 };
 
 type ExerciseRatingResponse = {
-  success: boolean; // Чи успішно оновлено
-  updatedExercise?: Exercise; // Оновлений об'єкт вправи
+  success: boolean;
+  updatedExercise?: Exercise;
 };
 
 export {
+  ExercisesParams,
   GetExercisesParams,
   Exercise,
   ExerciseRatingRequest,

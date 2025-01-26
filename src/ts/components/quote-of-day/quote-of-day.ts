@@ -2,7 +2,7 @@ import { fetchQuote } from '@/api/quote.api';
 import { QuoteOfDay } from '@/types/quote-of-day';
 
 export class QuoteOfTheDay {
-  private static readonly LOCAL_STORAGE_KEY = 'quoteOfTheDay';
+  private static readonly LOCAL_STORAGE_KEY = 'yourEnergy.quoteOfTheDay';
 
   public async initialize(): Promise<void> {
     const storedData = this.getStoredQuote();

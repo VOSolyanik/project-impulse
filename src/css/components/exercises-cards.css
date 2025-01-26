@@ -75,14 +75,15 @@
 }
 
 .icon-runningman-bg {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background-color: var(--primary-text-color);
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-right: 8px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--primary-text-color);
 }
 .icon-runningman-bg .fill-icon {
   color: var(--primary-bg-color);
@@ -91,7 +92,10 @@
 .exercise-card__title {
   font-weight: 400;
   font-size: 20px;
-  line-height: 1;
+  line-height: 1.2;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .exercise-card__info {
@@ -112,11 +116,16 @@
 }
 
 .exercise-card__item-label {
+  margin-right: 4px;
   font-weight: 400;
   font-size: 12px;
   line-height: 1.5;
   color: var(--gray-medium);
   white-space: nowrap;
+}
+
+.exercise-card__info-item:not(:first-child) .exercise-card__item-content {
+  text-transform: capitalize;
 }
 
 .exercise-card__item-content {
