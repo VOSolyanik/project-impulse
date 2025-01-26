@@ -86,8 +86,9 @@ export class ModalRating extends Modal {
 
   private successToast() {
     iziToast.success({
-      message: 'Thanks for the feedback.',
+      message: 'Thank you for the feedback.',
       position: 'topRight',
+      close: false,
     });
   }
 
