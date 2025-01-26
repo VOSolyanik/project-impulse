@@ -1,4 +1,5 @@
 import spriteUrl from '../../../images/sprite.svg';
+import '../../utils/calculate-scroll-bar';
 
 export abstract class Modal {
   protected dialog!: HTMLDialogElement;
