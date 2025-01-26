@@ -1,9 +1,8 @@
 import { AxiosError } from 'axios';
-import { updateExerciseRating } from '../../api/exersises.api';
+import { updateExerciseRating } from '../../api/exercises.api';
 import { Exercise } from '../../types/exercise';
-import Modal from './modal';
-import Toastify from 'toastify-js';
-import 'toastify-js/src/toastify.css';
+import { Modal } from './modal';
+import iziToast from 'izitoast';
 
 export class ModalRating extends Modal {
   private exerciseID: Exercise['_id'];
@@ -11,21 +10,35 @@ export class ModalRating extends Modal {
   private comment: string = '';
   private rating: string = '0';
 
-  private form: HTMLFormElement;
-  private ratingTitle: HTMLSpanElement;
-  private stars: HTMLInputElement[];
+  private ratingTitle!: HTMLSpanElement;
+  private stars!: HTMLInputElement[];
 
   constructor(selector: string, exercise: Exercise) {
     super(selector);
     this.exerciseID = exercise._id;
-    this.dialog = this.dialogTemplate;
-    this.form = this.dialog.querySelector('.modal-form') as HTMLFormElement;
+  }
 
-    this.ratingTitle = this.form.querySelector(
+  public show = (callbackOnClose?: CallableFunction): void => {
+    this.render();
+    this.showDialog(callbackOnClose);
+
+    this.renderStars();
+  };
+
+  private render(): void {
+    const modalContent = this.dialogContentTemplate.cloneNode(
+      true
+    ) as HTMLTemplateElement;
+
+    const form = modalContent.content.querySelector(
+      '.modal-form'
+    ) as HTMLFormElement;
+
+    this.ratingTitle = form.querySelector(
       '[data-rating-title]'
     ) as HTMLSpanElement;
 
-    const ratingElements = this.form.elements.namedItem('rating');
+    const ratingElements = form.elements.namedItem('rating');
 
     if (ratingElements instanceof RadioNodeList) {
       this.stars = Array.from(ratingElements) as HTMLInputElement[];
@@ -33,27 +46,13 @@ export class ModalRating extends Modal {
       this.stars = [];
     }
 
-    this.form.addEventListener('change', this.inputHandler);
-    this.form.addEventListener('input', this.inputHandler);
-    this.form.addEventListener('submit', this.submitHandler);
+    form.addEventListener('change', this.inputHandler);
+    form.addEventListener('input', this.inputHandler);
+    form.addEventListener('submit', this.submitHandler);
 
-    const closeButton = this.dialog.querySelector(
-      '[data-close-element]'
-    ) as HTMLButtonElement;
-
-    closeButton.addEventListener('click', this.close);
-
-    this.dialog.addEventListener('mousedown', event => {
-      if (event.target === event.currentTarget) {
-        this.close();
-      }
-    });
+    this.dialogContent.innerHTML = '';
+    this.dialogContent.appendChild(modalContent.content);
   }
-
-  public show = (callbackOnClose?: CallableFunction): void => {
-    super.show(callbackOnClose);
-    this.render();
-  };
 
   private inputHandler = (event: Event) => {
     const target = event.target as HTMLInputElement;
@@ -61,7 +60,7 @@ export class ModalRating extends Modal {
     if (target.name in this) {
       (this as any)[target.name] = target.value;
     }
-    if (target.name === 'rating') this.render();
+    if (target.name === 'rating') this.renderStars();
   };
 
   private submitHandler = async (event: SubmitEvent) => {
@@ -85,30 +84,23 @@ export class ModalRating extends Modal {
     }
   };
 
-  private showToast(message: string) {
-    Toastify({
-      text: message,
-      duration: 5000,
-      gravity: 'top', // `top` or `bottom`
-      position: 'center', // `left`, `center` or `right`
-      stopOnFocus: true, // Prevents dismissing of toast on hover
-      style: {
-        'border-radius': '10px',
-        background: 'var(--primary-text-color)',
-        padding: '20px',
-      },
-    }).showToast();
-  }
-
   private successToast() {
-    this.showToast('Success');
+    iziToast.success({
+      message: 'Thanks for the feedback.',
+      position: 'topRight',
+    });
   }
 
   private errorToast(message: string) {
-    this.showToast(message);
+    iziToast.error({
+      message,
+      position: 'topRight',
+      close: false,
+      // backgroundColor: 'var(--primary-text-color)',
+    });
   }
 
-  private render(): void {
+  private renderStars(): void {
     if (!this.stars.length) return;
     // rating
     this.stars.forEach(element =>

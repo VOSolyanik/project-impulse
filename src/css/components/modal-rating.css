@@ -1,5 +1,5 @@
 @media screen and (min-width: 768px) {
-  .modal-rating-container {
+  .modal-container:has(.modal-form) {
     min-width: unset;
     width: 430px;
   }
