@@ -1,7 +1,7 @@
 import { Exercise } from '@/types/exercise';
+const baseUrl = import.meta.env.BASE_URL;
 
 type ExerciseSelectCallback = (id: string) => void;
-
 export class ExerciseItems {
   private emptyStateElement: HTMLElement | null = null;
   private onExerciseSelectCallback?: ExerciseSelectCallback;
@@ -96,28 +96,28 @@ export class ExerciseItems {
             ? `
             <button class="btn-icon" type="button" data-delete-id="${item._id}">
               <svg class="icon stroke-icon" width="16" height="16">
-                <use href="/images/sprite.svg#icon-trash"></use>
+                <use href="${baseUrl}images/sprite.svg#icon-trash"></use>
               </svg>
             </button>`
             : `
             <span class="rating-wrapper">
               <p class="exercise-rating">${item.rating.toFixed(1)}</p>
               <svg class="icon fill-icon exercise-rating-icon" width="14" height="14">
-                <use href="/images/sprite.svg#icon-star"></use>
+                <use href="${baseUrl}images/sprite.svg#icon-star"></use>
               </svg>
             </span>`
           }
           <button class="exercise-card__btn" type="button" data-start-id="${item._id}">
             Start
             <svg class="icon fill-icon arrow-icon" width="16" height="16">
-              <use href="/images/sprite.svg#icon-arw-scroll"></use>
+              <use href="${baseUrl}images/sprite.svg#icon-arw-scroll"></use>
             </svg>
           </button>
         </div>
         <div class="exercise-card__main">
           <div class="icon-runningman-bg">
             <svg class="icon fill-icon icon-runningman" width="16" height="16">
-              <use href="/images/sprite.svg#icon-runningman"></use>
+              <use href="${baseUrl}images/sprite.svg#icon-runningman"></use>
             </svg>
           </div>
           <h3 class="exercise-card__title">${name}</h3>
