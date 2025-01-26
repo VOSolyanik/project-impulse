@@ -80,10 +80,6 @@ export class ExerciseCategories {
   }
 
   private createCategoryItem(category: Filter): string {
-    const name = category.name
-      ? category.name.charAt(0).toUpperCase() + category.name.slice(1)
-      : '';
-
     return `
       <li class="exercise-category-card" data-type="${category.name}">
         <img
@@ -92,7 +88,7 @@ export class ExerciseCategories {
           alt="${category.name || 'No name'}"
         />
         <div class="exercise-category-overlay">
-          <h3 class="exercise-category-title">${name}</h3>
+          <h3 class="exercise-category-title">${category.name}</h3>
           <p class="exercise-category-subtitle">${category.filter}</p>
         </div>
       </li>

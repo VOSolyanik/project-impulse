@@ -124,16 +124,16 @@
   white-space: nowrap;
 }
 
-.exercise-card__info-item:not(:first-child) .exercise-card__item-content {
-  text-transform: capitalize;
-}
-
 .exercise-card__item-content {
   font-weight: 400;
   font-size: 12px;
   line-height: 1.5;
   color: var(--primary-text-color);
   white-space: nowrap;
+}
+
+.exercise-card__item-content::first-letter {
+  text-transform: uppercase;
 }
 
 @media only screen and (min-width: 768px) {

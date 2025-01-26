@@ -18,11 +18,15 @@
 }
 
 .filter-value {
+  margin-left: 8px;
   font-size: 20px;
   line-height: 1;
   letter-spacing: -0.02em;
   color: var(--gray-middle);
-  margin-left: 8px;
+}
+
+.filter-value::first-letter {
+  text-transform: uppercase;
 }
 
 .filters-wrapper .input-wrapper {
