@@ -124,7 +124,6 @@ export class ExerciseModal extends Modal<Exercise> {
     buttonIcon: SVGElement,
     isEvent = true
   ) {
-    debugger;
     let isFavorite = favoritesState.isFavorite(id);
     if (isEvent) isFavorite = !isFavorite;
 

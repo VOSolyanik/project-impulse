@@ -71,7 +71,6 @@ export class ExerciseCategories {
         perPage
       );
       this.pagination.onPageChange((page, itemsPerPage) => {
-        debugger;
         this.loadData(page, itemsPerPage);
       });
     } else {
