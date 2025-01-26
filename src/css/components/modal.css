@@ -1,3 +1,8 @@
+body:has(dialog) {
+  overflow: hidden;
+  padding-right: var(--scroll-padding-right);
+}
+
 .modal {
   transform: translateY(10%);
 }
@@ -5,7 +10,7 @@
 /*   Open state of the dialog  */
 .modal[open] {
   opacity: 1;
-  transform: translateY(0px);
+  transform: translate(calc(var(--scroll-padding-right) / 2 * -1), 0px);
 
   /*   Before-open state  */
   /* Needs to be after the previous dialog[open] rule to take effect,
@@ -22,15 +27,15 @@
   transform: scaleY(0);
   transition: opacity var(--transition-duration) var(--transition-function),
     transform var(--transition-duration) var(--transition-function),
-    overlay var(--transition-duration) var(--transition-function),
-    display var(--transition-duration) var(--transition-function);
+    overlay var(--transition-duration) var(--transition-function) allow-discrete,
+    display var(--transition-duration) var(--transition-function) allow-discrete;
 }
 
 /* Transition the :backdrop when the dialog modal is promoted to the top layer */
 .modal::backdrop {
   background-color: rgb(0 0 0 / 0%);
-  transition: display var(--transition-duration),
-    overlay var(--transition-duration),
+  transition: display var(--transition-duration) allow-discrete,
+    overlay var(--transition-duration) allow-discrete,
     background-color var(--transition-duration);
 }
 
@@ -45,30 +50,26 @@
 /* This starting-style rule cannot be nested inside the above selector
 because the nesting selector cannot represent pseudo-elements. */
 
-
 .modal {
   border: none;
   padding: 0;
   background-color: transparent;
+  border-radius: 20px;
 }
 
 .modal *::first-letter {
   text-transform: capitalize;
 }
 
-@media screen and (min-width: 768px) {
-  .modal {
-    width: 704px;
-  }
-}
-
 .modal-container {
   padding: 40px 20px;
-  border-radius: 20px;
-  background: var(--charcoal-color);
+
   position: relative;
   color: var(--paper-white-color);
-  width: 335px;
+  max-width: 335px;
+  width: 100%;
+  max-height: calc(100vh - 40px);
+  overflow: auto;
 }
 
 @media screen and (min-width: 768px) {
@@ -97,7 +98,135 @@ because the nesting selector cannot represent pseudo-elements. */
 }
 
 .modal-close-button:hover {
-  transform: scale(1.2);
+  scale: 1.2;
+}
+
+.modal-summary {
+  margin-top: 20px;
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .modal-summary {
+    margin-top: 0;
+    min-width: 10%;
+  }
+}
+
+.modal-title {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .modal-title {
+    font-size: 24px;
+    line-height: 133.333%;
+  }
+}
+
+.modal-rating {
+  margin-top: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  .modal-rating {
+    margin-top: 8px;
+  }
+}
+
+.exercise-rating__group {
+  margin-top: 10px;
+  color: var(--paper-white-color);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 150%;
+  gap: 2px;
+}
+
+.rating-stars {
+  gap: 2px;
+}
+
+.hidden-svg-clip {
+  position: absolute;
+  z-index: -100;
+  top: 0;
+  left: 0;
+  width: 14px;
+  height: 13px;
+}
+
+.params-list {
+  margin-top: 20px;
+
+  padding: 10px 0;
+  border-color: rgb(var(--paper-white-rgb), 0.2);
+  border-width: 1px;
+  border-top-style: solid;
+  border-bottom-style: solid;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+@media screen and (min-width: 768px) {
+  .params-list {
+    padding: 8px 0;
+    margin-top: 16px;
+    gap: 16px;
+  }
+}
+
+.params-item {
+  text-wrap: nowrap;
+}
+
+.params-title {
+  color: rgb(var(--paper-white-rgb), 0.4);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 150%;
+  width: fit-content;
+}
+
+.params-value {
+  margin-top: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 128.571%;
+}
+
+.modal-description {
+  margin-top: 20px;
+  color: rgb(var(--paper-white-rgb), 0.6);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 128.571%;
+}
+
+@media screen and (min-width: 768px) {
+  .modal-description {
+    margin-top: 16px;
+  }
+}
+
+.modal-container-buttons {
+  min-width: 100%;
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  .modal-container-buttons {
+    margin-top: 64px;
+    flex-direction: row;
+    /* flex-wrap: wrap; */
+    justify-content: right;
+  }
 }
 
 .modal-button {
@@ -106,6 +235,44 @@ because the nesting selector cannot represent pseudo-elements. */
 
 @media screen and (min-width: 768px) {
   .modal-button {
-    width: fit-content;
+    min-width: fit-content;
   }
+}
+
+@media screen and (min-width: 768px) {
+  .modal-button-favorite {
+    flex-grow: 1;
+  }
+}
+
+.icon-star {
+  fill: rgb(var(--paper-white-rgb), 0.2);
+  transition: transform var(--transition-duration) var(--transition-function);
+}
+
+.icon-star-filled {
+  fill: #eea10c;
+}
+.icon-star-filled:not(.static) {
+  animation-duration: var(--transition-duration);
+  animation-timing-function: var(--transition-function);
+  animation-name: star-appeared;
+}
+
+@keyframes star-appeared {
+  0% {
+    transform: scale(0.2);
+  }
+
+  50% {
+    transform: scale(1.5);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.modal-give-rating-button {
+  padding: 12px 22px;
 }

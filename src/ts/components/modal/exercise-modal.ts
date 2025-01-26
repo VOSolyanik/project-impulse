@@ -1,7 +1,10 @@
-import { Exercise } from '@/types/exercise';
+// import { getExerciseById } from '../../api/exersises.api';
+import { Exercise } from '../../types/exercise';
 import { Modal } from './modal';
+import { ExerciseRatingModal } from './rating-modal';
+
 import { favoritesState } from '@/favorites-state';
-import spriteUrl from "../../../images/sprite.svg";
+import spriteUrl from '../../../images/sprite.svg';
 
 type ModalElements = {
   name: HTMLTitleElement;
@@ -17,24 +20,28 @@ type ModalElements = {
 };
 
 type FavoriteToggleCallback = (id: string) => void;
+type RatingOpenCallback = (item: Exercise) => void;
 
 export class ExerciseModal extends Modal<Exercise> {
-  onFavoriteToggleCallback?: FavoriteToggleCallback;
+  private exercise: Exercise | null = null;
+  private onFavoriteToggleCallback?: FavoriteToggleCallback;
+  private onRatingOpenCallback?: RatingOpenCallback;
 
-  constructor(selector: string) {
-    super(selector);
-  }
-
-  public show(props: Exercise): void {
-    this.render(props);
+  public show(data: Exercise): void {
+    this.exercise = data;
+    this.render();
     this.showDialog();
-  };
+  }
 
   public onFavoriteToggle(callback: FavoriteToggleCallback): void {
     this.onFavoriteToggleCallback = callback;
   }
 
-  private render(props: Exercise): void {
+  public onRatingOpen(callback: RatingOpenCallback): void {
+    this.onRatingOpenCallback = callback;
+  }
+
+  private render(): void {
     const modalContent = this.dialogContentTemplate.cloneNode(
       true
     ) as HTMLTemplateElement;
@@ -86,7 +93,7 @@ export class ExerciseModal extends Modal<Exercise> {
     // make changes in the elements
     for (const key in elements) {
       const element = elements[key as keyof ModalElements];
-      const value = props[key as keyof Exercise];
+      const value = this.exercise?.[key as keyof Exercise];
 
       if (value) {
         element.classList.remove('hidden');
@@ -117,11 +124,20 @@ export class ExerciseModal extends Modal<Exercise> {
     ) as SVGElement;
 
     buttonAddToFavorite.addEventListener('click', () => {
-      this.handleFavorite(props._id, buttonTitle, buttonIcon);
+      this.handleFavorite(this.exercise!._id, buttonTitle, buttonIcon);
+    });
+
+    const buttonGiveRating = modalContent.content.querySelector(
+      '[data-add-rating-element]'
+    ) as HTMLButtonElement;
+
+    buttonGiveRating.addEventListener('click', () => {
+      this.close();
+      this.onRatingOpenCallback?.(this.exercise!);
     });
 
     // update text and icon for favorite on init
-    this.handleFavorite(props._id, buttonTitle, buttonIcon, false);
+    this.handleFavorite(this.exercise!._id, buttonTitle, buttonIcon, false);
 
     this.dialogContent.innerHTML = '';
     this.dialogContent.appendChild(modalContent.content);

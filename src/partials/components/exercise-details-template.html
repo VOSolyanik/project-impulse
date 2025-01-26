@@ -1,88 +1,119 @@
 <template id="exercise-modal-content">
-<div class="exercise-details__image-wrapper">
-  <img
-    src="https://ftp.goit.study/img/power-pulse/gifs/0003.gif"
-    alt=""
-    data-gif-element
-  />
-</div>
-<div class="exercise-details__content">
-  <h2 class="title exercise-details__title" data-name-element>
-    Stationary bike walk
-  </h2>
-  <p class="exercise-details__rating">
-    <span
-      class="exercise-details__rating-value"
-      data-rating-element
-      aria-label="rating"
-      >4.00</span
-    >
-    <span class="rating-stars" data-rating-list aria-hidden="true">
-      <load src="partials/components/rating-star.html" />
-      <load src="partials/components/rating-star.html" />
-      <load src="partials/components/rating-star.html" />
-      <load src="partials/components/rating-star.html" />
-      <load src="partials/components/rating-star.html" />
-    </span>
-    <!-- #region star fill -->
-    <svg class="hidden-svg-clip">
-      <defs>
-        <clipPath data-cut-off-star>
-          <rect x="0" y="0" width="7" height="13" data-cut-percent />
-        </clipPath>
-      </defs>
-    </svg>
-    <!-- #endregion star fill -->
-  </p>
-  <ul class="exercise-details__params-list">
-    <li class="exercise-details__params-item">
-      <p class="exercise-details__params-title">Target</p>
-      <p class="exercise-details__params-value" data-target-element>
-        Cardiovascular system
-      </p>
-    </li>
-    <li class="exercise-details__params-item">
-      <p class="exercise-details__params-title">Body Part</p>
-      <p class="exercise-details__params-value" data-bodyPart-element>Cardio</p>
-    </li>
-    <li class="exercise-details__params-item">
-      <p class="exercise-details__params-title">Equipment</p>
-      <p class="exercise-details__params-value" data-equipment-element>Leverage machine</p>
-    </li>
-    <li class="exercise-details__params-item">
-      <p class="exercise-details__params-title">Popular</p>
-      <p class="exercise-details__params-value" data-popular-element>0</p>
-    </li>
-    <li class="exercise-details__params-item">
-      <p class="exercise-details__params-title">Burned calories</p>
-      <p class="exercise-details__params-value">
-        <span data-burnedCalories-element>116</span>/<span
-          data-time-element
-          >3</span
-        >
-        min
-      </p>
-    </li>
-  </ul>
-  <p class="exercise-details__description" data-description-element>
-    While not a muscle, this system is essential for endurance training.
-    Aerobic exercises like running, cycling, and swimming improve
-    cardiovascular health.
-  </p>
-  <div class="exercise-details__buttons">
-    <button
-      class="btn btn-primary inverse exercise-details__button-favorite modal-button"
-      data-favorite-element
-    >
-      <span data-favorite-title>Add to favorites</span>
-      <svg width="20" height="20" class="icon stroke-icon">
-        <use href="/images/sprite.svg#icon-heart" data-favorite-icon />
-      </svg>
-    </button>
-
-    <button class="btn btn-outline inverse hidden modal-button" hidden>
-      Give a rating
-    </button>
+  <div class="exercise-details__image-wrapper">
+    <img
+      src="https://ftp.goit.study/img/power-pulse/gifs/0003.gif"
+      alt=""
+      data-gif-element
+    />
   </div>
-</div>
+  <div class="exercise-details__content">
+    <h2 class="title exercise-details__title" data-name-element>
+      Stationary bike walk
+    </h2>
+    <p class="exercise-details__rating">
+      <span
+        class="exercise-details__rating-value"
+        data-rating-element
+        aria-label="rating"
+        >4.00</span
+      >
+      <span class="rating-stars" data-rating-list aria-hidden="true">
+        <load
+          src="partials/components/rating-star.html"
+          width="14"
+          height="13"
+          class="static"
+        />
+        <load
+          src="partials/components/rating-star.html"
+          width="14"
+          height="13"
+          class="static"
+        />
+        <load
+          src="partials/components/rating-star.html"
+          width="14"
+          height="13"
+          class="static"
+        />
+        <load
+          src="partials/components/rating-star.html"
+          width="14"
+          height="13"
+          class="static"
+        />
+        <load
+          src="partials/components/rating-star.html"
+          width="14"
+          height="13"
+          class="static"
+        />
+      </span>
+      <!-- #region star fill -->
+      <svg class="hidden-svg-clip">
+        <defs>
+          <clipPath data-cut-off-star>
+            <rect x="0" y="0" width="7" height="13" data-cut-percent />
+          </clipPath>
+        </defs>
+      </svg>
+      <!-- #endregion star fill -->
+    </p>
+    <ul class="exercise-details__params-list">
+      <li class="exercise-details__params-item">
+        <p class="exercise-details__params-title">Target</p>
+        <p class="exercise-details__params-value" data-target-element>
+          Cardiovascular system
+        </p>
+      </li>
+      <li class="exercise-details__params-item">
+        <p class="exercise-details__params-title">Body Part</p>
+        <p class="exercise-details__params-value" data-bodyPart-element>
+          Cardio
+        </p>
+      </li>
+      <li class="exercise-details__params-item">
+        <p class="exercise-details__params-title">Equipment</p>
+        <p class="exercise-details__params-value" data-equipment-element>
+          Leverage machine
+        </p>
+      </li>
+      <li class="exercise-details__params-item">
+        <p class="exercise-details__params-title">Popular</p>
+        <p class="exercise-details__params-value" data-popular-element>0</p>
+      </li>
+      <li class="exercise-details__params-item">
+        <p class="exercise-details__params-title">Burned calories</p>
+        <p class="exercise-details__params-value">
+          <span data-burnedCalories-element>116</span>/<span data-time-element
+            >3</span
+          >
+          min
+        </p>
+      </li>
+    </ul>
+    <p class="exercise-details__description" data-description-element>
+      While not a muscle, this system is essential for endurance training.
+      Aerobic exercises like running, cycling, and swimming improve
+      cardiovascular health.
+    </p>
+    <div class="exercise-details__buttons">
+      <button
+        class="btn btn-primary inverse exercise-details__button-favorite modal-button"
+        data-favorite-element
+      >
+        <span data-favorite-title>Add to favorites</span>
+        <svg width="20" height="20" class="icon stroke-icon">
+          <use href="/images/sprite.svg#icon-heart" data-favorite-icon />
+        </svg>
+      </button>
+
+      <button
+        class="btn btn-outline inverse modal-button"
+        data-add-rating-element
+      >
+        Give a rating
+      </button>
+    </div>
+  </div>
 </template>

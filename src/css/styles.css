@@ -37,3 +37,5 @@
 @import url('./sections/favorites.css');
 
 @import url('./sections/footer.css');
+@import url('./components/modal.css');
+@import url('./components/modal-rating.css');
