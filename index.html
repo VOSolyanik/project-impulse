@@ -21,13 +21,13 @@
     />
     <script type="module" crossorigin src="/project-impulse/index.js"></script>
     <link rel="modulepreload" crossorigin href="/project-impulse/assets/vendor-4jich7g5.js">
-    <link rel="modulepreload" crossorigin href="/project-impulse/assets/main-BelWY9mx.js">
+    <link rel="modulepreload" crossorigin href="/project-impulse/assets/main-BdBuoNib.js">
     <link rel="stylesheet" crossorigin href="/project-impulse/assets/styles-YBXdVMX1.css">
   </head>
   <body>
     <header class="header">
   <div class="container header-container">
-    <a href="./index.html" class="nav-logo" aria-label="Site logo">
+    <a href="./index.html" class="nav-logo" aria-label="Home page">
       <svg class="nav-logo-icon" width="132" height="24">
         <use href="/project-impulse/assets/sprite-Bf1cmz4A.svg#icon-logo"></use>
       </svg>
@@ -35,10 +35,10 @@
     <nav class="nav">
       <ul class="nav-list">
         <li class="nav-item">
-          <a class="nav-link active" href="./index.html">Home</a>
+          <a class="nav-link active" href="./index.html" aria-label="Home page">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {=$favorites-active}" href="./favorites.html">Favorites</a>
+          <a class="nav-link {=$favorites-active}" href="./favorites.html" aria-label="Favorites page">Favorites</a>
         </li>
       </ul>
     </nav>
@@ -78,6 +78,7 @@
   <button
     class="menu-close-btn js-menu-close"
     aria-label="Close mobile menu"
+    aria-hidden="true"
   >
     <svg class="stroke-icon" width="32" height="32">
       <use href="/project-impulse/assets/sprite-Bf1cmz4A.svg#icon-x"></use>
@@ -86,10 +87,10 @@
   <nav class="mobile-nav">
     <ul class="mobile-nav-list">
       <li class="mobile-nav-item">
-        <a class="mobile-nav-link" href="./index.html">Home</a>
+        <a class="mobile-nav-link" href="./index.html" aria-label="Home page">Home</a>
       </li>
       <li class="mobile-nav-item">
-        <a class="mobile-nav-link" href="./favorites.html">Favorites</a>
+        <a class="mobile-nav-link" href="./favorites.html" aria-label="Favorites page">Favorites</a>
       </li>
     </ul>
   </nav>
@@ -271,7 +272,7 @@
     </div>
     <div class="quote-content">
       <div class="quote-title-wrapper">
-        <h5 class="quote-title">Quote of the day</h5>
+        <h2 class="quote-title">Quote of the day</h5>
         <svg class="quote-title-icon fill-icon">
           <use href="/project-impulse/assets/sprite-Bf1cmz4A.svg#icon-commas"></use>
         </svg>
@@ -288,7 +289,7 @@
       </svg>
     </div>
     <div class="useful-info-content">
-      <h5 class="useful-info-title">110 min</h5>
+      <p class="useful-info-title">110 min</p>
       <p class="useful-info-subtitle">Daily norm of sports</p>
       <p class="useful-info-text">
         The World Health Organization recommends at least 150 minutes of
@@ -313,7 +314,7 @@
       <div class="footer-top-container">
         <div class="footer-logo-social-wrapper">
           <div class="footer-logo-container">
-            <a href="./index.html" class="footer-logo">
+            <a href="./index.html" class="footer-logo" aria-label="Home page">
               <svg class="fill-icon" width="132" height="24">
                 <use href="/project-impulse/assets/sprite-Bf1cmz4A.svg#icon-logo"></use>
               </svg>
@@ -376,11 +377,11 @@
         <p>Your Energy. All rights reserved.</p>
         <ul class="footer-policies">
           <li>
-            <a href="#privacy-policy">Privacy Policy</a>
+            <a href="#privacy-policy" aria-label="Privacy Policy">Privacy Policy</a>
           </li>
           <li>/</li>
           <li class="footer-right-text">
-            <a href="#terms-of-service">Terms of Service</a>
+            <a href="#terms-of-service" aria-label="Terms of Service">Terms of Service</a>
           </li>
         </ul>
         <p>&copy;2023</p>
@@ -466,25 +467,25 @@
   </p>
   <ul class="exercise-details__params-list">
     <li class="exercise-details__params-item">
-      <h3 class="exercise-details__params-title">Target</h3>
+      <p class="exercise-details__params-title">Target</p>
       <p class="exercise-details__params-value" data-target-element>
         Cardiovascular system
       </p>
     </li>
     <li class="exercise-details__params-item">
-      <h3 class="exercise-details__params-title">Body Part</h3>
+      <p class="exercise-details__params-title">Body Part</p>
       <p class="exercise-details__params-value" data-bodyPart-element>Cardio</p>
     </li>
     <li class="exercise-details__params-item">
-      <h3 class="exercise-details__params-title">Equipment</h3>
+      <p class="exercise-details__params-title">Equipment</p>
       <p class="exercise-details__params-value" data-equipment-element>Leverage machine</p>
     </li>
     <li class="exercise-details__params-item">
-      <h3 class="exercise-details__params-title">Popular</h3>
+      <p class="exercise-details__params-title">Popular</p>
       <p class="exercise-details__params-value" data-popular-element>0</p>
     </li>
     <li class="exercise-details__params-item">
-      <h3 class="exercise-details__params-title">Burned calories</h3>
+      <p class="exercise-details__params-title">Burned calories</p>
       <p class="exercise-details__params-value">
         <span data-burnedCalories-element>116</span>/<span
           data-time-element
