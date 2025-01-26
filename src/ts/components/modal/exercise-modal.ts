@@ -3,8 +3,6 @@ import { Modal } from './modal';
 import { favoritesState } from '@/favorites-state';
 import spriteUrl from "../../../images/sprite.svg";
 
-const baseUrl = import.meta.env.BASE_URL;
-
 type ModalElements = {
   name: HTMLTitleElement;
   gifUrl: HTMLImageElement;
@@ -18,7 +16,11 @@ type ModalElements = {
   description: HTMLParagraphElement;
 };
 
+type FavoriteToggleCallback = (id: string) => void;
+
 export class ExerciseModal extends Modal<Exercise> {
+  onFavoriteToggleCallback?: FavoriteToggleCallback;
+
   constructor(selector: string) {
     super(selector);
   }
@@ -27,6 +29,10 @@ export class ExerciseModal extends Modal<Exercise> {
     this.render(props);
     this.showDialog();
   };
+
+  public onFavoriteToggle(callback: FavoriteToggleCallback): void {
+    this.onFavoriteToggleCallback = callback;
+  }
 
   private render(props: Exercise): void {
     const modalContent = this.dialogContentTemplate.cloneNode(
@@ -111,17 +117,17 @@ export class ExerciseModal extends Modal<Exercise> {
     ) as SVGElement;
 
     buttonAddToFavorite.addEventListener('click', () => {
-      this.handleButtonFavorite(props._id, buttonTitle, buttonIcon);
+      this.handleFavorite(props._id, buttonTitle, buttonIcon);
     });
 
     // update text and icon for favorite on init
-    this.handleButtonFavorite(props._id, buttonTitle, buttonIcon, false);
+    this.handleFavorite(props._id, buttonTitle, buttonIcon, false);
 
     this.dialogContent.innerHTML = '';
     this.dialogContent.appendChild(modalContent.content);
   }
 
-  private handleButtonFavorite(
+  private handleFavorite(
     id: Exercise['_id'],
     buttonTitle: HTMLSpanElement,
     buttonIcon: SVGElement,
@@ -139,6 +145,7 @@ export class ExerciseModal extends Modal<Exercise> {
       buttonTitle.innerHTML = 'Add to favorites';
       buttonIcon.setAttribute('href', `${spriteUrl}#icon-heart`);
     }
+    this.onFavoriteToggleCallback?.(id);
   }
 
   private renderStars(

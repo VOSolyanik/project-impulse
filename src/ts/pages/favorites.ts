@@ -27,3 +27,7 @@ exerciseItems.onExerciseSelect(async id => {
   const exercise = await getExerciseById(id);
   modal.show(exercise);
 });
+
+modal.onFavoriteToggle(() => {
+  exerciseItems.setFavoriteIds(favoritesState.gerFavorites());
+});
