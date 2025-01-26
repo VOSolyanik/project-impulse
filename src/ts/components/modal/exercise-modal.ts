@@ -1,7 +1,7 @@
 // import { getExerciseById } from '../../api/exersises.api';
 import { Exercise } from '../../types/exercise';
 import { Modal } from './modal';
-import { ModalRating } from './modal-rating';
+import { ExerciseRatingModal } from './rating-modal';
 
 import { favoritesState } from '@/favorites-state';
 import spriteUrl from '../../../images/sprite.svg';
@@ -20,28 +20,25 @@ type ModalElements = {
 };
 
 type FavoriteToggleCallback = (id: string) => void;
+type RatingOpenCallback = (item: Exercise) => void;
 
-export class ExerciseModal extends Modal {
-  private excercise: Exercise;
-  private ratingModal: ModalRating;
-  onFavoriteToggleCallback?: FavoriteToggleCallback;
+export class ExerciseModal extends Modal<Exercise> {
+  private exercise: Exercise | null = null;
+  private onFavoriteToggleCallback?: FavoriteToggleCallback;
+  private onRatingOpenCallback?: RatingOpenCallback;
 
-  constructor(selector: string, excercise: Exercise) {
-    super(selector);
-    this.excercise = excercise;
-    this.ratingModal = new ModalRating(
-      '#exercise-modal-rating',
-      this.excercise
-    );
-  }
-
-  public show(callbackOnClose?: CallableFunction): void {
+  public show(data: Exercise): void {
+    this.exercise = data;
     this.render();
-    this.showDialog(callbackOnClose);
+    this.showDialog();
   }
 
   public onFavoriteToggle(callback: FavoriteToggleCallback): void {
     this.onFavoriteToggleCallback = callback;
+  }
+
+  public onRatingOpen(callback: RatingOpenCallback): void {
+    this.onRatingOpenCallback = callback;
   }
 
   private render(): void {
@@ -96,7 +93,7 @@ export class ExerciseModal extends Modal {
     // make changes in the elements
     for (const key in elements) {
       const element = elements[key as keyof ModalElements];
-      const value = this.excercise[key as keyof Exercise];
+      const value = this.exercise?.[key as keyof Exercise];
 
       if (value) {
         element.classList.remove('hidden');
@@ -127,7 +124,7 @@ export class ExerciseModal extends Modal {
     ) as SVGElement;
 
     buttonAddToFavorite.addEventListener('click', () => {
-      this.handleFavorite(this.excercise._id, buttonTitle, buttonIcon);
+      this.handleFavorite(this.exercise!._id, buttonTitle, buttonIcon);
     });
 
     const buttonGiveRating = modalContent.content.querySelector(
@@ -136,17 +133,11 @@ export class ExerciseModal extends Modal {
 
     buttonGiveRating.addEventListener('click', () => {
       this.close();
-      this.ratingModal.show((excercise?: Exercise) => {
-        // update rating if changed
-        new ExerciseModal(
-          '#exercise-modal-content',
-          excercise || this.excercise
-        ).show();
-      });
+      this.onRatingOpenCallback?.(this.exercise!);
     });
 
     // update text and icon for favorite on init
-    this.handleFavorite(this.excercise._id, buttonTitle, buttonIcon, false);
+    this.handleFavorite(this.exercise!._id, buttonTitle, buttonIcon, false);
 
     this.dialogContent.innerHTML = '';
     this.dialogContent.appendChild(modalContent.content);

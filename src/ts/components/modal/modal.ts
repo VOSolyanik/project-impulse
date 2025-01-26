@@ -1,13 +1,12 @@
 import spriteUrl from '../../../images/sprite.svg';
 import '../../utils/calculate-scroll-bar';
 
-export abstract class Modal {
+export abstract class Modal<T> {
   protected dialog!: HTMLDialogElement;
   protected dialogContentTemplate!: HTMLTemplateElement;
   protected dialogContent!: HTMLDivElement;
   private dialogCloseButton!: HTMLButtonElement;
-
-  protected onClose?: CallableFunction;
+  private onCloseCallback?: CallableFunction;
 
   constructor(contentSelector: string) {
     this.dialogContentTemplate = document.querySelector(
@@ -16,16 +15,19 @@ export abstract class Modal {
     this.init();
   }
 
-  abstract show(callback?: CallableFunction): void;
+  abstract show(data: T): void;
 
-  public close = (props?: any): void => {
+  public close = (): void => {
     this.dialog.close();
 
     document.removeEventListener('keydown', this.handleKeyDown);
   };
 
-  protected showDialog(callbackOnClose?: CallableFunction): void {
-    this.onClose = callbackOnClose;
+  public onDialogClose(callback: CallableFunction): void {
+    this.onCloseCallback = callback;
+  }
+
+  protected showDialog(): void {
     document.body.appendChild(this.dialog);
 
     this.dialog.classList.remove('hidden');
@@ -34,13 +36,6 @@ export abstract class Modal {
     this.dialog.showModal();
 
     document.addEventListener('keydown', this.handleKeyDown);
-
-    this.dialog.addEventListener('close', () => {
-      if (this.onClose) this.onClose();
-      setTimeout(() => {
-        this.dialog.remove();
-      }, 300);
-    });
   }
 
   protected handleKeyDown = (event: KeyboardEvent): void => {
@@ -70,6 +65,13 @@ export abstract class Modal {
       if (event.target === event.currentTarget) {
         this.close();
       }
+    });
+
+    this.dialog.addEventListener('close', () => {
+      this.onCloseCallback?.();
+      setTimeout(() => {
+        this.dialog.remove();
+      }, 300);
     });
   }
 

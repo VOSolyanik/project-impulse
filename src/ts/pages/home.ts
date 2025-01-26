@@ -1,5 +1,5 @@
 import { FilterCategory } from '@/enums/filter-category';
-import { ExercisesParams } from '@/types/exercise';
+import { Exercise, ExercisesParams } from '@/types/exercise';
 import { getExerciseById } from '@/api/exercises.api';
 import { isMobileScreen } from '@/utils/is-mobile-screen';
 import { ExercisesFilters } from '@/components/exercises/exercises-filters';
@@ -7,6 +7,7 @@ import { ExerciseCategories } from '@/components/exercises/exercise-categories';
 import { HomeExerciseItems } from '@/components/exercises/home-exercise-items';
 import { SubscriptionForm } from '@/components/subscription-form';
 import { ExerciseModal } from '@/components/modal/exercise-modal';
+import { ExerciseRatingModal } from '@/components/modal/rating-modal';
 
 const EMPTY_STATE_MESSAGE = `It appears that there are no any exercises for selected filters.
 Try to change filters or search criteria.`;
@@ -18,6 +19,9 @@ const exerciseCategories = initCategories();
 const exerciseItems = initItems();
 
 const form = initForm();
+
+const exerciseModal = new ExerciseModal('#exercise-modal-content');
+const ratingModal = new ExerciseRatingModal('#exercise-rating-content');
 
 const paramNmeMap: Record<FilterCategory, keyof ExercisesParams> = {
   [FilterCategory.Muscles]: 'muscles',
@@ -42,9 +46,20 @@ exerciseCategories.onCategorySelect(category => {
   filters.setFilter(category);
 });
 
+const openExerciseModal = async (exercise: Exercise) => {
+  exerciseModal.show(exercise);
+  exerciseModal.onRatingOpen(item => {
+    debugger;
+    ratingModal.show(item);
+    ratingModal.onDialogClose(() => {
+      openExerciseModal(exercise);
+    })
+  });
+}
+
 exerciseItems.onExerciseSelect(async id => {
   const exercise = await getExerciseById(id);
-  new ExerciseModal('#exercise-modal-content', exercise).show();
+  openExerciseModal(exercise)
 });
 
 function initFilters(): ExercisesFilters {

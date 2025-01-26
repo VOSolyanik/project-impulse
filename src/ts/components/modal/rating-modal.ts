@@ -1,11 +1,11 @@
 import { AxiosError } from 'axios';
-import { updateExerciseRating } from '../../api/exercises.api';
-import { Exercise } from '../../types/exercise';
-import { Modal } from './modal';
 import iziToast from 'izitoast';
+import { updateExerciseRating } from '@/api/exercises.api';
+import { Exercise } from '@/types/exercise';
+import { Modal } from './modal';
 
-export class ModalRating extends Modal {
-  private exerciseID: Exercise['_id'];
+export class ExerciseRatingModal extends Modal<Exercise> {
+  private exercise: Exercise | null = null;
   private email: string = '';
   private comment: string = '';
   private rating: string = '0';
@@ -13,14 +13,11 @@ export class ModalRating extends Modal {
   private ratingTitle!: HTMLSpanElement;
   private stars!: HTMLInputElement[];
 
-  constructor(selector: string, exercise: Exercise) {
-    super(selector);
-    this.exerciseID = exercise._id;
-  }
+  public show(exercise: Exercise): void {
+    this.exercise = exercise;
 
-  public show = (callbackOnClose?: CallableFunction): void => {
     this.render();
-    this.showDialog(callbackOnClose);
+    this.showDialog();
 
     this.renderStars();
   };
@@ -31,7 +28,7 @@ export class ModalRating extends Modal {
     ) as HTMLTemplateElement;
 
     const form = modalContent.content.querySelector(
-      '.modal-form'
+      '.exercise-rating__form'
     ) as HTMLFormElement;
 
     this.ratingTitle = form.querySelector(
@@ -54,7 +51,7 @@ export class ModalRating extends Modal {
     this.dialogContent.appendChild(modalContent.content);
   }
 
-  private inputHandler = (event: Event) => {
+  private inputHandler = (event: Event): void => {
     const target = event.target as HTMLInputElement;
 
     if (target.name in this) {
@@ -63,41 +60,42 @@ export class ModalRating extends Modal {
     if (target.name === 'rating') this.renderStars();
   };
 
-  private submitHandler = async (event: SubmitEvent) => {
+  private submitHandler = async (event: SubmitEvent): Promise<void> => {
     event.preventDefault();
 
     try {
-      const response = await updateExerciseRating(this.exerciseID, {
+      await updateExerciseRating(this.exercise!._id, {
         rate: Number(this.rating),
         email: this.email,
         review: this.comment,
       });
 
       this.successToast();
-      this.close(response);
+      this.close();
     } catch (error) {
       if (error instanceof AxiosError && error.response) {
-        this.errorToast('Error: ' + error.response.data.message);
+        this.errorToast(error.response.data.message);
       } else {
         this.errorToast('An unexpected error occurred');
       }
     }
   };
 
-  private successToast() {
+  private successToast(): void {
     iziToast.success({
+      title: 'Feedback sent',
       message: 'Thank you for the feedback.',
       position: 'topRight',
       close: false,
     });
   }
 
-  private errorToast(message: string) {
+  private errorToast(message: string): void {
     iziToast.error({
+      title: 'Error',
       message,
       position: 'topRight',
       close: false,
-      // backgroundColor: 'var(--primary-text-color)',
     });
   }
 
