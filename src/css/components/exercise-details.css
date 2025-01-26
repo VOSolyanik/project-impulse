@@ -1,0 +1,142 @@
+.exercise-details__image-wrapper {
+  border-radius: 12px;
+  background-color: inherit;
+  overflow: hidden;
+}
+
+@media screen and (min-width: 768px) {
+  .exercise-details__image-wrapper {
+    height: 100%;
+    min-width: 270px;
+  }
+}
+
+.exercise-details__content {
+  margin-top: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .exercise-details__content {
+    min-width: 10%;
+  }
+}
+
+.exercise-details__title {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .exercise-details__title {
+    font-size: 24px;
+    line-height: 133.333%;
+  }
+}
+
+.exercise-details__rating {
+  margin-top: 10px;
+  color: var(--paper-white-color);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 150%;
+  gap: 2px;
+}
+
+.rating-stars {
+  gap: 2px;
+}
+
+.hidden-svg-clip {
+  position: absolute;
+  z-index: -100;
+  top: 0;
+  left: 0;
+  width: 14px;
+  height: 13px;
+}
+
+.exercise-details__params-list {
+  margin-top: 20px;
+
+  padding: 10px 0;
+  border-color: rgb(var(--paper-white-rgb), 0.2);
+  border-width: 1px;
+  border-top-style: solid;
+  border-bottom-style: solid;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+@media screen and (min-width: 768px) {
+  .exercise-details__params-list {
+    padding: 8px 0;
+    margin-top: 16px;
+    gap: 16px;
+  }
+}
+
+.exercise-details__params-item {
+  text-wrap: nowrap;
+}
+
+.exercise-details__params-title {
+  color: rgb(var(--paper-white-rgb), 0.4);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 150%;
+  width: fit-content;
+}
+
+.exercise-details__params-value {
+  margin-top: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 128.571%;
+}
+
+.exercise-details__description {
+  margin-top: 20px;
+  color: rgb(var(--paper-white-rgb), 0.6);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 128.571%;
+}
+
+@media screen and (min-width: 768px) {
+  .exercise-details__description {
+    margin-top: 16px;
+  }
+}
+
+.exercise-details__buttons {
+  min-width: 100%;
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  .exercise-details__buttons {
+    margin-top: 64px;
+    flex-direction: row;
+    /* flex-wrap: wrap; */
+    justify-content: right;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .exercise-details__button-favorite {
+    flex-grow: 1;
+  }
+}
+
+.icon-star {
+  fill: rgb(var(--paper-white-rgb), 0.2);
+}
+
+.icon-star-filled {
+  fill: #eea10c;
+}
