@@ -8,6 +8,9 @@ import { HomeExerciseItems } from '@/components/exercises/home-exercise-items';
 import { SubscriptionForm } from '@/components/subscription-form';
 import { ExerciseModal } from '@/components/modal/exercise-modal';
 
+const EMPTY_STATE_MESSAGE = `It appears that there are no any exercises for selected filters.
+Try to change filters or search criteria.`;
+
 const filters = initFilters();
 
 const exerciseCategories = initCategories();
@@ -92,7 +95,7 @@ function initItems(): HomeExerciseItems {
     exerciseItemsContainer!,
     exerciseItemsPaginationContainer!,
     pageSize,
-    `It appears that there are no any exercises for selected filters. Try to change filters or search criteria.`
+    EMPTY_STATE_MESSAGE
   );
 }
 
