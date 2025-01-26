@@ -1,10 +1,12 @@
 import { FilterCategory } from '@/enums/filter-category';
 import { ExercisesParams } from '@/types/exercise';
+import { getExerciseById } from '@/api/exercises.api';
+import { isMobileScreen } from '@/utils/is-mobile-screen';
 import { ExercisesFilters } from '@/components/exercises/exercises-filters';
 import { ExerciseCategories } from '@/components/exercises/exercise-categories';
 import { HomeExerciseItems } from '@/components/exercises/home-exercise-items';
 import { SubscriptionForm } from '@/components/subscription-form';
-import { favoritesState } from '@/components/favorites/favorites-state';
+import { ExerciseModal } from '@/components/modal/exercise-modal';
 
 const filters = initFilters();
 
@@ -13,6 +15,8 @@ const exerciseCategories = initCategories();
 const exerciseItems = initItems();
 
 const form = initForm()
+
+const modal = new ExerciseModal('#exercise-modal-content');
 
 const paramNmeMap: Record<FilterCategory, keyof ExercisesParams> = {
   [FilterCategory.Muscles]: 'muscles',
@@ -37,14 +41,9 @@ exerciseCategories.onCategorySelect(category => {
   filters.setFilter(category);
 });
 
-exerciseItems.onExerciseSelect(id => {
-  console.log('Selected exercise id:', id);
-  if (favoritesState.isFavorite(id)) {
-    favoritesState.removeFavorite(id);
-  } else {
-    favoritesState.addFavorite(id);
-  }
-  // TODO: Open dialog with exercise details
+exerciseItems.onExerciseSelect(async id => {
+  const exercise = await getExerciseById(id);
+  modal.show(exercise);
 });
 
 function initFilters(): ExercisesFilters {
@@ -65,7 +64,7 @@ function initFilters(): ExercisesFilters {
 }
 
 function initCategories(): ExerciseCategories {
-  const pageSize = window.screen.width < 768 ? 9 : 12;
+  const pageSize = isMobileScreen() ? 9 : 12;
 
   const exerciseCategoriesContainer = document
     .querySelector<HTMLElement>('.exercise-categories-list');
@@ -81,7 +80,7 @@ function initCategories(): ExerciseCategories {
 }
 
 function initItems(): HomeExerciseItems {
-  const pageSize = window.screen.width < 768 ? 8 : 10;
+  const pageSize = isMobileScreen() ? 8 : 10;
 
   const exerciseItemsContainer = document
     .querySelector<HTMLElement>('.exercise-cards-list');
@@ -91,7 +90,8 @@ function initItems(): HomeExerciseItems {
   return new HomeExerciseItems(
     exerciseItemsContainer!,
     exerciseItemsPaginationContainer!,
-    pageSize
+    pageSize,
+    `It appears that there are no any exercises for selected filters. Try to change filters or search criteria.`
   );
 }
 

@@ -10,9 +10,11 @@ export class HomeExerciseItems extends ExerciseItems {
   constructor(
     protected containerElement: HTMLElement,
     private paginationContainer: HTMLElement,
-    private itemsPerPage: number
+    private itemsPerPage: number,
+    emptyStateMessage: string = 'No exercises found',
+
   ) {
-    super(containerElement, false);
+    super(containerElement, false, emptyStateMessage);
   }
 
   setParams(params: ExercisesParams): void {

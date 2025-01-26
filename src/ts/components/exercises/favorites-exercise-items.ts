@@ -7,9 +7,10 @@ export class FavoritesExerciseItems extends ExerciseItems {
 
   constructor(
     protected containerElement: HTMLElement,
-    private ids: string[]
+    private ids: string[],
+    emptyStateMessage: string = 'No favorite exercises found',
   ) {
-    super(containerElement, true);
+    super(containerElement, true, emptyStateMessage);
     this.loadData();
   }
 

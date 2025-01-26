@@ -56,7 +56,7 @@ export class ExerciseCategories {
         limit: itemsPerPage,
       });
 
-      this.updatePagination(result.totalPages, result.page, result.perPage);
+      this.updatePagination(result.totalPages, +result.page, +result.perPage);
       this.render(result.results);
     } catch (error) {
       console.error('Error loading data:', error);
@@ -71,6 +71,7 @@ export class ExerciseCategories {
         perPage
       );
       this.pagination.onPageChange((page, itemsPerPage) => {
+        debugger;
         this.loadData(page, itemsPerPage);
       });
     } else {

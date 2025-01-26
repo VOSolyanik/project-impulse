@@ -1,16 +1,16 @@
-import { Exercise, ExercisesParams } from '@/types/exercise';
-import { getExercises } from '@/api/exercises.api';
-import { Pagination } from '@/components/pagination';
+import { Exercise } from '@/types/exercise';
 
 type ExerciseSelectCallback = (id: string) => void;
 
 export class ExerciseItems {
+  private emptyStateElement: HTMLElement | null = null;
   private onExerciseSelectCallback?: ExerciseSelectCallback;
   private onExerciseDeleteCallback?: ExerciseSelectCallback;
 
   constructor(
     protected containerElement: HTMLElement,
-    private withDelete: boolean = false
+    private withDelete: boolean = false,
+    private emptyStateMessage: string
   ) {
     this.init();
   }
@@ -27,12 +27,33 @@ export class ExerciseItems {
     this.onExerciseDeleteCallback = callback;
   }
 
-  protected render(categories: Exercise[]): void {
-    // TODO: render empty state;
-    this.containerElement.innerHTML = categories
-      .filter(category => category.name)
+  protected render(items: Exercise[]): void {
+    if (!items.length) {
+      this.renderEmptyState();
+    } else {
+      this.removeEmptyState();
+    }
+
+    this.containerElement.innerHTML = items
+      .filter(item => item.name)
       .map(this.createItemTemplate)
       .join('');
+  }
+
+  private renderEmptyState(): void {
+    if(this.emptyStateElement) return;
+
+    this.emptyStateElement = document.createElement('p');
+    this.emptyStateElement.className = 'exercises-empty-message';
+    this.emptyStateElement.innerHTML = this.emptyStateMessage;
+    this.containerElement.parentElement!
+      .insertBefore(this.emptyStateElement, this.containerElement.parentElement!.firstChild);
+  }
+
+  private removeEmptyState(): void {
+    if(!this.emptyStateElement) return;
+
+    this.emptyStateElement.remove();
   }
 
   private init(): void {

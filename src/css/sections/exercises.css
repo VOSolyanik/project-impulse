@@ -6,6 +6,13 @@
   flex-grow: 1;
 }
 
+.exercises-empty-message {
+  margin: -20px auto 0;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.33;
+}
+
 @media screen and (min-width: 768px) {
   .exercises-content .sidebar {
     gap: 32px 16px;
@@ -14,6 +21,13 @@
 
   .exercises-content .sidebar-block {
     width: calc(100% - 288px - 16px);
+  }
+
+  .exercises-empty-message {
+    max-width: 554px;
+    margin-top: 132px;
+    font-size: 18px;
+    line-height: 1.33;
   }
 }
 

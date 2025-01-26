@@ -1,7 +1,6 @@
-import { getExerciseById } from '@/api/exersises.api';
 import { Exercise } from '@/types/exercise';
-import { AddToFavorite } from './add-to-favorite';
-import {Modal} from './modal';
+import { Modal } from './modal';
+import { favoritesState } from '@/favorites-state';
 
 type ModalElements = {
   name: HTMLTitleElement;
@@ -87,7 +86,7 @@ export class ExerciseModal extends Modal<Exercise> {
           element.src = String(value);
         } else if (key === 'rating') {
           element.innerHTML = Number(value).toFixed(2);
-          this.calculateStar(Number(value), starPercent, ratingStars);
+          this.renderStars(Number(value), starPercent, ratingStars);
         } else {
           element.innerHTML = String(value);
         }
@@ -125,21 +124,22 @@ export class ExerciseModal extends Modal<Exercise> {
     buttonIcon: SVGElement,
     isEvent = true
   ) {
-    let hasFavorite = AddToFavorite.hasFavorite(id);
-    if (isEvent) hasFavorite = !hasFavorite;
+    debugger;
+    let isFavorite = favoritesState.isFavorite(id);
+    if (isEvent) isFavorite = !isFavorite;
 
-    if (!hasFavorite) {
-      if (isEvent) AddToFavorite.removeFavorite(id);
+    if (isFavorite) {
+      if (isEvent) favoritesState.addFavorite(id);
       buttonTitle.innerHTML = 'Remove from favorites';
       buttonIcon.setAttribute('href', '/images/sprite.svg#icon-trash');
     } else {
-      if (isEvent) AddToFavorite.addFavorite(id);
+      if (isEvent) favoritesState.removeFavorite(id);
       buttonTitle.innerHTML = 'Add to favorites';
       buttonIcon.setAttribute('href', '/images/sprite.svg#icon-heart');
     }
   }
 
-  private calculateStar(
+  private renderStars(
     rating: number,
     starPercent: SVGRectElement,
     ratingStars: HTMLSpanElement
@@ -162,13 +162,3 @@ export class ExerciseModal extends Modal<Exercise> {
     }
   }
 }
-
-const modal = new ExerciseModal('#exercise-modal-content');
-export default modal;
-
-// Code for testing the modal window
-
-// setTimeout(async () => {
-//   const response = await getExerciseById('64f389465ae26083f39b17b7');
-//   modal.show(response);
-// });

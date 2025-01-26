@@ -63,6 +63,12 @@
     padding: 25px;
     width: calc(50% - 8px);
   }
+
+  .favorites-content .exercise-cards-list {
+    max-height: 490px;
+    overflow-y: auto;
+    padding-right: 16px;
+  }
 }
 
 .sidebar-image {
