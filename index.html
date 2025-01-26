@@ -21,13 +21,13 @@
     />
     <script type="module" crossorigin src="/project-impulse/index.js"></script>
     <link rel="modulepreload" crossorigin href="/project-impulse/assets/vendor-4jich7g5.js">
-    <link rel="modulepreload" crossorigin href="/project-impulse/assets/main-Dr8wReif.js">
-    <link rel="stylesheet" crossorigin href="/project-impulse/assets/styles-BZ0Ivgwy.css">
+    <link rel="modulepreload" crossorigin href="/project-impulse/assets/main-ZBwkTDFU.js">
+    <link rel="stylesheet" crossorigin href="/project-impulse/assets/styles-COwvs9sK.css">
   </head>
   <body>
     <header class="header">
   <div class="container header-container">
-    <a href="../index.html" class="nav-logo" aria-label="Site logo">
+    <a href="./index.html" class="nav-logo" aria-label="Site logo">
       <svg class="nav-logo-icon" width="132" height="24">
         <use href="../images/sprite.svg#icon-logo"></use>
       </svg>
@@ -35,10 +35,10 @@
     <nav class="nav">
       <ul class="nav-list">
         <li class="nav-item">
-          <a class="nav-link active" href="../index.html">Home</a>
+          <a class="nav-link active" href="./index.html">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {=$favorites-active}" href="../favorites.html">Favorites</a>
+          <a class="nav-link {=$favorites-active}" href="./favorites.html">Favorites</a>
         </li>
       </ul>
     </nav>
@@ -191,18 +191,17 @@
   <div class="breadcrumbs js-breadcrumbs">
     <h2 class="section-heading">
       Exercises
-      <span id="breadcrumbs-splitter" class="hidden">/</span>
+      <span class="breadcrumbs-splitter hidden">/</span>
     </h2>
     <p class="filter-value hidden">Waist</p>
   </div>
   <div class="filters-wrapper">
-    <form class="input-wrapper hidden" action="#">
+    <form class="input-wrapper hidden" action="#" id="search-form">
       <input
         class="input"
         type="text"
-        name="search-input"
+        name="search"
         placeholder="Search"
-        id="search"
         minlength="3"
         required
         aria-label="Input for search"
@@ -225,7 +224,7 @@
     <ul class="filter-items js-category-filters">
       <li>
         <button
-          class="filter-btn js-filter-btn active"
+          class="filter-btn"
           data-type="muscles"
           type="button"
         >
@@ -234,7 +233,7 @@
       </li>
       <li>
         <button
-          class="filter-btn js-filter-btn"
+          class="filter-btn"
           data-type="parts"
           type="button"
         >
@@ -243,7 +242,7 @@
       </li>
       <li>
         <button
-          class="filter-btn js-filter-btn"
+          class="filter-btn"
           data-type="equipment"
           type="button"
         >
@@ -257,249 +256,11 @@
       <div class="exercises">
   <ul class="exercise-categories-list">
   </ul>
-  <ul class="exercise-cards-list hidden">
-    <li class="exercise-card">
-      <div class="exercise-card__heading">
-        <p class="exercise-badge">WORKOUT</p>
-        <span class="rating-wrapper">
-          <p class="exercise-rating">4.0</p>
-          <svg class="icon fill-icon exercise-rating-icon" width="14" height="14">
-            <use href="/project-impulse/assets/sprite-Bf1cmz4A.svg#icon-star"></use>
-          </svg>
-        </span>
-        <button class="exercise-card__btn" type="button">
-          Start
-          <svg class="icon fill-icon arrow-icon" width="16" height="16">
-            <use href="/project-impulse/assets/sprite-Bf1cmz4A.svg#icon-arw-scroll"></use>
-          </svg>
-        </button>
-      </div>
-      <div class="exercise-card__main">
-        <div class="icon-runningman-bg">
-          <svg class="icon fill-icon icon-runningman" width="16" height="16">
-            <use href="/project-impulse/assets/sprite-Bf1cmz4A.svg#icon-runningman"></use>
-          </svg>
-        </div>
-        <h3 class="exercise-card__title">Air bike</h3>
-      </div>
+  <div class="js-categories-pagination"></div>
+  <ul class="exercise-cards-list">
 
-      <ul class="exercise-card__info">
-        <li class="exercise-card__info-item">
-          <span class="exercise-card__item-label">Burned calories: </span>
-          <span class="exercise-card__item-content ellipsis">312 / 3 minutes</span>
-        </li>
-        <li class="exercise-card__info-item">
-          <span class="exercise-card__item-label">Body part: </span>
-          <span class="exercise-card__item-content">Waist</span>
-        </li>
-        <li class="exercise-card__info-item">
-          <span class="exercise-card__item-label">Target: </span>
-          <span class="exercise-card__item-content">Abs</span>
-        </li>
-      </ul>
-    </li>
-    <li class="exercise-card">
-      <div class="exercise-card__heading">
-        <p class="exercise-badge">WORKOUT</p>
-        <span class="rating-wrapper">
-          <p class="exercise-rating">4.0</p>
-          <svg class="icon fill-icon exercise-rating-icon" width="14" height="14">
-            <use href="/project-impulse/assets/sprite-Bf1cmz4A.svg#icon-star"></use>
-          </svg>
-        </span>
-        <button class="exercise-card__btn" type="button">
-          Start
-          <svg class="icon fill-icon arrow-icon" width="16" height="16">
-            <use href="/project-impulse/assets/sprite-Bf1cmz4A.svg#icon-arw-scroll"></use>
-          </svg>
-        </button>
-      </div>
-      <div class="exercise-card__main">
-        <div class="icon-runningman-bg">
-          <svg class="icon fill-icon icon-runningman" width="16" height="16">
-            <use href="/project-impulse/assets/sprite-Bf1cmz4A.svg#icon-runningman"></use>
-          </svg>
-        </div>
-        <h3 class="exercise-card__title">Air bike</h3>
-      </div>
-
-      <ul class="exercise-card__info">
-        <li class="exercise-card__info-item">
-          <span class="exercise-card__item-label">Burned calories: </span>
-          <span class="exercise-card__item-content ellipsis">312 / 3 minutes</span>
-        </li>
-        <li class="exercise-card__info-item">
-          <span class="exercise-card__item-label">Body part: </span>
-          <span class="exercise-card__item-content">Waist</span>
-        </li>
-        <li class="exercise-card__info-item">
-          <span class="exercise-card__item-label">Target: </span>
-          <span class="exercise-card__item-content">Abs</span>
-        </li>
-      </ul>
-    </li>
-    <li class="exercise-card">
-      <div class="exercise-card__heading">
-        <p class="exercise-badge">WORKOUT</p>
-        <span class="rating-wrapper">
-          <p class="exercise-rating">4.0</p>
-          <svg class="icon fill-icon exercise-rating-icon" width="14" height="14">
-            <use href="/project-impulse/assets/sprite-Bf1cmz4A.svg#icon-star"></use>
-          </svg>
-        </span>
-        <button class="exercise-card__btn" type="button">
-          Start
-          <svg class="icon fill-icon arrow-icon" width="16" height="16">
-            <use href="/project-impulse/assets/sprite-Bf1cmz4A.svg#icon-arw-scroll"></use>
-          </svg>
-        </button>
-      </div>
-      <div class="exercise-card__main">
-        <div class="icon-runningman-bg">
-          <svg class="icon fill-icon icon-runningman" width="16" height="16">
-            <use href="/project-impulse/assets/sprite-Bf1cmz4A.svg#icon-runningman"></use>
-          </svg>
-        </div>
-        <h3 class="exercise-card__title">Air bike</h3>
-      </div>
-
-      <ul class="exercise-card__info">
-        <li class="exercise-card__info-item">
-          <span class="exercise-card__item-label">Burned calories: </span>
-          <span class="exercise-card__item-content ellipsis">312 / 3 minutes</span>
-        </li>
-        <li class="exercise-card__info-item">
-          <span class="exercise-card__item-label">Body part: </span>
-          <span class="exercise-card__item-content">Waist</span>
-        </li>
-        <li class="exercise-card__info-item">
-          <span class="exercise-card__item-label">Target: </span>
-          <span class="exercise-card__item-content">Abs</span>
-        </li>
-      </ul>
-    </li>
-    <li class="exercise-card">
-      <div class="exercise-card__heading">
-        <p class="exercise-badge">WORKOUT</p>
-        <span class="rating-wrapper">
-          <p class="exercise-rating">4.0</p>
-          <svg class="icon fill-icon exercise-rating-icon" width="14" height="14">
-            <use href="/project-impulse/assets/sprite-Bf1cmz4A.svg#icon-star"></use>
-          </svg>
-        </span>
-        <button class="exercise-card__btn" type="button">
-          Start
-          <svg class="icon fill-icon arrow-icon" width="16" height="16">
-            <use href="/project-impulse/assets/sprite-Bf1cmz4A.svg#icon-arw-scroll"></use>
-          </svg>
-        </button>
-      </div>
-      <div class="exercise-card__main">
-        <div class="icon-runningman-bg">
-          <svg class="icon fill-icon icon-runningman" width="16" height="16">
-            <use href="/project-impulse/assets/sprite-Bf1cmz4A.svg#icon-runningman"></use>
-          </svg>
-        </div>
-        <h3 class="exercise-card__title">Air bike</h3>
-      </div>
-
-      <ul class="exercise-card__info">
-        <li class="exercise-card__info-item">
-          <span class="exercise-card__item-label">Burned calories: </span>
-          <span class="exercise-card__item-content ellipsis">312 / 3 minutes</span>
-        </li>
-        <li class="exercise-card__info-item">
-          <span class="exercise-card__item-label">Body part: </span>
-          <span class="exercise-card__item-content">Waist</span>
-        </li>
-        <li class="exercise-card__info-item">
-          <span class="exercise-card__item-label">Target: </span>
-          <span class="exercise-card__item-content">Abs</span>
-        </li>
-      </ul>
-    </li>
-    <li class="exercise-card">
-      <div class="exercise-card__heading">
-        <p class="exercise-badge">WORKOUT</p>
-        <span class="rating-wrapper">
-          <p class="exercise-rating">4.0</p>
-          <svg class="icon fill-icon exercise-rating-icon" width="14" height="14">
-            <use href="/project-impulse/assets/sprite-Bf1cmz4A.svg#icon-star"></use>
-          </svg>
-        </span>
-        <button class="exercise-card__btn" type="button">
-          Start
-          <svg class="icon fill-icon arrow-icon" width="16" height="16">
-            <use href="/project-impulse/assets/sprite-Bf1cmz4A.svg#icon-arw-scroll"></use>
-          </svg>
-        </button>
-      </div>
-      <div class="exercise-card__main">
-        <div class="icon-runningman-bg">
-          <svg class="icon fill-icon icon-runningman" width="16" height="16">
-            <use href="/project-impulse/assets/sprite-Bf1cmz4A.svg#icon-runningman"></use>
-          </svg>
-        </div>
-        <h3 class="exercise-card__title">Air bike</h3>
-      </div>
-
-      <ul class="exercise-card__info">
-        <li class="exercise-card__info-item">
-          <span class="exercise-card__item-label">Burned calories: </span>
-          <span class="exercise-card__item-content ellipsis">312 / 3 minutes</span>
-        </li>
-        <li class="exercise-card__info-item">
-          <span class="exercise-card__item-label">Body part: </span>
-          <span class="exercise-card__item-content">Waist</span>
-        </li>
-        <li class="exercise-card__info-item">
-          <span class="exercise-card__item-label">Target: </span>
-          <span class="exercise-card__item-content">Abs</span>
-        </li>
-      </ul>
-    </li>
-    <li class="exercise-card">
-      <div class="exercise-card__heading">
-        <p class="exercise-badge">WORKOUT</p>
-        <span class="rating-wrapper">
-          <p class="exercise-rating">4.0</p>
-          <svg class="icon fill-icon exercise-rating-icon" width="14" height="14">
-            <use href="/project-impulse/assets/sprite-Bf1cmz4A.svg#icon-star"></use>
-          </svg>
-        </span>
-        <button class="exercise-card__btn" type="button">
-          Start
-          <svg class="icon fill-icon arrow-icon" width="16" height="16">
-            <use href="/project-impulse/assets/sprite-Bf1cmz4A.svg#icon-arw-scroll"></use>
-          </svg>
-        </button>
-      </div>
-      <div class="exercise-card__main">
-        <div class="icon-runningman-bg">
-          <svg class="icon fill-icon icon-runningman" width="16" height="16">
-            <use href="/project-impulse/assets/sprite-Bf1cmz4A.svg#icon-runningman"></use>
-          </svg>
-        </div>
-        <h3 class="exercise-card__title">Air bike</h3>
-      </div>
-
-      <ul class="exercise-card__info">
-        <li class="exercise-card__info-item">
-          <span class="exercise-card__item-label">Burned calories: </span>
-          <span class="exercise-card__item-content ellipsis">312 / 3 minutes</span>
-        </li>
-        <li class="exercise-card__info-item">
-          <span class="exercise-card__item-label">Body part: </span>
-          <span class="exercise-card__item-content">Waist</span>
-        </li>
-        <li class="exercise-card__info-item">
-          <span class="exercise-card__item-label">Target: </span>
-          <span class="exercise-card__item-content">Abs</span>
-        </li>
-      </ul>
-    </li>
   </ul>
-  <div class="pagination-wrapper"></div>
+  <div class="js-items-pagination"></div>
 </div>
       <aside class="sidebar">
   <div class="quote-wrapper sidebar-block">
