@@ -1,0 +1,111 @@
+.modal {
+  transform: translateY(10%);
+}
+
+/*   Open state of the dialog  */
+.modal[open] {
+  opacity: 1;
+  transform: translateY(0px);
+
+  /*   Before-open state  */
+  /* Needs to be after the previous dialog[open] rule to take effect,
+    as the specificity is the same */
+  @starting-style {
+    opacity: 0;
+    transform: translateY(10%);
+  }
+}
+
+/*   Closed state of the dialog   */
+.modal {
+  opacity: 0;
+  transform: scaleY(0);
+  transition: opacity var(--transition-duration) var(--transition-function),
+    transform var(--transition-duration) var(--transition-function),
+    overlay var(--transition-duration) var(--transition-function) allow-discrete,
+    display var(--transition-duration) var(--transition-function) allow-discrete;
+}
+
+/* Transition the :backdrop when the dialog modal is promoted to the top layer */
+.modal::backdrop {
+  background-color: rgb(0 0 0 / 0%);
+  transition: display var(--transition-duration) allow-discrete,
+    overlay var(--transition-duration) allow-discrete,
+    background-color var(--transition-duration);
+}
+
+.modal[open]::backdrop {
+  background-color: rgb(0 0 0 / 25%);
+
+  @starting-style {
+    background-color: rgb(0 0 0 / 0%);
+  }
+}
+
+/* This starting-style rule cannot be nested inside the above selector
+because the nesting selector cannot represent pseudo-elements. */
+
+
+.modal {
+  border: none;
+  padding: 0;
+  background-color: transparent;
+}
+
+.modal *::first-letter {
+  text-transform: capitalize;
+}
+
+@media screen and (min-width: 768px) {
+  .modal {
+    width: 704px;
+  }
+}
+
+.modal-container {
+  padding: 40px 20px;
+  border-radius: 20px;
+  background: var(--charcoal-color);
+  position: relative;
+  color: var(--paper-white-color);
+  width: 335px;
+}
+
+@media screen and (min-width: 768px) {
+  .modal-container {
+    padding: 32px;
+    min-width: 704px;
+  }
+
+  .modal-card {
+    display: flex;
+    column-gap: 32px;
+  }
+}
+
+.modal-close-button {
+  position: absolute;
+  right: 14px;
+  top: 14px;
+  width: 24px;
+  height: 24px;
+  background-color: transparent;
+  border: none;
+  color: inherit;
+  padding: 0;
+  transition: scale var(--transition-duration) var(--transition-function);
+}
+
+.modal-close-button:hover {
+  scale: 1.2;
+}
+
+.modal-button {
+  width: unset;
+}
+
+@media screen and (min-width: 768px) {
+  .modal-button {
+    width: fit-content;
+  }
+}
