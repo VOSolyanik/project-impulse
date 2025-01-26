@@ -2,6 +2,7 @@ import { defineConfig } from 'vite';
 import { glob } from 'glob';
 import injectHTML from 'vite-plugin-html-inject';
 import FullReload from 'vite-plugin-full-reload';
+import  { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 import SortCss from 'postcss-sort-media-queries';
 import path from "path";
 
@@ -48,6 +49,25 @@ export default defineConfig(({ command }) => {
       FullReload(['./src/**/**.html']),
       SortCss({
         sort: 'mobile-first',
+      }),
+      ViteImageOptimizer({
+        png: {
+          quality: 80,
+          progressive: true,
+        },
+        jpeg: {
+          quality: 80,
+          progressive: true,
+        },
+        jpg: {
+          quality: 80,
+          progressive: true,
+        },
+        webp: {
+          quality: 80,
+          progressive: true,
+          effort: 4
+        }
       }),
     ],
   };

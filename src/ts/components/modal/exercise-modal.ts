@@ -132,7 +132,7 @@ export class ExerciseModal extends Modal<Exercise> {
     buttonTitle: HTMLSpanElement,
     buttonIcon: SVGElement,
     isEvent = true
-  ) {
+  ): void {
     let isFavorite = favoritesState.isFavorite(id);
     if (isEvent) isFavorite = !isFavorite;
 
