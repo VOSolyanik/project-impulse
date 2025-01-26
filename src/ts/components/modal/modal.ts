@@ -1,25 +1,81 @@
-export default class Modal {
+export abstract class Modal<T> {
   protected dialog!: HTMLDialogElement;
-  protected dialogTemplate: HTMLDialogElement;
+  protected dialogContentTemplate!: HTMLTemplateElement;
+  protected dialogContent!: HTMLDivElement;
+  private dialogCloseButton!: HTMLButtonElement;
 
-  constructor(selector: string) {
-    const modalElement = document.querySelector(selector);
-    if (!(modalElement instanceof HTMLDialogElement)) {
-      throw new Error('Modal element not found or is not a dialog');
-    }
-    this.dialogTemplate = modalElement;
+  constructor(contentSelector: string) {
+    this.dialogContentTemplate = document.querySelector(
+      contentSelector
+    ) as HTMLTemplateElement;
+    this.init();
   }
 
-  public show(props?: any): void {
-    this.dialog.showModal();
-  }
+  abstract show(data: T): void;
 
   public close = (): void => {
     this.dialog.close();
-    document.removeEventListener('keydown', this.closeEvent);
+
+    document.removeEventListener('keydown', this.handleKeyDown);
   };
 
-  protected closeEvent = (event: KeyboardEvent): void => {
+  protected showDialog(): void {
+    document.body.appendChild(this.dialog);
+
+    this.dialog.classList.remove('hidden');
+    this.dialog.setAttribute('aria-hidden', 'false');
+
+    this.dialog.showModal();
+
+    document.addEventListener('keydown', this.handleKeyDown);
+
+    this.dialog.addEventListener('close', () => {
+      this.dialog.remove();
+    });
+  }
+
+  protected handleKeyDown = (event: KeyboardEvent): void => {
     if (event.key === 'Escape') this.close();
   };
+
+  private init(): void {
+    this.dialog = document.createElement('dialog');
+    this.dialog.classList.add('modal');
+    this.dialog.classList.add('hidden');
+    this.dialog.setAttribute('aria-modal', 'true');
+    this.dialog.setAttribute('aria-hidden', 'true');
+
+    this.dialog.innerHTML = this.renderDialog();
+
+    this.dialogCloseButton = this.dialog.querySelector(
+      '[data-dialog-close]'
+    ) as HTMLButtonElement;
+
+    this.dialogContent = this.dialog.querySelector(
+      '[data-dialog-content]'
+    ) as HTMLDivElement;
+
+    this.dialogCloseButton.addEventListener('click', this.close);
+
+    this.dialog.addEventListener('mousedown', event => {
+      if (event.target === event.currentTarget) {
+        this.close();
+      }
+    });
+  }
+
+  private renderDialog(): string {
+    return `
+      <div class="modal-container">
+        <button class="modal-close-button" type="button" data-dialog-close>
+          <svg width="24" height="24" class="icon stroke-icon">
+            <use href="/images/sprite.svg#icon-x" data-favorite-icon />
+          </svg>
+        </button>
+        <div class="modal-card" data-dialog-content>
+          ${this.dialogContentTemplate.innerHTML}
+        </div>
+      </div>
+    `
+  }
 }

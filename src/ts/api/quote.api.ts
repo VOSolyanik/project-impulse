@@ -1,7 +1,11 @@
-export const fetchQuote = async (): Promise<{ author: string; quote: string }> => {
-    const response = await fetch('https://your-energy.b.goit.study/api/quote');
-    if (!response.ok) {
-        throw new Error('Failed to fetch quote');
-    }
-    return response.json();
+import { yourEnergyApi } from './base';
+import { QuoteOfDay } from '@/types/quote-of-day';
+
+const fetchQuote = async (): Promise<QuoteOfDay> => {
+  const response = await yourEnergyApi.get<QuoteOfDay>(
+    '/quote'
+  );
+  return response.data;
 };
+
+export { fetchQuote };

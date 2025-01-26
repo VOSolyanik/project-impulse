@@ -1,7 +1,7 @@
-import { getExerciseById } from '../../api/exersises.api';
-import { Exercise } from '../../types/exercise';
-import { AddToFavorite } from './addToFavorite';
-import Modal from './modal';
+import { getExerciseById } from '@/api/exersises.api';
+import { Exercise } from '@/types/exercise';
+import { AddToFavorite } from './add-to-favorite';
+import {Modal} from './modal';
 
 type ModalElements = {
   name: HTMLTitleElement;
@@ -16,79 +16,64 @@ type ModalElements = {
   description: HTMLParagraphElement;
 };
 
-export class ModalExercise extends Modal {
+export class ExerciseModal extends Modal<Exercise> {
   constructor(selector: string) {
     super(selector);
   }
 
-  public show = (props: Exercise): void => {
+  public show(props: Exercise): void {
     this.render(props);
-    super.show();
+    this.showDialog();
   };
 
   private render(props: Exercise): void {
-    const modalElement = this.dialogTemplate.cloneNode(
+    const modalContent = this.dialogContentTemplate.cloneNode(
       true
-    ) as HTMLDialogElement;
-    modalElement.classList.remove('hidden');
-    modalElement.removeAttribute('hidden');
-    this.dialog = modalElement;
-
-    const closeButton = modalElement.querySelector(
-      '[data-close-element]'
-    ) as HTMLButtonElement;
-
-    closeButton.addEventListener('click', this.close);
+    ) as HTMLTemplateElement;
 
     // find each element:
     const elements: ModalElements = {
-      name: modalElement.querySelector(
+      name: modalContent.content.querySelector(
         '[data-name-element]'
       ) as HTMLTitleElement,
-      gifUrl: modalElement.querySelector(
+      gifUrl: modalContent.content.querySelector(
         '[data-gif-element]'
       ) as HTMLImageElement,
-      rating: modalElement.querySelector(
+      rating: modalContent.content.querySelector(
         '[data-rating-element]'
       ) as HTMLSpanElement,
-      target: modalElement.querySelector(
+      target: modalContent.content.querySelector(
         '[data-target-element]'
       ) as HTMLParagraphElement,
-      bodyPart: modalElement.querySelector(
+      bodyPart: modalContent.content.querySelector(
         '[data-bodyPart-element]'
       ) as HTMLParagraphElement,
-      equipment: modalElement.querySelector(
+      equipment: modalContent.content.querySelector(
         '[data-equipment-element]'
       ) as HTMLParagraphElement,
-      popularity: modalElement.querySelector(
+      popularity: modalContent.content.querySelector(
         '[data-popular-element]'
       ) as HTMLParagraphElement,
-      burnedCalories: modalElement.querySelector(
+      burnedCalories: modalContent.content.querySelector(
         '[data-burnedCalories-element]'
       ) as HTMLSpanElement,
-      time: modalElement.querySelector(
+      time: modalContent.content.querySelector(
         '[data-time-element]'
       ) as HTMLSpanElement,
-      description: modalElement.querySelector(
+      description: modalContent.content.querySelector(
         '[data-description-element]'
       ) as HTMLParagraphElement,
     };
 
-    const starPercent = modalElement.querySelector(
+    const starPercent = modalContent.content.querySelector(
       '[data-cut-percent]'
     ) as SVGRectElement;
 
     starPercent.parentElement?.setAttribute('id', 'cut-off-star');
 
-    const ratingStars = modalElement.querySelector(
+    const ratingStars = modalContent.content.querySelector(
       '[data-rating-list]'
     ) as HTMLSpanElement;
-
-    modalElement.addEventListener('mousedown', event => {
-      if (event.target === event.currentTarget) {
-        this.close();
-      }
-    });
 
     // make changes in the elements
     for (const key in elements) {
@@ -111,7 +96,7 @@ export class ModalExercise extends Modal {
       }
     }
 
-    const buttonAddToFavorite = modalElement.querySelector(
+    const buttonAddToFavorite = modalContent.content.querySelector(
       '[data-favorite-element]'
     ) as HTMLButtonElement;
 
@@ -130,9 +115,8 @@ export class ModalExercise extends Modal {
     // update text and icon for favorite on init
     this.handleButtonFavorite(props._id, buttonTitle, buttonIcon, false);
 
-    document.body.appendChild(modalElement);
-    this.dialog.showModal();
-    document.addEventListener('keydown', this.closeEvent);
+    this.dialogContent.innerHTML = '';
+    this.dialogContent.appendChild(modalContent.content);
   }
 
   private handleButtonFavorite(
@@ -142,9 +126,9 @@ export class ModalExercise extends Modal {
     isEvent = true
   ) {
     let hasFavorite = AddToFavorite.hasFavorite(id);
-    if (!isEvent) hasFavorite = !hasFavorite;
+    if (isEvent) hasFavorite = !hasFavorite;
 
-    if (hasFavorite) {
+    if (!hasFavorite) {
       if (isEvent) AddToFavorite.removeFavorite(id);
       buttonTitle.innerHTML = 'Remove from favorites';
       buttonIcon.setAttribute('href', '/images/sprite.svg#icon-trash');
@@ -179,7 +163,7 @@ export class ModalExercise extends Modal {
   }
 }
 
-const modal = new ModalExercise('.modal');
+const modal = new ExerciseModal('#exercise-modal-content');
 export default modal;
 
 // Code for testing the modal window
