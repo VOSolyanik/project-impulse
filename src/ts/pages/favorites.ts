@@ -1,8 +1,11 @@
 
-import { favoritesState } from "@/favorites-state";
-import { getExerciseById } from "@/api/exercises.api";
-import { FavoritesExerciseItems } from "@/components/exercises/favorites-exercise-items";
-import { ExerciseModal } from "@/components/modal/exercise-modal";
+import { favoritesState } from '@/favorites-state';
+import { getExerciseById } from '@/api/exercises.api';
+import { FavoritesExerciseItems } from '@/components/exercises/favorites-exercise-items';
+import { ExerciseModal } from '@/components/modal/exercise-modal';
+
+const EMPTY_STATE_MESSAGE = `It appears that you haven't added any exercises to your favorites yet.
+To get started, you can add exercises that you like to your favorites for easier access in the future.`;
 
 const exerciseItemsContainer = document
     .querySelector<HTMLElement>('.exercise-cards-list');
@@ -12,7 +15,7 @@ exerciseItemsContainer!.classList.add('custom-scroll-bar');
 const exerciseItems = new FavoritesExerciseItems(
   exerciseItemsContainer!,
   favoritesState.gerFavorites(),
-  `It appears that you haven't added any exercises to your favorites yet. To get started, you can add exercises that you like to your favorites for easier access in the future.`
+  EMPTY_STATE_MESSAGE
 );
 
 

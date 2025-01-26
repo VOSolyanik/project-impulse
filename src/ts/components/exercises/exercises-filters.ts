@@ -35,6 +35,7 @@ export class ExercisesFilters {
     this.render();
     this.updateBreadcrumbs();
     this.updateSearchForm();
+    this.emitChange();
   }
 
   public getCategory(): FilterCategory {
@@ -67,8 +68,8 @@ export class ExercisesFilters {
       this.handleSearchSubmit(event);
     });
 
-    this.config.searchElement.addEventListener('reset', event => {
-      this.handleSearchReset(event);
+    this.config.searchElement.addEventListener('reset', () => {
+      this.handleSearchReset();
     });
 
     this.config.searchInputElement
@@ -93,7 +94,6 @@ export class ExercisesFilters {
       }
 
       this.setCategory(dataType);
-      this.emitChange();
     }
   }
 
@@ -102,15 +102,13 @@ export class ExercisesFilters {
     const formData = new FormData(event.target as HTMLFormElement);
     const search = formData.get('search') as string;
     this.setSearch(search);
-    this.emitChange();
   }
 
-  private handleSearchReset(_: Event): void {
+  private handleSearchReset(): void {
     if (this.currentSearch === '') return;
 
     this.setSearch('');
     this.updateSearchInput('');
-    this.emitChange();
   }
 
   private handleSearchInput(event: Event): void {
