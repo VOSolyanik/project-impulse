@@ -1,16 +1,16 @@
 import { MobileMenu } from "@/components/mobile-menu";
 import { QuoteOfTheDay } from "@/components/quote-of-day/index"
 
-const openMenuBtn = document.querySelector('.js-menu-open') as HTMLElement;
-const closeMenuBtn = document.querySelector('.js-menu-close') as HTMLElement;
-const menu = document.querySelector('.js-mobile-menu') as HTMLElement;
-const backdrop = document.querySelector('.js-mobile-menu-backdrop') as HTMLElement;
+const openMenuBtn = document.querySelector<HTMLElement>('.js-menu-open');
+const closeMenuBtn = document.querySelector<HTMLElement>('.js-menu-close');
+const menu = document.querySelector<HTMLElement>('.js-mobile-menu');
+const backdrop = document.querySelector<HTMLElement>('.js-mobile-menu-backdrop');
 
 new MobileMenu({
-  openMenuBtn,
-  closeMenuBtn,
-  menu,
-  backdrop
+  openMenuBtn: openMenuBtn!,
+  closeMenuBtn: closeMenuBtn!,
+  menu: menu!,
+  backdrop: backdrop!
 })
 
 const quoteOfTheDay = new QuoteOfTheDay();

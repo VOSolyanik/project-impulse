@@ -13,6 +13,9 @@
   --paper-white-color-a02: rgb(var(--paper-white-rgb), 0.2);
   --paper-white-color-a06: rgb(var(--paper-white-rgb), 0.6);
 
+  --footer-gray-rgb: 198, 205, 209;
+  --footer-gray-color: rgb(var(--footer-gray-rgb));
+
   --primary-text-color: var(--charcoal-color);
   --primary-bg-color: var(--paper-white-color);
 
@@ -72,6 +75,24 @@ main {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.custom-scroll-bar::-webkit-scrollbar {
+  width: 8px;
+  background-color: transparent;
+}
+
+.custom-scroll-bar::-webkit-scrollbar-track {
+  width: 8px;
+  border-radius: 4px;
+  background-color: var(--light-gray);
+}
+
+.custom-scroll-bar::-webkit-scrollbar-thumb {
+  width: 8px;
+  border-radius: 4px;
+  background-color: var(--primary-text-color);
+  background-clip: padding-box;
 }
 
 .static {

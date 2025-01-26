@@ -45,6 +45,10 @@
   margin: 0;
 }
 
+.exercise-category-title::first-letter {
+  text-transform: uppercase;
+}
+
 .exercise-category-subtitle {
   font-size: 16px;
   margin: 5px 0 0;

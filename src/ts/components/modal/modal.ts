@@ -1,28 +1,89 @@
-export default class Modal {
+import spriteUrl from '../../../images/sprite.svg';
+
+export abstract class Modal {
   protected dialog!: HTMLDialogElement;
-  protected dialogTemplate: HTMLDialogElement;
-  private onClose?: CallableFunction;
+  protected dialogContentTemplate!: HTMLTemplateElement;
+  protected dialogContent!: HTMLDivElement;
+  private dialogCloseButton!: HTMLButtonElement;
 
-  constructor(selector: string) {
-    const modalElement = document.querySelector(selector);
-    if (!(modalElement instanceof HTMLDialogElement)) {
-      throw new Error('Modal element not found or is not a dialog');
-    }
-    this.dialogTemplate = modalElement;
+  protected onClose?: CallableFunction;
+
+  constructor(contentSelector: string) {
+    this.dialogContentTemplate = document.querySelector(
+      contentSelector
+    ) as HTMLTemplateElement;
+    this.init();
   }
 
-  public show(callbackOnClose?: CallableFunction): void {
-    this.dialog.showModal();
-    this.onClose = callbackOnClose;
-  }
+  abstract show(callback?: CallableFunction): void;
 
   public close = (props?: any): void => {
     this.dialog.close();
-    document.removeEventListener('keydown', this.closeEvent);
-    if (this.onClose) this.onClose(props);
+
+    document.removeEventListener('keydown', this.handleKeyDown);
   };
 
-  protected closeEvent = (event: KeyboardEvent): void => {
+  protected showDialog(callbackOnClose?: CallableFunction): void {
+    this.onClose = callbackOnClose;
+    document.body.appendChild(this.dialog);
+
+    this.dialog.classList.remove('hidden');
+    this.dialog.setAttribute('aria-hidden', 'false');
+
+    this.dialog.showModal();
+
+    document.addEventListener('keydown', this.handleKeyDown);
+
+    this.dialog.addEventListener('close', () => {
+      if (this.onClose) this.onClose();
+      setTimeout(() => {
+        this.dialog.remove();
+      }, 300);
+    });
+  }
+
+  protected handleKeyDown = (event: KeyboardEvent): void => {
     if (event.key === 'Escape') this.close();
   };
+
+  private init(): void {
+    this.dialog = document.createElement('dialog');
+    this.dialog.classList.add('modal');
+    this.dialog.classList.add('hidden');
+    this.dialog.setAttribute('aria-modal', 'true');
+    this.dialog.setAttribute('aria-hidden', 'true');
+
+    this.dialog.innerHTML = this.renderDialog();
+
+    this.dialogCloseButton = this.dialog.querySelector(
+      '[data-dialog-close]'
+    ) as HTMLButtonElement;
+
+    this.dialogContent = this.dialog.querySelector(
+      '[data-dialog-content]'
+    ) as HTMLDivElement;
+
+    this.dialogCloseButton.addEventListener('click', this.close);
+
+    this.dialog.addEventListener('mousedown', event => {
+      if (event.target === event.currentTarget) {
+        this.close();
+      }
+    });
+  }
+
+  private renderDialog(): string {
+    return `
+      <div class="modal-container bg-inverse">
+        <button class="modal-close-button" type="button" data-dialog-close>
+          <svg width="24" height="24" class="icon stroke-icon">
+            <use href="${spriteUrl}#icon-x" data-favorite-icon  />
+          </svg>
+        </button>
+        <div class="modal-card" data-dialog-content>
+          ${this.dialogContentTemplate.innerHTML}
+        </div>
+      </div>
+    `;
+  }
 }

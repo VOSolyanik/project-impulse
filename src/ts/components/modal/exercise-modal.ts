@@ -1,8 +1,10 @@
-import { getExerciseById } from '../../api/exersises.api';
+// import { getExerciseById } from '../../api/exersises.api';
 import { Exercise } from '../../types/exercise';
-import { AddToFavorite } from './addToFavorite';
-import Modal from './modal';
-import { ModalRating } from './modalRating';
+import { Modal } from './modal';
+import { ModalRating } from './modal-rating';
+
+import { favoritesState } from '@/favorites-state';
+import spriteUrl from '../../../images/sprite.svg';
 
 type ModalElements = {
   name: HTMLTitleElement;
@@ -17,84 +19,79 @@ type ModalElements = {
   description: HTMLParagraphElement;
 };
 
-export class ModalExercise extends Modal {
+type FavoriteToggleCallback = (id: string) => void;
+
+export class ExerciseModal extends Modal {
   private excercise: Exercise;
   private ratingModal: ModalRating;
+  onFavoriteToggleCallback?: FavoriteToggleCallback;
 
   constructor(selector: string, excercise: Exercise) {
     super(selector);
     this.excercise = excercise;
-    this.ratingModal = new ModalRating('[data-modal-rating]', this.excercise);
+    this.ratingModal = new ModalRating(
+      '#exercise-modal-rating',
+      this.excercise
+    );
   }
 
-  public show = (callbackOnClose?: CallableFunction): void => {
+  public show(callbackOnClose?: CallableFunction): void {
     this.render();
-    super.show(callbackOnClose);
-  };
+    this.showDialog(callbackOnClose);
+  }
+
+  public onFavoriteToggle(callback: FavoriteToggleCallback): void {
+    this.onFavoriteToggleCallback = callback;
+  }
 
   private render(): void {
-    const modalElement = this.dialogTemplate.cloneNode(
+    const modalContent = this.dialogContentTemplate.cloneNode(
       true
-    ) as HTMLDialogElement;
-    modalElement.classList.remove('hidden');
-    modalElement.removeAttribute('hidden');
-    this.dialog = modalElement;
-
-    const closeButton = modalElement.querySelector(
-      '[data-close-element]'
-    ) as HTMLButtonElement;
-
-    closeButton.addEventListener('click', this.close);
+    ) as HTMLTemplateElement;
 
     // find each element:
     const elements: ModalElements = {
-      name: modalElement.querySelector(
+      name: modalContent.content.querySelector(
         '[data-name-element]'
       ) as HTMLTitleElement,
-      gifUrl: modalElement.querySelector(
+      gifUrl: modalContent.content.querySelector(
         '[data-gif-element]'
       ) as HTMLImageElement,
-      rating: modalElement.querySelector(
+      rating: modalContent.content.querySelector(
         '[data-rating-element]'
       ) as HTMLSpanElement,
-      target: modalElement.querySelector(
+      target: modalContent.content.querySelector(
         '[data-target-element]'
       ) as HTMLParagraphElement,
-      bodyPart: modalElement.querySelector(
+      bodyPart: modalContent.content.querySelector(
         '[data-bodyPart-element]'
       ) as HTMLParagraphElement,
-      equipment: modalElement.querySelector(
+      equipment: modalContent.content.querySelector(
         '[data-equipment-element]'
       ) as HTMLParagraphElement,
-      popularity: modalElement.querySelector(
+      popularity: modalContent.content.querySelector(
         '[data-popular-element]'
       ) as HTMLParagraphElement,
-      burnedCalories: modalElement.querySelector(
+      burnedCalories: modalContent.content.querySelector(
         '[data-burnedCalories-element]'
       ) as HTMLSpanElement,
-      time: modalElement.querySelector(
+      time: modalContent.content.querySelector(
         '[data-time-element]'
       ) as HTMLSpanElement,
-      description: modalElement.querySelector(
+      description: modalContent.content.querySelector(
         '[data-description-element]'
       ) as HTMLParagraphElement,
     };
 
-    const starPercent = modalElement.querySelector(
+    const starPercent = modalContent.content.querySelector(
       '[data-cut-percent]'
     ) as SVGRectElement;
 
     starPercent.parentElement?.setAttribute('id', 'cut-off-star');
 
-    const ratingStars = modalElement.querySelector(
+    const ratingStars = modalContent.content.querySelector(
       '[data-rating-list]'
     ) as HTMLSpanElement;
-
-    modalElement.addEventListener('mousedown', event => {
-      if (event.target === event.currentTarget) {
-        this.close();
-      }
-    });
 
     // make changes in the elements
     for (const key in elements) {
@@ -108,7 +105,7 @@ export class ModalExercise extends Modal {
           element.src = String(value);
         } else if (key === 'rating') {
           element.innerHTML = Number(value).toFixed(2);
-          this.calculateStar(Number(value), starPercent, ratingStars);
+          this.renderStars(Number(value), starPercent, ratingStars);
         } else {
           element.innerHTML = String(value);
         }
@@ -117,7 +114,7 @@ export class ModalExercise extends Modal {
       }
     }
 
-    const buttonAddToFavorite = modalElement.querySelector(
+    const buttonAddToFavorite = modalContent.content.querySelector(
       '[data-favorite-element]'
     ) as HTMLButtonElement;
 
@@ -130,59 +127,53 @@ export class ModalExercise extends Modal {
     ) as SVGElement;
 
     buttonAddToFavorite.addEventListener('click', () => {
-      this.handleButtonFavorite(this.excercise._id, buttonTitle, buttonIcon);
+      this.handleFavorite(this.excercise._id, buttonTitle, buttonIcon);
     });
 
-    const buttonGiveRating = modalElement.querySelector(
+    const buttonGiveRating = modalContent.content.querySelector(
       '[data-add-rating-element]'
     ) as HTMLButtonElement;
 
     buttonGiveRating.addEventListener('click', () => {
       this.close();
-      setTimeout(() => {
-        this.dialog.remove();
-      }, 300);
       this.ratingModal.show((excercise?: Exercise) => {
         // update rating if changed
-        if (excercise) this.excercise;
-        this.show();
+        new ExerciseModal(
+          '#exercise-modal-content',
+          excercise || this.excercise
+        ).show();
       });
     });
 
     // update text and icon for favorite on init
-    this.handleButtonFavorite(
-      this.excercise._id,
-      buttonTitle,
-      buttonIcon,
-      false
-    );
+    this.handleFavorite(this.excercise._id, buttonTitle, buttonIcon, false);
 
-    document.body.appendChild(modalElement);
-    this.dialog.showModal();
-    document.addEventListener('keydown', this.closeEvent);
+    this.dialogContent.innerHTML = '';
+    this.dialogContent.appendChild(modalContent.content);
   }
 
-  private handleButtonFavorite(
+  private handleFavorite(
     id: Exercise['_id'],
     buttonTitle: HTMLSpanElement,
     buttonIcon: SVGElement,
     isEvent = true
   ) {
-    let hasFavorite = AddToFavorite.hasFavorite(id);
-    if (!isEvent) hasFavorite = !hasFavorite;
+    let isFavorite = favoritesState.isFavorite(id);
+    if (isEvent) isFavorite = !isFavorite;
 
-    if (hasFavorite) {
-      if (isEvent) AddToFavorite.removeFavorite(id);
+    if (isFavorite) {
+      if (isEvent) favoritesState.addFavorite(id);
       buttonTitle.innerHTML = 'Remove from favorites';
-      buttonIcon.setAttribute('href', '/images/sprite.svg#icon-trash');
+      buttonIcon.setAttribute('href', `${spriteUrl}#icon-trash`);
     } else {
-      if (isEvent) AddToFavorite.addFavorite(id);
+      if (isEvent) favoritesState.removeFavorite(id);
       buttonTitle.innerHTML = 'Add to favorites';
-      buttonIcon.setAttribute('href', '/images/sprite.svg#icon-heart');
+      buttonIcon.setAttribute('href', `${spriteUrl}#icon-heart`);
     }
+    this.onFavoriteToggleCallback?.(id);
   }
 
-  private calculateStar(
+  private renderStars(
     rating: number,
     starPercent: SVGRectElement,
     ratingStars: HTMLSpanElement
@@ -205,13 +196,3 @@ export class ModalExercise extends Modal {
     }
   }
 }
-
-export default ModalExercise;
-
-// Code for testing the modal window
-
-// setTimeout(async () => {
-//   const response = await getExerciseById('64f389465ae26083f39b17b7');
-//   const modal = new ModalExercise('.modal', response);
-//   modal.show();
-// });
