@@ -7,13 +7,13 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: baseline;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 .section-heading {
   font-weight: 400;
   font-size: 28px;
-  line-height: 1.7;
+  line-height: 1.36;
   letter-spacing: -0.02em;
 }
 

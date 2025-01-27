@@ -1,3 +1,7 @@
+.favorites-section {
+  padding-top: 60px;
+}
+
 .favorites-content .sidebar {
   margin-bottom: 40px;
 }
@@ -7,7 +11,16 @@
 }
 
 .favorites-content .useful-info-wrapper {
+  flex-direction: column;
+  gap: 15px;
   order: 2;
+}
+
+.favorites-content .useful-info-icon {
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  color: var(--primary-text-color);
 }
 
 .favorites-content .useful-info-text {
@@ -20,11 +33,12 @@
 }
 
 @media screen and (min-width: 768px) {
-  .favorites-content .sidebar {
-    margin-bottom: 64px;
+  .favorites-section {
+    padding-top: 80px;
   }
 
   .favorites-content .sidebar {
+    margin-bottom: 64px;
     gap: 16px;
   }
 
@@ -34,12 +48,13 @@
   }
 
   .favorites-content .sidebar-image {
-    min-height: 140px;
+    min-height: 141px;
     max-width: calc(50% - 8px);
   }
 
   .favorites-content .useful-info-wrapper {
     min-width: calc(50% - 8px);
+    padding: 25px;
   }
 }
 
@@ -51,12 +66,11 @@
   .favorites-content {
     display: flex;
     align-items: flex-start;
-    gap: 16px;
+    gap: 32px;
   }
 
   .favorites-content .sidebar {
     flex: 0 0 37%;
-    padding-right: 16px;
   }
 
   .favorites-content .useful-info-wrapper {
@@ -84,8 +98,6 @@
 @media (min-width: 768px) {
   .favorites-section .sidebar-image {
     background-image: url('/images/favorite/favorite_tablet_webp@1x.webp');
-    min-height: 250px;
-    max-width: 288px;
   }
 }
 
@@ -99,7 +111,6 @@
 @media (min-width: 1152px) {
   .favorites-section .sidebar-image {
     background-image: url('/images/favorite/favorite_desktop_webp@1x.webp');
-    max-width: 100%;
   }
 }
 
