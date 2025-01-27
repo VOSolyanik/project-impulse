@@ -1,41 +1,16 @@
-function smoothScrollToTop(duration: number): void {
-  const startPosition = window.scrollY;
-  const startTime = performance.now();
-
-  function easeOutQuad(t: number): number {
-    return t * (2 - t);
-  }
-
-  function animateScroll(currentTime: number): void {
-    const elapsedTime = currentTime - startTime;
-    const progress = Math.min(elapsedTime / duration, 1);
-    const easing = easeOutQuad(progress);
-
-    const scrollPosition = startPosition * (1 - easing);
-    window.scrollTo(0, scrollPosition);
-
-    if (progress < 1) {
-      requestAnimationFrame(animateScroll);
-    }
-  }
-
-  requestAnimationFrame(animateScroll);
-}
-
 function toggleScrollToTopButton(button: HTMLElement, threshold: number): void {
+  console.log(window.scrollY, threshold);
   if (window.scrollY > threshold) {
     button.style.opacity = '1';
     button.style.right = '';
   } else {
     button.style.opacity = '0';
-    setTimeout(() => {
-      button.style.right = '-100px';
-    }, 200);
+    button.style.right = '-100px';
   }
 }
 
 export function initializeScrollToTopButton(
-  threshold: number = window.innerHeight,
+  threshold: number = window.innerHeight / 4,
   duration: number = 100
 ): void {
   const button = document.getElementById('scroll-to-top-btn');
@@ -48,7 +23,7 @@ export function initializeScrollToTopButton(
   toggleScrollToTopButton(button, threshold);
 
   button.addEventListener('click', () => {
-    smoothScrollToTop(duration);
+    window.scrollTo(0, 0);
   });
 
   window.addEventListener('scroll', () => {

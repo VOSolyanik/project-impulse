@@ -4,7 +4,6 @@ import { ExerciseModal } from '@/components/modal/exercise-modal';
 import { ExerciseRatingModal } from '@/components/modal/rating-modal';
 import { favoritesState } from '@/favorites-state';
 import { Exercise } from '@/types/exercise';
-import { initializeScrollToTopButton } from '@/utils/scroll-to-top';
 
 const EMPTY_STATE_MESSAGE = `It appears that you haven't added any exercises to your favorites yet.
 To get started, you can add exercises that you like to your favorites for easier access in the future.`;
@@ -48,5 +47,3 @@ exerciseItems.onExerciseSelect(async id => {
 exerciseModal.onFavoriteToggle(() => {
   exerciseItems.setFavoriteIds(favoritesState.gerFavorites());
 });
-
-initializeScrollToTopButton();
