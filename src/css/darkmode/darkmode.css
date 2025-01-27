@@ -66,4 +66,8 @@ body.dark-mode {
   .bg-inverse {
     background-color: var(--paper-white-color_dark);
   }
+
+  .exercise-card__heading .btn-icon {
+    color: var(--charcoal-color_dark);
+  }
 }
