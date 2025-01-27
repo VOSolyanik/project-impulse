@@ -1,3 +1,7 @@
+.exercises-section {
+  padding-bottom: 80px;
+}
+
 .exercises-content .sidebar {
   margin-top: 64px;
 }
@@ -14,9 +18,12 @@
 }
 
 @media screen and (min-width: 768px) {
+  .exercises-section {
+    padding-bottom: 100px;
+  }
+
   .exercises-content .sidebar {
-    gap: 32px 16px;
-    margin-top: 48px;
+    margin-top: 64px;
   }
 
   .exercises-content .sidebar-block {
@@ -32,17 +39,20 @@
 }
 
 @media only screen and (min-width: 1152px) {
+  .exercises-section {
+    padding-bottom: 132px;
+  }
+
   .exercises-content {
     display: flex;
     flex-direction: row-reverse;
     align-items: flex-start;
-    gap: 16px;
+    gap: 32px;
   }
 
   .exercises-content .sidebar {
     flex-flow: column;
-    flex: 0 0 33.33%;
-    padding-right: 16px;
+    flex: 0 0 32.3%;
     margin-top: 0;
   }
 

@@ -1,6 +1,7 @@
 import { MobileMenu } from '@/components/mobile-menu';
 import { QuoteOfTheDay } from '@/components/quote-of-day';
 import { DarkMode } from '@/components/darkmode/darkmode';
+import { initializeScrollToTopButton } from '@/utils/scroll-to-top';
 
 const openMenuBtn = document.querySelector<HTMLElement>('.js-menu-open');
 const closeMenuBtn = document.querySelector<HTMLElement>('.js-menu-close');
@@ -20,3 +21,6 @@ const quoteOfTheDay = new QuoteOfTheDay();
 quoteOfTheDay.initialize();
 
 new DarkMode('.toggle-container');
+
+initializeScrollToTopButton();
+

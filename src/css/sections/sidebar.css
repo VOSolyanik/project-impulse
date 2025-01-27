@@ -7,7 +7,7 @@
 @media screen and (min-width: 768px) {
   .sidebar {
     flex-flow: wrap;
-    gap: 32px;
+    gap: 32px 16px;
   }
 }
 
@@ -153,7 +153,7 @@
   align-items: center;
   width: 32px;
   height: 32px;
-  min-width: 32px;
+  flex-shrink: 0;
   color: var(--paper-white-color);
   background-color: var(--charcoal-color);
   border-radius: 50%;
@@ -163,6 +163,7 @@
   font-size: 20px;
   font-weight: 500;
   line-height: 1;
+  margin-bottom: 6px;
 }
 
 @media screen and (min-width: 768px) {
@@ -176,18 +177,13 @@
   color: var(--gray-moderate);
   font-size: 14px;
   line-height: 1.285;
-  margin-bottom: 16px;
 }
 
-@media screen and (min-width: 1152px) {
-  .useful-info-subtitle {
-    margin-bottom: 20px;
-  }
-}
 
 .useful-info-text {
   font-size: 14px;
   line-height: 1.285;
+  margin-top: 16px;
   height: calc(1.285em * 5);
   overflow: hidden;
   text-overflow: ellipsis;
@@ -199,6 +195,7 @@
 
 @media screen and (min-width: 1152px) {
   .useful-info-text {
+    margin-top: 20px;
     height: auto;
     overflow: visible;
     display: block;

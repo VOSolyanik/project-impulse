@@ -94,6 +94,7 @@
 
 /* #region Scroll Buttons */
 .scroll-btn {
+  position: fixed;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -102,8 +103,18 @@
   border-radius: 100%;
   background-color: var(--charcoal-color);
   color: var(--paper-white-color);
+  opacity: 0;
+  right: -100px;
+  bottom: 20px;
   border: none;
-  transition: background-color 0.3s ease, color 0.3s ease, fill 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease, fill 0.3s ease,
+    opacity 0.2s ease, right 0.2s ease;
+}
+
+.scroll-btn-visible {
+  opacity: 1;
+  right: 20px;
+  bottom: 20px;
 }
 
 .scroll-btn .icon {
@@ -112,16 +123,22 @@
   transition: fill 0.3s ease, color 0.3s ease, fill 0.3s ease;
 }
 
-.scroll-btn:hover,
-.scroll-btn:focus {
+.scroll-btn:hover {
   background-color: var(--paper-white-color);
   color: var(--charcoal-color);
 }
 
-@media only screen and (min-width: 768px)  {
+@media only screen and (min-width: 768px) {
   .scroll-btn {
     width: 100px;
     height: 100px;
+    bottom: 40px;
+  }
+
+  .scroll-btn-visible {
+    opacity: 1;
+    right: 40px;
+    bottom: 40px;
   }
 
   .scroll-btn .icon {
