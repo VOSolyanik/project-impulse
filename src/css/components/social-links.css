@@ -1,3 +1,19 @@
+.social-links-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.social-links-wrapper .toggle-container {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .social-links-wrapper .toggle-container {
+    display: block;
+  }
+}
+
 .social-links {
   display: flex;
   justify-content: center;
@@ -50,4 +66,3 @@
   background-color: var(--paper-white-color);
   color: var(--dark-gray);
 }
-

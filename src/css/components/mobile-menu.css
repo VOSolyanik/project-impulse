@@ -14,6 +14,14 @@
   z-index: 1000;
 }
 
+.mobile-menu .social-links {
+  padding-bottom: 20px;
+}
+
+.mobile-menu .toggle-container {
+  border: 1px solid var(--paper-white-color);
+}
+
 .mobile-menu-open {
   transform: translateX(0);
 }
@@ -29,7 +37,7 @@
   pointer-events: none;
 }
 
-.mobile-menu-open+.mobile-menu-backdrop {
+.mobile-menu-open + .mobile-menu-backdrop {
   pointer-events: all;
 }
 
@@ -44,7 +52,7 @@
 }
 
 .menu-open-btn {
-  color: var(--charcoal-color)
+  color: var(--charcoal-color);
 }
 
 @media only screen and (min-width: 768px) {

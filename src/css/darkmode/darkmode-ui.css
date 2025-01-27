@@ -1,0 +1,38 @@
+.toggle-container {
+  width: 60px;
+  height: 30px;
+  background-color: var(--charcoal-color);
+  border-radius: 15px;
+  padding: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.3s ease;
+}
+
+.toggle-container.active {
+  background-color: var(--paper-white-color);
+}
+
+.toggle-switch {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.switch-knob {
+  width: 24px;
+  height: 24px;
+  background-color: var(--paper-white-color);
+  border-radius: 50%;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  position: absolute;
+  left: 3px;
+}
+
+.toggle-container.active .switch-knob {
+  transform: translateX(30px);
+  background-color: var(--charcoal-color);
+}

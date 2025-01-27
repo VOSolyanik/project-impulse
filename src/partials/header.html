@@ -8,17 +8,30 @@
     <nav class="nav">
       <ul class="nav-list">
         <li class="nav-item">
-          <a class="nav-link {=$home-active}" href="./index.html" aria-label="Home page">Home</a>
+          <a
+            class="nav-link {=$home-active}"
+            href="./index.html"
+            aria-label="Home page"
+            >Home</a
+          >
         </li>
         <li class="nav-item">
-          <a class="nav-link {=$favorites-active}" href="./favorites.html" aria-label="Favorites page">Favorites</a>
+          <a
+            class="nav-link {=$favorites-active}"
+            href="./favorites.html"
+            aria-label="Favorites page"
+            >Favorites</a
+          >
         </li>
       </ul>
     </nav>
-    <load
-      src="partials/components/social-links.html"
-      extra-class="social-links-header"
-    />
+    <div class="social-links-wrapper">
+      <load
+        src="partials/components/social-links.html"
+        extra-class="social-links-header"
+      />
+      <load src="partials/components/dark-mode-button.html" />
+    </div>
     <load src="partials/components/mobile-menu.html" />
   </div>
 </header>

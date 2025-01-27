@@ -1,32 +1,57 @@
 body.dark-mode {
-    --charcoal-color_dark: rgb(var(--paper-white-rgb));
-    --paper-white-color_dark: rgb(var(--charcoal-rgb));
+  --charcoal-color_dark: rgb(var(--paper-white-rgb));
+  --paper-white-color_dark: rgb(var(--charcoal-rgb));
 
-    --primary-text-color: var(--charcoal-color_dark);
-    --primary-bg-color: var(--paper-white-color_dark);
+  --primary-text-color: var(--charcoal-color_dark);
+  --primary-bg-color: var(--paper-white-color_dark);
 
-    .menu-open-btn {
-        color: var(--charcoal-color_dark);
-    }
+  .menu-open-btn {
+    color: var(--charcoal-color_dark);
+  }
 
-    .nav-logo-icon {
-        fill: var(--charcoal-color_dark);
-    }
+  .nav-logo-icon {
+    fill: var(--charcoal-color_dark);
+  }
 
-    .filter-btn {
-        color: var(--charcoal-color_dark);
-    }
+  .filter-btn {
+    color: var(--charcoal-color_dark);
+  }
 
-    .useful-info-wrapper {
-        background-color: var(--paper-white-color_dark);
-    }
+  .useful-info-wrapper {
+    background-color: var(--paper-white-color_dark);
+  }
 
-    .useful-info-icon {
-        color: var(--paper-white-color_dark);
-        background-color: var(--charcoal-color_dark);
-    }
+  .useful-info-icon {
+    color: var(--paper-white-color_dark);
+    background-color: var(--charcoal-color_dark);
+  }
 
-    .social-link {
-        color: var(--charcoal-color_dark);
-    }
+  .useful-info-subtitle {
+    color: var(--charcoal-color_dark);
+  }
+
+  .social-link {
+    color: var(--charcoal-color_dark);
+  }
+
+  .nav-list {
+    background-color: var(--charcoal-color_dark);
+  }
+
+  .nav-link {
+    color: var(--paper-white-color_dark);
+  }
+
+  .nav-link.active {
+    color: var(--charcoal-color_dark);
+  }
+
+  .exercise-card {
+    background-color: var(--paper-white-color_dark);
+    border: 1px solid;
+  }
+
+  .exercise-card__item-label {
+    color: var(--charcoal-color_dark);
+  }
 }
