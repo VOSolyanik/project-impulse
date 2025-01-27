@@ -8,11 +8,9 @@ function toggleScrollToTopButton(button: HTMLElement, threshold: number): void {
 
 const hideButton = (button: HTMLElement): void => {
   button.classList.remove('scroll-btn-visible');
-  button.classList.add('scroll-btn-hidden');
 };
 
 const showButton = (button: HTMLElement): void => {
-  button.classList.remove('scroll-btn-hidden');
   button.classList.add('scroll-btn-visible');
 };
 

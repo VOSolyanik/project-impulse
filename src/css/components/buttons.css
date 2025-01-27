@@ -95,8 +95,6 @@
 /* #region Scroll Buttons */
 .scroll-btn {
   position: fixed;
-  right: 20px;
-  bottom: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -106,18 +104,17 @@
   background-color: var(--charcoal-color);
   color: var(--paper-white-color);
   opacity: 0;
+  right: -100px;
+  bottom: 20px;
   border: none;
   transition: background-color 0.3s ease, color 0.3s ease, fill 0.3s ease,
-    opacity 0.2s ease, right 0.15s ease;
-}
-
-.scroll-btn-hidden {
-  opacity: 0;
-  right: -100px !important;
+    opacity 0.2s ease, right 0.2s ease;
 }
 
 .scroll-btn-visible {
   opacity: 1;
+  right: 20px;
+  bottom: 20px;
 }
 
 .scroll-btn .icon {
@@ -135,8 +132,13 @@
   .scroll-btn {
     width: 100px;
     height: 100px;
-    right: 50px;
-    bottom: 50px;
+    bottom: 40px;
+  }
+
+  .scroll-btn-visible {
+    opacity: 1;
+    right: 40px;
+    bottom: 40px;
   }
 
   .scroll-btn .icon {
