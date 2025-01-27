@@ -1,4 +1,7 @@
-function toggleScrollToTopButton(button: HTMLElement, threshold: number): void {
+const toggleScrollToTopButton = (
+  button: HTMLElement,
+  threshold: number
+): void =>{
   if (window.scrollY > threshold) {
     showButton(button);
   } else {
@@ -14,10 +17,9 @@ const showButton = (button: HTMLElement): void => {
   button.classList.add('scroll-btn-visible');
 };
 
-export function initializeScrollToTopButton(
-  threshold: number = window.innerHeight / 4,
-  duration: number = 100
-): void {
+export const initializeScrollToTopButton =(
+  threshold: number = window.innerHeight / 4
+): void => {
   const button = document.getElementById('scroll-to-top-btn');
 
   if (!button) {
