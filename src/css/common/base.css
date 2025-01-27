@@ -64,6 +64,14 @@ main {
   display: none !important;
 }
 
+.bg-primary {
+  background-color: var(--primary-bg-color);
+}
+
+.bg-inverse {
+  background-color: var(--primary-text-color);
+}
+
 .ellipsis {
   overflow: hidden;
   text-overflow: ellipsis;
