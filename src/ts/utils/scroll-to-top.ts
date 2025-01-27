@@ -1,13 +1,20 @@
 function toggleScrollToTopButton(button: HTMLElement, threshold: number): void {
-  console.log(window.scrollY, threshold);
   if (window.scrollY > threshold) {
-    button.style.opacity = '1';
-    button.style.right = '';
+    showButton(button);
   } else {
-    button.style.opacity = '0';
-    button.style.right = '-100px';
+    hideButton(button);
   }
 }
+
+const hideButton = (button: HTMLElement): void => {
+  button.classList.remove('scroll-btn-visible');
+  button.classList.add('scroll-btn-hidden');
+};
+
+const showButton = (button: HTMLElement): void => {
+  button.classList.remove('scroll-btn-hidden');
+  button.classList.add('scroll-btn-visible');
+};
 
 export function initializeScrollToTopButton(
   threshold: number = window.innerHeight / 4,
@@ -23,7 +30,11 @@ export function initializeScrollToTopButton(
   toggleScrollToTopButton(button, threshold);
 
   button.addEventListener('click', () => {
-    window.scrollTo(0, 0);
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth',
+    });
   });
 
   window.addEventListener('scroll', () => {

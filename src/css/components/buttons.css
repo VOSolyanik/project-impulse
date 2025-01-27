@@ -111,14 +111,22 @@
     opacity 0.2s ease, right 0.15s ease;
 }
 
+.scroll-btn-hidden {
+  opacity: 0;
+  right: -100px !important;
+}
+
+.scroll-btn-visible {
+  opacity: 1;
+}
+
 .scroll-btn .icon {
   width: 12px;
   height: 12px;
   transition: fill 0.3s ease, color 0.3s ease, fill 0.3s ease;
 }
 
-.scroll-btn:hover,
-.scroll-btn:focus {
+.scroll-btn:hover {
   background-color: var(--paper-white-color);
   color: var(--charcoal-color);
 }
