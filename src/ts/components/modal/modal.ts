@@ -1,10 +1,12 @@
-import spriteUrl from "../../../images/sprite.svg";
+import spriteUrl from '../../../images/sprite.svg';
+import '../../utils/calculate-scroll-bar';
 
 export abstract class Modal<T> {
   protected dialog!: HTMLDialogElement;
   protected dialogContentTemplate!: HTMLTemplateElement;
   protected dialogContent!: HTMLDivElement;
   private dialogCloseButton!: HTMLButtonElement;
+  private onCloseCallback?: CallableFunction;
 
   constructor(contentSelector: string) {
     this.dialogContentTemplate = document.querySelector(
@@ -21,6 +23,10 @@ export abstract class Modal<T> {
     document.removeEventListener('keydown', this.handleKeyDown);
   };
 
+  public onDialogClose(callback: CallableFunction): void {
+    this.onCloseCallback = callback;
+  }
+
   protected showDialog(): void {
     document.body.appendChild(this.dialog);
 
@@ -30,12 +36,6 @@ export abstract class Modal<T> {
     this.dialog.showModal();
 
     document.addEventListener('keydown', this.handleKeyDown);
-
-    this.dialog.addEventListener('close', () => {
-      setTimeout(() => {
-        this.dialog.remove();
-      }, 300)
-    });
   }
 
   protected handleKeyDown = (event: KeyboardEvent): void => {
@@ -66,20 +66,27 @@ export abstract class Modal<T> {
         this.close();
       }
     });
+
+    this.dialog.addEventListener('close', () => {
+      this.onCloseCallback?.();
+      setTimeout(() => {
+        this.dialog.remove();
+      }, 300);
+    });
   }
 
   private renderDialog(): string {
     return `
-      <div class="modal-container">
+      <div class="modal-container bg-inverse">
         <button class="modal-close-button" type="button" data-dialog-close>
           <svg width="24" height="24" class="icon stroke-icon">
-            <use href="${spriteUrl}#icon-x" data-favorite-icon />
+            <use href="${spriteUrl}#icon-x" data-favorite-icon  />
           </svg>
         </button>
         <div class="modal-card" data-dialog-content>
           ${this.dialogContentTemplate.innerHTML}
         </div>
       </div>
-    `
+    `;
   }
 }

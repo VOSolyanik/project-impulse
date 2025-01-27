@@ -1,0 +1,124 @@
+<template id="exercise-rating-content">
+  <form action="" class="exercise-rating__form">
+    <fieldset class="exercise-rating__stars-fieldset" data-rating-list>
+      <h2 class="title exercise-rating__title">Rating</h2>
+      <div class="exercise-rating__group">
+        <span class="exercise-rating__value" data-rating-title aria-label="rating"
+          >4.0</span
+        >
+        <ul class="exercise-rating__stars-list">
+          <li class="exercise-rating__stars-item">
+            <label>
+              <input
+                type="radio"
+                name="rating"
+                value="1"
+                class="exercise-rating__stars-input"
+              />
+              <load
+                src="partials/components/rating-star.html"
+                width="24"
+                height="24"
+                class="static"
+              />
+            </label>
+          </li>
+          <li class="exercise-rating__stars-item">
+            <label>
+              <input
+                type="radio"
+                name="rating"
+                value="2"
+                class="exercise-rating__stars-input" />
+              <load
+                src="partials/components/rating-star.html"
+                width="24"
+                height="24"
+                class=""
+              />
+            </label>
+          </li>
+          <li class="exercise-rating__stars-item">
+            <label>
+              <input
+                type="radio"
+                name="rating"
+                value="3"
+                class="exercise-rating__stars-input" />
+              <load
+                width="24"
+                height="24"
+                src="partials/components/rating-star.html"
+                class=""
+              />
+            </label>
+          </li>
+          <li class="exercise-rating__stars-item">
+            <label>
+              <input
+                type="radio"
+                name="rating"
+                value="4"
+                class="exercise-rating__stars-input" />
+              <load
+                width="24"
+                height="24"
+                src="partials/components/rating-star.html"
+                class=""
+              />
+            </label>
+          </li>
+          <li class="exercise-rating__stars-item">
+            <label>
+              <input
+                type="radio"
+                name="rating"
+                value="5"
+                class="exercise-rating__stars-input" />
+              <load
+                width="24"
+                height="24"
+                src="partials/components/rating-star.html"
+                class=""
+              />
+            </label>
+          </li>
+        </ul>
+      </div>
+    </fieldset>
+    <label for="email" class="exercise-rating__form-label">
+      <input
+        class="input inverse"
+        type="text"
+        name="email"
+        placeholder="Email"
+        id="email"
+        minlength="3"
+        required
+        aria-label="enter your email"
+        pattern="^\w+(\.\w+)?@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$"
+      />
+    </label>
+    <label for="comment" class="exercise-rating__form-label">
+      <div class="exercise-rating__textarea-wrapper">
+        <textarea
+          class="input inverse exercise-rating__textarea"
+          type="text"
+          name="comment"
+          placeholder="Your comment"
+          id="comment"
+          minlength="3"
+          required
+          aria-label="enter your comment"
+        ></textarea>
+      </div>
+    </label>
+    <button
+      name="submit"
+      type="submit"
+      class="btn btn-primary inverse modal-button modal-rating-button"
+    >
+      <span>Send</span>
+    </button>
+  </form>
+</template>

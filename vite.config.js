@@ -15,6 +15,7 @@ export default defineConfig(({ command }) => {
     resolve: {
       alias: {
         "@": path.resolve(__dirname, "./src/ts"),
+        "assets": path.resolve(__dirname, "./src/assets"),
       },
     },
     build: {
@@ -51,6 +52,7 @@ export default defineConfig(({ command }) => {
         sort: 'mobile-first',
       }),
       ViteImageOptimizer({
+        test: /\.(jpe?g|png|webp|gif)$/i,
         png: {
           quality: 80,
           progressive: true,

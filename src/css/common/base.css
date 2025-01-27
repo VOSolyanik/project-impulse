@@ -11,6 +11,7 @@
   --paper-white-rgb: 244, 244, 244;
   --paper-white-color: rgb(var(--paper-white-rgb));
   --paper-white-color-a02: rgb(var(--paper-white-rgb), 0.2);
+  --paper-white-color-a04: rgb(var(--paper-white-rgb), 0.4);
   --paper-white-color-a06: rgb(var(--paper-white-rgb), 0.6);
 
   --footer-gray-rgb: 198, 205, 209;
@@ -85,4 +86,8 @@ main {
   border-radius: 4px;
   background-color: var(--primary-text-color);
   background-clip: padding-box;
+}
+
+.static {
+  animation: unset;
 }
