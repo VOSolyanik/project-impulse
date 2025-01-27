@@ -54,4 +54,16 @@ body.dark-mode {
   .exercise-card__item-label {
     color: var(--charcoal-color_dark);
   }
+
+  .hero-tag {
+    border: 1px solid var(--charcoal-color_dark);
+  }
+
+  .sidebar-block {
+    border: 1px solid;
+  }
+
+  .bg-inverse {
+    background-color: var(--paper-white-color_dark);
+  }
 }

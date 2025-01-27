@@ -1,9 +1,7 @@
-import { DarkModeConfig } from './constants';
-
 export class DarkMode {
+  private static readonly LOCAL_STORAGE_KEY = 'isDarkMode';
+  private static readonly darkModeClass = 'dark-mode';
   private toggleElements: NodeListOf<HTMLElement>;
-  private darkModeClass: string = DarkModeConfig.Class;
-  private storageKey: string = DarkModeConfig.StorageKey;
 
   constructor(toggleSelector: string) {
     this.toggleElements = document.querySelectorAll(toggleSelector);
@@ -18,7 +16,7 @@ export class DarkMode {
   private init(): void {
     const isDarkMode = this.getDarkModePreference();
     if (isDarkMode) {
-      document.body.classList.add(this.darkModeClass);
+      document.body.classList.add(DarkMode.darkModeClass);
       this.updateButtonsState(true);
     }
 
@@ -28,20 +26,20 @@ export class DarkMode {
   }
 
   private getDarkModePreference(): boolean {
-    return localStorage.getItem(this.storageKey) === 'true';
+    return localStorage.getItem(DarkMode.LOCAL_STORAGE_KEY) === 'true';
   }
 
   private toggleDarkMode(): void {
-    const isDarkMode = document.body.classList.contains(this.darkModeClass);
+    const isDarkMode = document.body.classList.contains(DarkMode.darkModeClass);
 
     if (isDarkMode) {
-      document.body.classList.remove(this.darkModeClass);
+      document.body.classList.remove(DarkMode.darkModeClass);
       this.updateButtonsState(false);
-      localStorage.setItem(this.storageKey, 'false');
+      localStorage.setItem(DarkMode.LOCAL_STORAGE_KEY, 'false');
     } else {
-      document.body.classList.add(this.darkModeClass);
+      document.body.classList.add(DarkMode.darkModeClass);
       this.updateButtonsState(true);
-      localStorage.setItem(this.storageKey, 'true');
+      localStorage.setItem(DarkMode.LOCAL_STORAGE_KEY, 'true');
     }
   }
 

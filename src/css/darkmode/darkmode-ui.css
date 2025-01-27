@@ -1,4 +1,4 @@
-.toggle-container {
+.dark-mode-toggle {
   width: 60px;
   height: 30px;
   background-color: var(--charcoal-color);
@@ -12,7 +12,7 @@
   transition: background-color 0.3s ease;
 }
 
-.toggle-container.active {
+.dark-mode-toggle.active {
   background-color: var(--paper-white-color);
 }
 
@@ -32,7 +32,7 @@
   left: 3px;
 }
 
-.toggle-container.active .switch-knob {
+.dark-mode-toggle.active .switch-knob {
   transform: translateX(30px);
   background-color: var(--charcoal-color);
 }

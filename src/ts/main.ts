@@ -20,7 +20,7 @@ new MobileMenu({
 const quoteOfTheDay = new QuoteOfTheDay();
 quoteOfTheDay.initialize();
 
-new DarkMode('.toggle-container');
+new DarkMode('.dark-mode-toggle');
 
 initializeScrollToTopButton();
 
