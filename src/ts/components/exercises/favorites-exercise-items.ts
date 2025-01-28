@@ -11,7 +11,9 @@ export class FavoritesExerciseItems extends ExerciseItems {
     emptyStateMessage: string = 'No favorite exercises found',
   ) {
     super(containerElement, true, emptyStateMessage);
-    this.loadData();
+    if (ids.length) {
+      this.loadData();
+    }
   }
 
   setFavoriteIds(ids: string[]): void {
