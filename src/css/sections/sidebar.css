@@ -98,48 +98,23 @@
 }
 
 .sidebar-image {
-  background-image: url('/images/quote/quote_mobile_webp@1x.webp');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  border-radius: 20px;
   min-height: 240px;
   width: 100%;
   height: auto;
-}
-
-@media (min-resolution: 192dpi), (-webkit-min-device-pixel-ratio: 2) {
-  .sidebar-image {
-    background-image: url('/images/quote/quote_mobile_webp@2x.webp');
-  }
+  border-radius: 20px;
+  object-fit: cover;
 }
 
 @media (min-width: 768px) {
   .sidebar-image {
-    background-image: url('/images/quote/quote_tablet_webp@1x.webp');
     min-height: 250px;
     max-width: 288px;
   }
 }
 
-@media (min-width: 768px) and (min-resolution: 192dpi),
-  (-webkit-min-device-pixel-ratio: 2) {
-  .sidebar-image {
-    background-image: url('/images/quote/quote_tablet_webp@2x.webp');
-  }
-}
-
 @media (min-width: 1152px) {
   .sidebar-image {
-    background-image: url('/images/quote/quote_desktop_webp@1x.webp');
     max-width: 100%;
-  }
-}
-
-@media (min-width: 1152px) and (min-resolution: 192dpi),
-  (-webkit-min-device-pixel-ratio: 2) {
-  .sidebar-image {
-    background-image: url('/images/quote/quote_desktop_webp@2x.webp');
   }
 }
 

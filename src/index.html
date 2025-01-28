@@ -10,9 +10,17 @@
       content="Your Energy offers personalized trainings for all levels. Improve your strength, flexibility, and muscles with our expert trainers. Join today and achieve excellence!"
     />
     <link
+      rel="preload"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/3.0.0/modern-normalize.min.css"
+      as="style"
+    />
+    <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/3.0.0/modern-normalize.min.css"
     />
+    <link rel="preload" href="assets/fonts/DMSans-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="assets/fonts/DMSans-Medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="assets/fonts/DMSans-Italic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
@@ -27,7 +35,7 @@
     <load src="./partials/components/exercise-rating-template.html" />
     <load src="./partials/components/scroll-btn.html" />
 
-    <script type="module" src="./ts/pages/home.ts"></script>
-    <script type="module" src="./ts/main.ts"></script>
+    <script type="module" src="./ts/pages/home.ts" defer></script>
+    <script type="module" src="./ts/main.ts" defer></script>
   </body>
 </html>

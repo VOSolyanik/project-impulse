@@ -54,21 +54,21 @@ export default defineConfig(({ command }) => {
       ViteImageOptimizer({
         test: /\.(jpe?g|png|webp|gif)$/i,
         png: {
-          quality: 80,
+          quality: 75,
           progressive: true,
         },
         jpeg: {
-          quality: 80,
+          quality: 75,
           progressive: true,
         },
         jpg: {
-          quality: 80,
+          quality: 75,
           progressive: true,
         },
         webp: {
-          quality: 80,
+          quality: 75,
           progressive: true,
-          effort: 4
+          effort: 5
         }
       }),
     ],

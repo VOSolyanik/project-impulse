@@ -1,4 +1,4 @@
-body:has(dialog) {
+html.modal-opened {
   overflow: hidden;
   padding-right: var(--scroll-padding-right);
 }

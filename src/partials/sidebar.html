@@ -16,7 +16,38 @@
       <p class="quote-author" id="author"></p>
     </div>
   </div>
-  <div class="sidebar-image"></div>
+  <picture class="sidebar-picture">
+    <source
+      srcset="
+        /images/{=$image}_desktop_webp@1x.webp 1x,
+        /images/{=$image}_desktop_webp@2x.webp 2x
+      "
+      media="(min-width: 1152px)"
+      type="image/webp"
+    />
+    <source
+      srcset="
+        /images/{=$image}_tablet_webp@1x.webp 1x,
+        /images/{=$image}_tablet_webp@2x.webp 2x
+      "
+      media="(min-width: 768px)"
+      type="image/webp"
+    />
+    <source
+      srcset="
+        /images/{=$image}_mobile_webp@1x.webp 1x,
+        /images/{=$image}_mobile_webp@2x.webp 2x
+      "
+      media="(max-width: 767px)"
+      type="image/webp"
+    />
+    <img
+      src="/images/{=$image}_mobile_webp@1x.webp"
+      alt="Hero main image"
+      loading="{=$loading}"
+      class="sidebar-image"
+    />
+  </picture>
   <div class="useful-info-wrapper sidebar-block">
     <div class="useful-info-icon">
       <svg class="quote-title-icon fill-icon">
