@@ -32,6 +32,13 @@ body.dark-mode {
 
   .social-link {
     color: var(--charcoal-color_dark);
+    border-color: rgba(var(--paper-white-rgb), 0.1);
+  }
+
+  .social-links .social-link:hover,
+  .social-links .social-link:focus {
+    background-color: var(--charcoal-color_dark);
+    color: var(--dark-gray);
   }
 
   .nav-list {
@@ -68,6 +75,35 @@ body.dark-mode {
   }
 
   .exercise-card__heading .btn-icon {
+    color: var(--charcoal-color_dark);
+  }
+
+  .filter-value {
+    color: var(--charcoal-color_dark);
+  }
+
+  .page-btn:disabled {
+    color: rgba(var(--paper-white-rgb), 0.1);
+    border-color: rgba(var(--paper-white-rgb), 0.1);
+  }
+
+  .scroll-btn {
+    color: var(--paper-white-color_dark);
+    background-color: var(--charcoal-color_dark);
+  }
+
+  .scroll-btn:hover {
+    color: var(--charcoal-color_dark);
+    background-color: var(--paper-white-color_dark);
+    border: 1px solid;
+  }
+
+  .input {
+    color: var(--charcoal-color_dark);
+    border-color: var(--charcoal-color_dark);
+  }
+
+  .btn-icon {
     color: var(--charcoal-color_dark);
   }
 }
