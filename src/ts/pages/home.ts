@@ -46,7 +46,7 @@ exerciseCategories.onCategorySelect(category => {
   filters.setFilter(category);
 });
 
-const openExerciseModal = async (exercise: Exercise) => {
+const openExerciseModal = (exercise: Exercise): void => {
   exerciseModal.show(exercise);
   exerciseModal.onRatingOpen(item => {
     ratingModal.show(item);

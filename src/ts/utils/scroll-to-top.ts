@@ -21,7 +21,7 @@ const showButton = (button: HTMLElement): void => {
   button.setAttribute('tabindex', '0');
 };
 
-export const initializeScrollToTopButton = (
+export const initScrollToTopButton = (
   threshold: number = window.innerHeight / 4
 ): void => {
   const button = document.getElementById('scroll-to-top-btn');

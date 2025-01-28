@@ -71,10 +71,12 @@ export abstract class Modal<T> {
 
     this.dialog.addEventListener('close', () => {
       this.onCloseCallback?.();
-
-      document.documentElement.classList.remove('modal-opened');
       setTimeout(() => {
         this.dialog.remove();
+        // check if there are no other modals
+        if (!document.body.querySelector('.modal')) {
+          document.documentElement.classList.remove('modal-opened');
+        }
       }, 300);
     });
   }
