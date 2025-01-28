@@ -1,0 +1,109 @@
+body.dark-mode {
+  --charcoal-color_dark: rgb(var(--paper-white-rgb));
+  --paper-white-color_dark: rgb(var(--charcoal-rgb));
+
+  --primary-text-color: var(--charcoal-color_dark);
+  --primary-bg-color: var(--paper-white-color_dark);
+
+  .menu-open-btn {
+    color: var(--charcoal-color_dark);
+  }
+
+  .nav-logo-icon {
+    fill: var(--charcoal-color_dark);
+  }
+
+  .filter-btn {
+    color: var(--charcoal-color_dark);
+  }
+
+  .useful-info-wrapper {
+    background-color: var(--paper-white-color_dark);
+  }
+
+  .useful-info-icon {
+    color: var(--paper-white-color_dark);
+    background-color: var(--charcoal-color_dark);
+  }
+
+  .useful-info-subtitle {
+    color: var(--charcoal-color_dark);
+  }
+
+  .social-link {
+    color: var(--charcoal-color_dark);
+    border-color: rgba(var(--paper-white-rgb), 0.1);
+  }
+
+  .social-links .social-link:hover,
+  .social-links .social-link:focus {
+    background-color: var(--charcoal-color_dark);
+    color: var(--dark-gray);
+  }
+
+  .nav-list {
+    background-color: var(--charcoal-color_dark);
+  }
+
+  .nav-link {
+    color: var(--paper-white-color_dark);
+  }
+
+  .nav-link.active {
+    color: var(--charcoal-color_dark);
+  }
+
+  .exercise-card {
+    background-color: var(--paper-white-color_dark);
+    border: 1px solid;
+  }
+
+  .exercise-card__item-label {
+    color: var(--charcoal-color_dark);
+  }
+
+  .hero-tag {
+    border: 1px solid var(--charcoal-color_dark);
+  }
+
+  .sidebar-block {
+    border: 1px solid;
+  }
+
+  .bg-inverse {
+    background-color: var(--paper-white-color_dark);
+  }
+
+  .exercise-card__heading .btn-icon {
+    color: var(--charcoal-color_dark);
+  }
+
+  .filter-value {
+    color: var(--charcoal-color_dark);
+  }
+
+  .page-btn:disabled {
+    color: rgba(var(--paper-white-rgb), 0.1);
+    border-color: rgba(var(--paper-white-rgb), 0.1);
+  }
+
+  .scroll-btn {
+    color: var(--paper-white-color_dark);
+    background-color: var(--charcoal-color_dark);
+  }
+
+  .scroll-btn:hover {
+    color: var(--charcoal-color_dark);
+    background-color: var(--paper-white-color_dark);
+    border: 1px solid;
+  }
+
+  .input {
+    color: var(--charcoal-color_dark);
+    border-color: var(--charcoal-color_dark);
+  }
+
+  .btn-icon {
+    color: var(--charcoal-color_dark);
+  }
+}

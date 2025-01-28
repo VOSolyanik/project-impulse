@@ -15,6 +15,7 @@
 @import url('./common/fonts.css');
 @import url('./common/base.css');
 @import url('./common/container.css');
+
 /* Components styles */
 @import url('./components/icons.css');
 @import url('./components/buttons.css');
@@ -30,13 +31,19 @@
 @import url('./components/exercises-header.css');
 @import url('./components/exercises-categories.css');
 
+@import url('./components/modal.css');
+@import url('./components/modal-rating.css');
+
 /* Sections style */
 @import url('./sections/header.css');
 @import url('./sections/hero.css');
 @import url('./sections/sidebar.css');
 @import url('./sections/exercises.css');
 @import url('./sections/favorites.css');
-
 @import url('./sections/footer.css');
-@import url('./components/modal.css');
-@import url('./components/modal-rating.css');
+
+/* Darkmode style */
+@import url('./darkmode/darkmode.css');
+@import url('./darkmode/darkmode-ui.css');
+
+

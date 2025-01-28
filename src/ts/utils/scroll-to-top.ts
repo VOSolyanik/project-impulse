@@ -1,13 +1,13 @@
 const toggleScrollToTopButton = (
   button: HTMLElement,
   threshold: number
-): void =>{
+): void => {
   if (window.scrollY > threshold) {
     showButton(button);
   } else {
     hideButton(button);
   }
-}
+};
 
 const hideButton = (button: HTMLElement): void => {
   button.classList.remove('scroll-btn-visible');
@@ -23,7 +23,7 @@ const showButton = (button: HTMLElement): void => {
 
 export const initializeScrollToTopButton = (
   threshold: number = window.innerHeight / 4
-): void =>{
+): void => {
   const button = document.getElementById('scroll-to-top-btn');
 
   if (!button) {
@@ -44,4 +44,4 @@ export const initializeScrollToTopButton = (
   window.addEventListener('scroll', () => {
     toggleScrollToTopButton(button, threshold);
   });
-}
+};
