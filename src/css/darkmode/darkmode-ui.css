@@ -1,14 +1,14 @@
 .dark-mode-toggle {
-  width: 60px;
-  height: 30px;
-  background-color: var(--charcoal-color);
-  border-radius: 15px;
-  padding: 3px;
+  width: 40px;
+  height: 20px;
+  padding: 2px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  cursor: pointer;
   position: relative;
+  background-color: var(--charcoal-color);
+  border-radius: 10px;
+  cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
@@ -23,16 +23,16 @@
 }
 
 .switch-knob {
-  width: 24px;
-  height: 24px;
+  width: 16px;
+  height: 16px;
   background-color: var(--paper-white-color);
   border-radius: 50%;
   transition: transform 0.3s ease, background-color 0.3s ease;
   position: absolute;
-  left: 3px;
+  left: 2px;
 }
 
 .dark-mode-toggle.active .switch-knob {
-  transform: translateX(30px);
+  transform: translateX(18px);
   background-color: var(--charcoal-color);
 }
