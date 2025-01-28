@@ -22,8 +22,8 @@
     <link rel="preload" href="/project-impulse/assets/DMSans-Medium-Bf09yX6B.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     <script type="module" crossorigin src="/project-impulse/favorites.js"></script>
     <link rel="modulepreload" crossorigin href="/project-impulse/assets/vendor-4jich7g5.js">
-    <link rel="modulepreload" crossorigin href="/project-impulse/assets/main-uZiGEeOn.js">
-    <link rel="stylesheet" crossorigin href="/project-impulse/assets/styles-Cm8OXnSf.css">
+    <link rel="modulepreload" crossorigin href="/project-impulse/assets/main-JtBR7etj.js">
+    <link rel="stylesheet" crossorigin href="/project-impulse/assets/styles-C4s7bFI7.css">
   </head>
   <body>
     <header class="header">
@@ -36,14 +36,31 @@
     <nav class="nav">
       <ul class="nav-list">
         <li class="nav-item">
-          <a class="nav-link {=$home-active}" href="./index.html" aria-label="Home page">Home</a>
+          <a
+            class="nav-link {=$home-active}"
+            href="./index.html"
+            aria-label="Home page"
+            >Home</a
+          >
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="./favorites.html" aria-label="Favorites page">Favorites</a>
+          <a
+            class="nav-link active"
+            href="./favorites.html"
+            aria-label="Favorites page"
+            >Favorites</a
+          >
         </li>
       </ul>
     </nav>
-    <ul class="social-links social-links-header">
+    <div class="social-links-wrapper">
+      <div class="dark-mode-toggle">
+  <div class="dark-mode-switch">
+    <div class="switch-knob"></div>
+  </div>
+</div>
+
+      <ul class="social-links social-links-header">
   <li class="social-link-item">
     <a class="social-link" href="https://www.facebook.com/goITclub/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
       <svg class="social-icon">
@@ -67,6 +84,7 @@
   </li>
 </ul>
 
+    </div>
     <button
   class="menu-open-btn js-menu-open"
   aria-label="Open mobile menu"
@@ -118,6 +136,12 @@
     </a>
   </li>
 </ul>
+
+  <div class="dark-mode-toggle">
+  <div class="dark-mode-switch">
+    <div class="switch-knob"></div>
+  </div>
+</div>
 
 </div>
 <div class="mobile-menu-backdrop js-mobile-menu-backdrop"></div>
