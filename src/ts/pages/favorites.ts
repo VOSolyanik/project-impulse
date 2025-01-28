@@ -31,7 +31,6 @@ exerciseItems.onExerciseDelete(id => {
 const openExerciseModal = async (exercise: Exercise) => {
   exerciseModal.show(exercise);
   exerciseModal.onRatingOpen(item => {
-    debugger;
     ratingModal.show(item);
     ratingModal.onDialogClose(() => {
       openExerciseModal(exercise);

@@ -3,6 +3,8 @@ import { Filter } from '@/types/filters';
 import { FilterCategory } from '@/enums/filter-category';
 import { Pagination } from '@/components/pagination';
 
+const TRANSPARENT_PIXEL = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=';
+
 export class ExerciseCategories {
   private pagination?: Pagination;
   private onCategorySelectCallback?: (category: string) => void;
@@ -33,6 +35,7 @@ export class ExerciseCategories {
   private init(): void {
     this.loadData();
     this.initListeners();
+    this.initObservers();
   }
 
   private initListeners(): void {
@@ -43,6 +46,37 @@ export class ExerciseCategories {
         this.onCategorySelectCallback(dataType);
       }
     });
+  }
+
+  private initObservers(): void {
+    const intersectionObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target as HTMLImageElement;
+          img.src = img.dataset.src || '';
+          observer.unobserve(img);
+        }
+      });
+    });
+
+    let observing: Array<HTMLImageElement> = [];
+
+    const mutationObserver = new MutationObserver((mutations) => {
+      for (const mutation of mutations) {
+        if (mutation.type === 'childList') {
+          observing.forEach(img => {
+            intersectionObserver.unobserve(img);
+          });
+          observing = Array.from(this.containerElement.querySelectorAll('img[data-src]'));
+
+          observing.forEach(img => {
+            intersectionObserver.observe(img);
+          });
+        }
+      }
+    });
+
+    mutationObserver.observe(this.containerElement, { childList: true, subtree: false, attributes: true });
   }
 
   private async loadData(
@@ -84,7 +118,8 @@ export class ExerciseCategories {
       <li class="exercise-category-card" data-type="${category.name}">
         <img
           class="exercise-category-image"
-          src="${category.imgURL}"
+          src="${TRANSPARENT_PIXEL}"
+          data-src="${category.imgURL}"
           loading="lazy"
           alt="${category.name || 'No name'}"
         />
