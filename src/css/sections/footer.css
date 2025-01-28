@@ -145,6 +145,10 @@
     justify-content: space-between;
   }
 
+  .footer-logo-social-wrapper {
+    margin-bottom: 0;
+  }
+
   .footer-logo-social-wrapper,
   .footer-bottom-container p:first-child {
     flex: 0 0 314px;
@@ -152,6 +156,7 @@
 
   .footer-title {
     max-width: 595px;
+    margin-bottom: 0;
   }
 
   .footer-bottom-container p:last-child {
