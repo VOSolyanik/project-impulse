@@ -40,7 +40,7 @@ export class ExerciseItems {
       .join('');
   }
 
-  private renderEmptyState(): void {
+  protected renderEmptyState(): void {
     if(this.emptyStateElement) return;
 
     this.emptyStateElement = document.createElement('p');

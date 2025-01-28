@@ -46,7 +46,10 @@ export class Pagination {
   }
 
   getPages(): (number | string)[] {
+    if (this.totalPages <= 1) return [];
+
     const pages: (number | string)[] = [];
+
     if (this.totalPages <= VISIBLE_PAGES) {
       for (let i = 1; i <= this.totalPages; i++) {
         pages.push(i);

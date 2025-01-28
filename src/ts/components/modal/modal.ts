@@ -35,6 +35,8 @@ export abstract class Modal<T> {
 
     this.dialog.showModal();
 
+    document.documentElement.classList.add('modal-opened');
+
     document.addEventListener('keydown', this.handleKeyDown);
   }
 
@@ -69,6 +71,8 @@ export abstract class Modal<T> {
 
     this.dialog.addEventListener('close', () => {
       this.onCloseCallback?.();
+
+      document.documentElement.classList.remove('modal-opened');
       setTimeout(() => {
         this.dialog.remove();
       }, 300);

@@ -7,7 +7,7 @@ import { ExerciseRatingModal } from '@/components/modal/rating-modal';
 import { SubscriptionForm } from '@/components/subscription-form';
 import { FilterCategory } from '@/enums/filter-category';
 import { Exercise, ExercisesParams } from '@/types/exercise';
-import { isMobileScreen } from '@/utils/is-mobile-screen';
+import { isMobileScreen } from '@/utils/screen-size';
 
 const EMPTY_STATE_MESSAGE = `It appears that there are no any exercises for selected filters.
 Try to change filters or search criteria.`;

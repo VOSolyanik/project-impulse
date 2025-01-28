@@ -1,5 +1,6 @@
 .favorites-section {
   padding-top: 60px;
+  padding-bottom: 80px;
 }
 
 .favorites-content .sidebar {
@@ -39,6 +40,7 @@
 @media screen and (min-width: 768px) {
   .favorites-section {
     padding-top: 80px;
+    padding-bottom: 100px;
   }
 
   .favorites-content .sidebar {
